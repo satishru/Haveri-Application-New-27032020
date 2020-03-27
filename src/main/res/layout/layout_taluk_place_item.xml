@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukPlaceAdapterViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{()->viewModel.onItemClick()}"
+        app:cardBackgroundColor="?attr/colorBackground"
+        app:cardCornerRadius="@dimen/card_corner_radius"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_place"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/taluk_image_height_full"
+                android:adjustViewBounds="true"
+                android:background="@color/color_image_background"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:imageUrl="@{viewModel.imageUrl}" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_10"
+                android:layout_marginTop="@dimen/margin_10"
+                android:layout_marginRight="@dimen/margin_10"
+                android:layout_marginBottom="@dimen/margin_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.example.myapplication.ui.custom.CustomTextView
+                        android:id="@+id/tv_place_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/tv_distance"
+                        android:text="@{viewModel.placeName}"
+                        android:textColor="?attr/colorPrimaryText"
+                        android:textSize="@dimen/font_normal"
+                        android:textStyle="bold"
+                        app:customFont="@string/font_roboto_medium" />
+
+                    <com.example.myapplication.ui.custom.CustomTextView
+                        android:id="@+id/tv_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="@{viewModel.distanceInKm}"
+                        android:textColor="?attr/colorTextTheme"
+                        android:textSize="@dimen/font_medium"
+                        app:customFont="@string/font_roboto_regular" />
+
+                </RelativeLayout>
+
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_events_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.eventCount}"
+                    android:textColor="?attr/colorTextTheme"
+                    android:textSize="@dimen/font_medium"
+                    app:customFont="@string/font_roboto_regular" />
+
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_place_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_6"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="@{viewModel.placeDescription}"
+                    android:textColor="?attr/colorTextLight"
+                    android:textSize="@dimen/font_small"
+                    app:customFont="@string/font_roboto_light" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

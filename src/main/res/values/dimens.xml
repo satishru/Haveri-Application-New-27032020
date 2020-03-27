@@ -1,0 +1,82 @@
+<resources>
+    <integer name="slide_animation_duration">500</integer>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_bar_height">220dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="bottom_sheet_peek_height">15dp</dimen>
+    <dimen name="bottom_sheet_elevation">5dp</dimen>
+    <dimen name="bottom_sheet_button_slide">20dp</dimen>
+
+    <dimen name="card_corner_no_radius">0dp</dimen>
+    <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="card_corner_radius_2">2dp</dimen>
+    <dimen name="card_elevation">2dp</dimen>
+    <dimen name="card_no_elevation">0dp</dimen>
+
+    <dimen name="taluk_image_width">220dp</dimen>
+    <dimen name="taluk_image_height">120dp</dimen>
+    <dimen name="taluk_image_height_full">220dp</dimen>
+
+    <dimen name="video_gallery_height">185dp</dimen>
+
+    <dimen name="video_explore_height">220dp</dimen>
+
+    <dimen name="image_gallery_width">200dp</dimen>
+    <dimen name="image_gallery_height">100dp</dimen>
+
+    <dimen name="home_event_image_width">180dp</dimen>
+    <dimen name="home_event_image_height">120dp</dimen>
+
+    <dimen name="home_place_image_width">200dp</dimen>
+    <dimen name="home_place_image_height">120dp</dimen>
+
+    <dimen name="event_location_city_width">18dp</dimen>
+    <dimen name="event_location_city_height">18dp</dimen>
+
+    <dimen name="behavior_overlap_top">16dp</dimen>
+
+    <dimen name="button_min_width">150dp</dimen>
+
+    <dimen name="map_home_height">120dp</dimen>
+
+    <dimen name="divider_height">0.5dp</dimen>
+
+    <dimen name="tab_indicator_height">1dp</dimen>
+
+    <dimen name="description_line_spacing">2dp</dimen>
+
+    <dimen name="spinner_dropdown_item_min_width">120dp</dimen>
+
+    <dimen name="explore_videos_translation_y">-26dp</dimen>
+    <dimen name="explore_videos_corner_radius">25dp</dimen>
+    <dimen name="explore_videos_layout_bottom">-22dp</dimen>
+
+    <dimen name="theme_round_width">40dp</dimen>
+    <dimen name="theme_round_height">40dp</dimen>
+    <dimen name="theme_round_radius">20dp</dimen>
+
+    <!-- Margin -->
+    <dimen name="margin_2">2dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
+    <dimen name="margin_6">6dp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_10">10dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="margin_22">22dp</dimen>
+    <dimen name="margin_30">30dp</dimen>
+    <dimen name="margin_50">50dp</dimen>
+
+    <!-- Font -->
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_medium">14sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_large">20sp</dimen>
+    <dimen name="font_16">16sp</dimen>
+    <dimen name="font_18">18sp</dimen>
+    <dimen name="font_30">30sp</dimen>
+
+</resources>

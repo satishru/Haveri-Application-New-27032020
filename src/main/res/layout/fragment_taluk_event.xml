@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.events.TalukEventFragmentViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.myapplication.ui.custom.CustomTextView
+            android:id="@+id/tv_no_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:text="@string/label_no_data"
+            android:textColor="?attr/colorPrimaryText"
+            android:textSize="@dimen/font_normal"
+            app:customFont="@string/font_roboto_regular"
+            android:visibility="@{viewModel.talukEventList.size() > 0 ? View.GONE : View.VISIBLE}"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_event_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/margin_10"
+            android:paddingBottom="@dimen/margin_10"
+            android:paddingEnd="@dimen/margin_10"
+            android:paddingStart="@dimen/margin_10"
+            android:clipToPadding="false"
+            app:adapter="@{viewModel.talukEventList}"
+            tools:listitem="@layout/layout_taluk_event_item" />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.activity.media.image.ImageViewActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_image_full_background"
+        tools:ignore="RtlHardcoded"
+        tools:context=".ui.activity.media.image.ImageViewActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize">
+
+                    <ImageView
+                        android:id="@+id/iv_back"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?attr/actionBarSize"
+                        android:paddingLeft="@dimen/margin_16"
+                        android:paddingRight="@dimen/margin_16"
+                        android:tint="@color/color_white"
+                        android:onClick="@{()->viewModel.onBackIconClicked()}"
+                        app:srcCompat="@drawable/ic_close"
+                        android:contentDescription="@string/app_name" />
+
+                    <com.example.myapplication.ui.custom.CustomTextView
+                        android:id="@+id/tv_current_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?attr/actionBarSize"
+                        android:layout_toRightOf="@+id/iv_back"
+                        android:gravity="center|right"
+                        android:textColor="@color/color_white"
+                        android:layout_toLeftOf="@+id/tv_total_count"
+                        android:textSize="@dimen/font_medium"
+                        app:customFont="@string/font_roboto_regular"/>
+
+                    <com.example.myapplication.ui.custom.CustomTextView
+                        android:id="@+id/tv_total_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="?attr/actionBarSize"
+                        android:gravity="center"
+                        android:layout_alignParentRight="true"
+                        android:textColor="@color/color_white"
+                        android:paddingRight="@dimen/margin_16"
+                        android:textSize="@dimen/font_medium"
+                        app:customFont="@string/font_roboto_regular"
+                        tools:ignore="RtlSymmetry" />
+
+                </RelativeLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/image_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

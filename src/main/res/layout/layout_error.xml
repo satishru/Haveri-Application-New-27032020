@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <LinearLayout
+        android:id="@+id/ll_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/margin_16"
+        android:layout_marginBottom="@dimen/margin_16"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_30"
+            android:layout_gravity="center"
+            android:tint="?attr/colorAccent"
+            app:srcCompat="@drawable/ic_error" />
+
+        <com.example.myapplication.ui.custom.CustomTextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_16"
+            android:gravity="center"
+            android:text="@string/label_error"
+            android:textColor="?attr/colorTextLight"
+            android:textSize="@dimen/font_normal" />
+
+        <com.example.myapplication.ui.custom.CustomTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_30"
+            android:text="@string/label_please_retry"
+            android:textColor="?attr/colorTextLight"
+            android:textSize="@dimen/font_medium" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_retry"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/margin_16"
+            android:layout_marginBottom="@dimen/margin_30"
+            android:minWidth="@dimen/button_min_width"
+            android:text="@string/label_retry"
+            android:textSize="@dimen/font_normal"
+            android:textColor="?attr/colorPrimaryText"
+            app:backgroundTint="@android:color/transparent"
+            app:cornerRadius="2dp"
+            app:rippleColor="@color/color_ripple"
+            app:strokeColor="?attr/colorAccent"
+            app:strokeWidth="1dp" />
+    </LinearLayout>
+
+</layout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.example.myapplication.utils.CommonUtils" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.fragment.home.HomeFragmentViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        app:behavior_hideable="false"
+        app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+
+        <LinearLayout
+            android:id="@+id/ll_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/btn_slide"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/bottom_sheet_button_slide"
+                android:layout_gravity="center"
+                android:background="@drawable/button_slide" />
+
+            <com.example.myapplication.ui.custom.CustomTextView
+                android:id="@+id/tv_about"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="?attr/colorBackground"
+                android:padding="@dimen/activity_horizontal_margin"
+                android:text="@{CommonUtils.toHtml(viewModel.description)}"
+                android:textSize="@dimen/font_normal"
+                android:textColor="?attr/colorPrimaryText"
+                app:customFont="@string/font_roboto_regular" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+</layout>

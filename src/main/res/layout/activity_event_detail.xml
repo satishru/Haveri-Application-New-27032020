@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.myapplication.utils.CommonUtils" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.activity.event.EventDetailActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.event.EventDetailActivity">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="?attr/colorBackground"
+                app:cardCornerRadius="@dimen/card_corner_no_radius"
+                app:cardElevation="@dimen/card_elevation">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/rl_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/iv_thumb"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/video_gallery_height"
+                            android:background="@color/color_image_background"
+                            android:contentDescription="@string/app_name"
+                            android:scaleType="centerCrop"
+                            android:visibility="@{(viewModel.isImageExist || viewModel.isVideoExist) ? View.VISIBLE : View.GONE}"
+                            app:imageUrl="@{viewModel.eventImage}" />
+
+                        <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                            android:id="@+id/youtube_player_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:enableAutomaticInitialization="true"
+                            app:showFullScreenButton="false" />
+
+                        <ImageView
+                            android:id="@+id/btn_play"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:contentDescription="@string/app_name"
+                            android:onClick="@{()->viewModel.onButtonPlayClick()}"
+                            android:visibility="@{viewModel.isVideoExist ? View.VISIBLE : View.GONE}"
+                            app:srcCompat="@drawable/ic_play_circle_outline" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/margin_16">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_16"
+                            android:layout_marginEnd="@dimen/margin_10">
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:id="@+id/tv_event_title"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@{viewModel.eventTitle}"
+                                android:paddingEnd="@dimen/margin_16"
+                                android:paddingStart="0dp"
+                                android:layout_toStartOf="@+id/iv_map_direction"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_medium"
+                                android:textStyle="bold"
+                                app:customFont="@string/font_roboto_medium" />
+
+                            <ImageView
+                                android:id="@+id/iv_map_direction"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:contentDescription="@string/app_name"
+                                android:tint="?attr/colorIcon"
+                                android:onClick="@{()->viewModel.onNavigateImageClick()}"
+                                app:srcCompat="@drawable/ic_map_direction"
+                                android:visibility="@{viewModel.isNavigationExits ? View.VISIBLE : View.GONE}"/>
+
+                        </RelativeLayout>
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_place_title"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_2"
+                            android:layout_marginEnd="@dimen/margin_10"
+                            android:text="@{viewModel.eventPlace}"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_small"
+                            app:customFont="@string/font_roboto_regular" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_event_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_6"
+                            android:layout_marginEnd="@dimen/margin_10"
+                            android:text="@{viewModel.eventDate}"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_small"
+                            app:customFont="@string/font_roboto_regular" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_event_address"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:layout_marginEnd="@dimen/margin_10"
+                            android:text="@{viewModel.eventAddress}"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_small"
+                            app:customFont="@string/font_roboto_regular" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_event_detail"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:layout_marginEnd="@dimen/margin_10"
+                            android:text="@{CommonUtils.toHtml(viewModel.eventDetails)}"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_medium"
+                            app:customFont="@string/font_roboto_regular" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

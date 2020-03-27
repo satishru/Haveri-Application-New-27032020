@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.activity.home.HomeActivityViewModel" />
+    </data>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:animateLayoutChanges="true"
+        android:background="?attr/colorPrimary">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingRight="@dimen/margin_22"
+            android:visibility="gone"
+            android:onClick="@{()->viewModel.onBackIconClicked()}"
+            android:src="?attr/homeAsUpIndicator"
+            android:contentDescription="@string/app_name"
+            tools:ignore="RtlHardcoded,RtlSymmetry" />
+
+        <com.example.myapplication.ui.custom.CustomTextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center_vertical"
+            android:text="@string/app_name"
+            android:textStyle="bold"
+            android:textColor="@color/color_white"
+            android:textSize="@dimen/font_large" />
+
+    </androidx.appcompat.widget.Toolbar>
+</layout>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.fragment.common.adapter.VideoListAdapterViewModel" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{()->viewModel.onVideoClick()}"
+        app:cardBackgroundColor="?attr/colorBackground"
+        app:cardCornerRadius="@dimen/card_corner_radius_2"
+        app:cardUseCompatPadding="true">
+
+        <RelativeLayout
+            android:id="@+id/rl_content"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/video_gallery_height"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_video_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/video_gallery_height"
+                android:adjustViewBounds="true"
+                android:background="@color/color_image_background"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                app:imageYouTubeUrl="@{viewModel.videoId}" />
+
+            <com.example.myapplication.ui.custom.CustomTextView
+                android:id="@+id/tv_video_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color_title_background"
+                android:gravity="center"
+                android:padding="@dimen/margin_6"
+                android:text="@{viewModel.videoTitle}"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/font_small"
+                app:customFont="@string/font_roboto_regular" />
+
+            <ImageView
+                android:id="@+id/btn_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/ic_play_circle_outline" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

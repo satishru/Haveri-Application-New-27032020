@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_color"
+        android:layout_width="@dimen/theme_round_width"
+        android:layout_height="@dimen/theme_round_height"
+        android:layout_margin="@dimen/margin_6"
+        android:elevation="0dp"
+        app:cardElevation="@dimen/card_elevation"
+        app:cardCornerRadius="@dimen/theme_round_radius"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/iv_selected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_selected"
+            android:tint="@color/color_white"
+            android:visibility="gone"/>
+    </androidx.cardview.widget.CardView>
+
+</layout>

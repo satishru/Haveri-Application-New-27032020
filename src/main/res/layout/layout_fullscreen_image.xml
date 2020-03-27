@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="selectedLanguage"
+            type="Integer" />
+
+        <variable
+            name="imageObj"
+            type="com.example.myapplication.data.model.api.response.haveri_data.Images" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.example.myapplication.ui.custom.TouchImageView
+            android:id="@+id/iv_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitCenter"
+            app:imageUrl="@{imageObj.imageUrl}" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color_title_background"
+            android:padding="@dimen/margin_16">
+
+            <com.example.myapplication.ui.custom.CustomTextView
+                android:id="@+id/tv_image_desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/font_medium"
+                app:customFont="@string/font_roboto_regular"
+                app:selectedLanguage="@{selectedLanguage}"
+                app:setImageText="@{imageObj}" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- https://alexzh.com/2015/06/26/support-multiple-themes-in-android-application/ -->
+
+    <!-- Common -->
+    <color name="color_ripple">#33AAAAAA</color>
+    <color name="color_divider">#33AAAAAA</color>
+    <color name="color_stroke">#33484848</color>
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_title_background">#30000000</color>
+    <color name="color_transparent">#00000000</color>
+    <color name="color_image_background">#FF424242</color>
+    <color name="color_image_full_background">#000000</color>
+    <color name="color_play_video_background">#000000</color>
+    <color name="color_window_background">#EDEDED</color>
+    <color name="color_switch_thumb_normal_inactive">#F1F1F1</color>
+
+    <!-- Theme Colors Default-->
+    <color name="colorPrimary_Default">#008577</color>
+    <color name="colorPrimaryLight_Default">#BC497571</color>
+    <color name="colorPrimaryDark_Default">#00574B</color>
+    <color name="colorAccent_Default">#D81B60</color>
+    <color name="colorProgressDialog_Default">#D81B60</color>
+    <color name="colorWindowBackground_Default">#EDEDED</color>
+    <color name="colorBackground_Default">#FFFFFF</color>
+    <color name="colorText_Default">#000000</color>
+    <color name="colorTextLight_Default">#7e7e7e</color>
+    <color name="colorTextTheme_Default">#008577</color>
+    <color name="colorSplash_Default">#00574B</color>
+    <color name="colorIcon_Default">#00574B</color>
+
+    <!-- Theme Colors Dark 1F1B24-->
+    <color name="colorPrimary_Dark">#18161B</color>
+    <color name="colorPrimaryLight_Dark">#484848</color>
+    <color name="colorPrimaryDark_Dark">#18161B</color>
+    <color name="colorAccent_Dark">#03dac5</color>
+    <color name="colorProgressDialog_Dark">#03dac5</color>
+    <color name="colorWindowBackground_Dark">#100F11</color>
+    <color name="colorBackground_Dark">#18161B</color>
+    <color name="colorText_Dark">#ffffff</color>
+    <color name="colorTextLight_Dark">#FAFAFA</color>
+    <color name="colorTextTheme_Dark">#03dac5</color>
+    <color name="colorSplash_Dark">#18161B</color>
+    <color name="colorIcon_Dark">#03dac5</color>
+
+    <!-- Theme Colors DeepBlue -->
+    <color name="colorPrimary_DeepBlue">#512da8</color>
+    <color name="colorPrimaryLight_DeepBlue">#8559da</color>
+    <color name="colorPrimaryDark_DeepBlue">#140078</color>
+    <color name="colorAccent_DeepBlue">#D81B60</color>
+    <color name="colorProgressDialog_DeepBlue">#2a2a2a</color>
+    <color name="colorWindowBackground_DeepBlue">#EDEDED</color>
+    <color name="colorBackground_DeepBlue">#FFFFFF</color>
+    <color name="colorText_DeepBlue">#000000</color>
+    <color name="colorTextLight_DeepBlue">#7e7e7e</color>
+    <color name="colorTextTheme_DeepBlue">#3B2DC2</color>
+    <color name="colorSplash_DeepBlue">#436db0</color>
+    <color name="colorIcon_DeepBlue">#140078</color>
+
+    <!-- Theme Colors AmberYellow -->
+    <color name="colorPrimary_AmberYellow">#FFC107</color>
+    <color name="colorPrimaryLight_AmberYellow">#FFECB3</color>
+    <color name="colorPrimaryDark_AmberYellow">#FFA000</color>
+    <color name="colorAccent_AmberYellow">#FFEB3B</color>
+    <color name="colorProgressDialog_AmberYellow">#2a2a2a</color>
+    <color name="colorWindowBackground_AmberYellow">#EDEDED</color>
+    <color name="colorBackground_AmberYellow">#FFFFFF</color>
+    <color name="colorText_AmberYellow">#212121</color>
+    <color name="colorTextLight_AmberYellow">#757575</color>
+    <color name="colorTextTheme_AmberYellow">#FFA000</color>
+    <color name="colorSplash_AmberYellow">#FFA000</color>
+    <color name="colorIcon_AmberYellow">#FFC107</color>
+
+    <!-- Theme Colors Purple -->
+    <color name="colorPrimary_Purple">#9C27B0</color>
+    <color name="colorPrimaryLight_Purple">#E1BEE7</color>
+    <color name="colorPrimaryDark_Purple">#7B1FA2</color>
+    <color name="colorAccent_Purple">#9E9E9E</color>
+    <color name="colorProgressDialog_Purple">#7B1FA2</color>
+    <color name="colorWindowBackground_Purple">#EDEDED</color>
+    <color name="colorBackground_Purple">#FFFFFF</color>
+    <color name="colorText_Purple">#212121</color>
+    <color name="colorTextLight_Purple">#333333</color>
+    <color name="colorTextTheme_Purple">#9C27B0</color>
+    <color name="colorSplash_Purple">#7B1FA2</color>
+    <color name="colorIcon_Purple">#7B1FA2</color>
+
+    <!-- Theme Colors Red -->
+    <color name="colorPrimary_Red">#d32f2f</color>
+    <color name="colorPrimaryLight_Red">#ff6659</color>
+    <color name="colorPrimaryDark_Red">#9a0007</color>
+    <color name="colorAccent_Red">#ff5f52</color>
+    <color name="colorProgressDialog_Red">#9a0007</color>
+    <color name="colorWindowBackground_Red">#EDEDED</color>
+    <color name="colorBackground_Red">#FFFFFF</color>
+    <color name="colorText_Red">#212121</color>
+    <color name="colorTextLight_Red">#333333</color>
+    <color name="colorTextTheme_Red">#d32f2f</color>
+    <color name="colorSplash_Red">#9a0007</color>
+    <color name="colorIcon_Red">#9a0007</color>
+
+</resources>

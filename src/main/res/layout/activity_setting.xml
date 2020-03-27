@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.myapplication.utils.Language" />
+
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.activity.setting.SettingActivityViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.activity.setting.SettingActivity">
+
+        <include
+            android:id="@+id/layout_toolbar"
+            layout="@layout/layout_toolbar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:text="@string/label_notification"
+                            android:textColor="?attr/colorTextTheme"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_medium" />
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/margin_16"
+                                android:text="@string/label_notification_destination"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_normal"
+                                app:customFont="@string/font_roboto_regular" />
+
+                            <Switch
+                                android:id="@+id/switch_notification_destination"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:checked="@{viewModel.selectedLanguage == 0 ? true : false}"
+                                android:padding="@dimen/margin_16"
+                                android:theme="@style/SwitchTheme" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/margin_16"
+                                android:text="@string/label_notification_events"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_normal"
+                                app:customFont="@string/font_roboto_regular" />
+
+                            <Switch
+                                android:id="@+id/switch_notification_events"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:checked="@{viewModel.selectedLanguage == 0 ? true : false}"
+                                android:padding="@dimen/margin_16"
+                                android:theme="@style/SwitchTheme" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/color_divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:text="@string/label_select_language"
+                            android:textColor="?attr/colorTextTheme"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_medium" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_language_english"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:drawableRight="@{viewModel.selectedLanguage}"
+                            android:drawableTint="?attr/colorIcon"
+                            android:focusable="true"
+                            android:onClick="@{()->viewModel.onLanguageClicked(Language.EN)}"
+                            android:padding="@dimen/margin_16"
+                            android:text="@string/label_language_english"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_regular" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/tv_language_kannada"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:drawableRight="@{viewModel.selectedLanguage}"
+                            android:drawableTint="?attr/colorIcon"
+                            android:focusable="true"
+                            android:onClick="@{()->viewModel.onLanguageClicked(Language.KN)}"
+                            android:padding="@dimen/margin_16"
+                            android:text="@string/label_language_kannada"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_regular" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/color_divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:text="@string/label_images"
+                            android:textColor="?attr/colorTextTheme"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_medium" />
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:id="@+id/iv_image_cache"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{()->viewModel.clearImageCache()}"
+                            android:padding="@dimen/margin_16"
+                            android:text="@string/label_image_clear_cache"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_regular" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/color_divider" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.example.myapplication.ui.custom.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/margin_16"
+                            android:paddingEnd="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:text="@string/label_theme"
+                            android:textColor="?attr/colorTextTheme"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_medium" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_theme_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:clipToPadding="false"
+                            android:paddingStart="@dimen/margin_8"
+                            android:paddingEnd="@dimen/margin_10"
+                            android:layout_marginTop="@dimen/margin_10"
+                            android:layout_marginBottom="@dimen/margin_10"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            tools:listitem="@layout/layout_theme_list_item" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/color_divider" />
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
