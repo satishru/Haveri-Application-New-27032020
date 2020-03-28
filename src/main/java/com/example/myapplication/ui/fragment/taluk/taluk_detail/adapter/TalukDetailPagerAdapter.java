@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+import com.example.myapplication.HaveriApplication;
+import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragment;
@@ -52,7 +54,8 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "About";
+                return HaveriApplication.getInstance().getResources().getString(
+                        R.string.tab_title_about);
             case 1:
                 return "Places";
             case 2:

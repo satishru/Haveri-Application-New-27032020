@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.BR;
+import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivitySettingBinding;
 import com.example.myapplication.ui.activity.setting.adapter.ThemeSelectionAdapter;
@@ -97,7 +98,7 @@ public class SettingActivity extends BaseActivity<ActivitySettingBinding, Settin
      */
     @Override
     public void setLocale(int selectedLanguage) {
-        AppUtils.setLocale(selectedLanguage);
+        AppUtils.setLocale(this, selectedLanguage);
     }
 
     @Override

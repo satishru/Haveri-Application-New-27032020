@@ -104,8 +104,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         setOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
         performDataBinding();
-        //updateTheme();
-        AppUtils.setLocale(getLanguage());
+        AppUtils.setLocale(this, getLanguage());
     }
 
     public void updateTheme() {
@@ -276,7 +275,10 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     }
 
     public String getStringFromId(int string_id) {
-        return getString(string_id);
+        if(string_id <= 0) {
+            return "";
+        }
+        return getResources().getString(string_id);
     }
 
     private void performDataBinding() {
@@ -289,7 +291,8 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     public void setToolBar(Toolbar toolBar, int title_id, boolean homeAsUpEnabled) {
         setSupportActionBar(toolBar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle(title_id);
+            String title_str = getStringFromId(title_id);
+            getSupportActionBar().setTitle(title_str);
             getSupportActionBar().setDisplayHomeAsUpEnabled(homeAsUpEnabled);
         }
     }

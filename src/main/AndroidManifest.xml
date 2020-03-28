@@ -24,7 +24,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeDarkPurple"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ui.activity.splash.SplashActivity">
+        <activity android:name=".ui.activity.splash.SplashActivity"
+            android:configChanges="locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,27 +34,28 @@
         </activity>
         <activity
             android:name=".ui.activity.home.HomeActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".ui.activity.map.MapSingleActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".ui.activity.setting.SettingActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
             android:name=".ui.activity.taluk.TalukActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
             android:name=".ui.activity.media.image.ImageViewActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
             android:name=".ui.activity.event.EventDetailActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
             android:name=".ui.activity.media.video.VideosExploreActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
-        <activity android:name=".ui.activity.place.PlaceActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden|locale" />
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
+        <activity
+            android:name=".ui.activity.place.PlaceActivity"
+            android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"

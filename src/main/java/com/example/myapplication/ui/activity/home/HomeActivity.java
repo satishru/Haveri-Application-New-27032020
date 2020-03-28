@@ -71,7 +71,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivityHomeBinding = getViewDataBinding();
-        setToolBar(mActivityHomeBinding.layoutToolbar.toolbar, 0, false);
+        setToolBar(mActivityHomeBinding.layoutToolbar.toolbar, R.string.title_activity_empty, false);
         mHomeActivityViewModel.setNavigator(this);
         checkPermissionAndGetLocation();
         loadFragment(HomeFragment.newInstance(),

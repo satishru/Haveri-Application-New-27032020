@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ಹಾವೇರಿ ಪ್ರವಾಸೋದ್ಯಮ</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
 
     <!-- Play Store -->
     <string name="app_google_play_store_link">"https://play.google.com/store/apps/details?id="</string>
@@ -31,49 +31,51 @@
 
     <!-- App Titles -->
     <string name="title_activity_empty">""</string>
-    <string name="title_app_name"><b>H</b>averi-<b>T</b>ourism</string>
-    <string name="title_about_district">About Haveri</string>
-    <string name="title_activity_home">HomeActivity</string>
-    <string name="title_activity_settings">ಸಂಯೋಜನೆಗಳು</string>
+    <string name="title_app_name"><b>ಹಾ</b>ವೇರಿ-<b>ಪ್ರ</b>ವಾಸೋದ್ಯಮ</string>
+    <string name="title_activity_settings">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
     <string name="title_activity_taluk">ತಾಲ್ಲೂಕು</string>
-    <string name="title_activity_place">Places</string>
+    <string name="title_activity_place">ಸ್ಥಳಗಳು</string>
 
     <!-- App Labels -->
-    <string name="label_error">Something went wrong</string>
-    <string name="label_error_no_internet">No internet connection</string>
-    <string name="label_please_retry">Please Retry</string>
-    <string name="label_retry">Retry</string>
-    <string name="label_no_data">No Data</string>
-    <string name="label_view_all">See All</string>
-    <string name="label_taluk">Taluks</string>
-    <string name="label_places">Place\'s</string>
+    <string name="label_error">ಏನೋ ತಪ್ಪಾಗಿದೆ</string>
+    <string name="label_error_no_internet">ಇಂಟರ್ನೆಟ್ ಸಂಪರ್ಕವಿಲ್ಲ</string>
+    <string name="label_please_retry">ದಯವಿಟ್ಟು ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="label_retry">ಮರುಪ್ರಯತ್ನಿಸಿ</string>
+    <string name="label_no_data">ಯಾವುದೇ ಡೇಟಾ ಕಂಡುಬಂದಿಲ್ಲ</string>
+    <string name="label_view_all">ಎಲ್ಲವನ್ನೂ ನೋಡು</string>
+    <string name="label_taluk">ತಾಲ್ಲೂಕು</string>
+    <string name="label_places">ಸ್ಥಳಗಳು</string>
     <string name="label_image_gallery">ಗ್ಯಾಲರಿಯನ್ನು ಅನ್ವೇಷಿಸಿ</string>
-    <string name="label_events">Events</string>
-    <string name="label_explore_video">Explore Video\'s</string>
-    <string name="label_how_to_reach_haveri">How to reach Haveri</string>
-    <string name="label_how_to_reach">How to reach</string>
+    <string name="label_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
+    <string name="label_explore_video">ವೀಡಿಯೊವನ್ನು ಅನ್ವೇಷಿಸಿ</string>
+    <string name="label_how_to_reach_haveri">ಹಾವೇರಿಯನ್ನು ತಲುಪುವುದು ಹೇಗೆ</string>
+    <string name="label_how_to_reach">ತಲುಪುವುದು ಹೇಗೆ</string>
 
     <string name="label_select_language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="label_language_english">English</string>
     <string name="label_language_kannada">ಕನ್ನಡ</string>
 
-    <string name="label_images">Images</string>
-    <string name="label_image_clear_cache">Clear image cache</string>
+    <string name="label_images">ಚಿತ್ರಗಳು</string>
+    <string name="label_image_clear_cache">ಇಮೇಜ್ ಸಂಗ್ರಹವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
 
-    <string name="label_notification">Notification</string>
-    <string name="label_notification_destination">Destinations</string>
-    <string name="label_notification_events">Events</string>
+    <string name="label_notification">ನೋಟಿಫಿಕೇಶನ್</string>
+    <string name="label_notification_destination">ನಿರ್ದಿಷ್ಟ ಸ್ಥಳ</string>
+    <string name="label_notification_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
 
     <string name="label_count_place">%d ಸ್ಥಳ</string>
     <string name="label_count_places">%d ಸ್ಥಳಗಳು</string>
     <string name="label_count_event">%d ಕಾರ್ಯಕ್ರಮ</string>
     <string name="label_count_events">%d ಕಾರ್ಯಕ್ರಮಗಳು</string>
 
-    <string name="label_theme">Select Theme</string>
-    <string name="label_theme_red">Red</string>
-    <string name="label_theme_dark">Dark</string>
+    <string name="label_theme">ಥೀಮ್ ಆಯ್ಕೆಮಾಡಿ</string>
+
+    <string name="tab_title_about">ಕುರಿತು</string>
+    <string name="tab_title_places">ಸ್ಥಳಗಳು</string>
+    <string name="tab_title_gallery">ಗ್ಯಾಲರಿ</string>
+    <string name="tab_title_videos">ವೀಡಿಯೊಗಳು</string>
+    <string name="tab_title_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
 
     <!-- Error  -->
-    <string name="error_db_load_data">Problem in loading data</string>
+    <string name="error_db_load_data">ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ಸಮಸ್ಯೆಯಾಗಿದೆ</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.provider.Settings;
 
@@ -18,13 +19,26 @@ public final class AppUtils {
         // This class is not publicly instantiable
     }
 
-    public static void setLocale(int selectedLang) {
-        Locale myLocale = new Locale(Language.valueOf(selectedLang).getName());
-        Locale.setDefault(myLocale);
-        Configuration config = new Configuration();
-        config.locale = myLocale;
-        HaveriApplication.getInstance().getResources().updateConfiguration(config,
-                HaveriApplication.getInstance().getResources().getDisplayMetrics());
+    public static void setLocale(Context context, int selectedLang) {
+        Locale locale = new Locale(Language.valueOf(selectedLang).getName());
+        Locale.setDefault(locale);
+
+        Resources res = context.getResources();
+        Configuration config = new Configuration(res.getConfiguration());
+        config.locale = locale;
+        res.updateConfiguration(config, res.getDisplayMetrics());
+
+        setApplicationLocale(selectedLang);
+    }
+
+    private static void setApplicationLocale(int selectedLang) {
+        Locale locale = new Locale(Language.valueOf(selectedLang).getName());
+        Locale.setDefault(locale);
+
+        Resources res = HaveriApplication.getInstance().getResources();
+        Configuration config = new Configuration(res.getConfiguration());
+        config.locale = locale;
+        res.updateConfiguration(config, res.getDisplayMetrics());
     }
 
     @SuppressLint("all")
