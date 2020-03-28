@@ -49,10 +49,22 @@
                     android:id="@+id/tv_place_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_2"
+                    android:ellipsize="end"
+                    android:maxLines="1"
                     android:text="@{viewModel.placeName}"
                     android:textColor="?attr/colorPrimaryText"
                     android:textSize="@dimen/font_medium"
                     android:textStyle="bold"
+                    app:customFont="@string/font_roboto_light" />
+
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_taluk_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.talukName}"
+                    android:textColor="?attr/colorTextLight"
+                    android:textSize="@dimen/font_small"
                     app:customFont="@string/font_roboto_medium" />
 
                 <com.example.myapplication.ui.custom.CustomTextView

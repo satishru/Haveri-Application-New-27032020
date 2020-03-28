@@ -17,6 +17,7 @@ class iHomeFragmentContract {
         void openVideoSingleActivity(Videos video);
         void openExploreVideosActivity();
         void openTalukActivity();
+        void openPlaceActivity();
         void setHomeButton(boolean visibility);
         void showBottomSheetSlideButton(boolean visibility);
         void openImageViewActivity(List<Images> imagesList, int selectedPosition);
@@ -25,6 +26,7 @@ class iHomeFragmentContract {
     interface iHomeFragmentViewModel {
         void startLoadingLocalData();
         void onTalukListViewAllClicked();
+        void onPlaceListViewAllClicked();
         void onMapClick();
         void onVideoClick();
         void onExploreVideoClick();

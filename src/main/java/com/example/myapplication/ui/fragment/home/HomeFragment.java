@@ -27,6 +27,7 @@ import com.example.myapplication.ui.activity.event.EventDetailActivity;
 import com.example.myapplication.ui.activity.map.MapSingleActivity;
 import com.example.myapplication.ui.activity.media.image.ImageViewActivity;
 import com.example.myapplication.ui.activity.media.video.VideosExploreActivity;
+import com.example.myapplication.ui.activity.place.PlaceActivity;
 import com.example.myapplication.ui.activity.taluk.TalukActivity;
 import com.example.myapplication.ui.base.BaseFragment;
 import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapter;
@@ -264,6 +265,13 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
     public void openTalukActivity() {
         if (getBaseActivity() != null) {
             startActivityWithAnimation(TalukActivity.newIntent(getBaseActivity(), district, null));
+        }
+    }
+
+    @Override
+    public void openPlaceActivity() {
+        if (getBaseActivity() != null) {
+            startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), null, null));
         }
     }
 

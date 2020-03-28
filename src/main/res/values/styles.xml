@@ -81,6 +81,21 @@
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
     </style>
 
+    <style name="AppThemeDarkPurple" parent="BaseTheme">
+        <item name="colorPrimary">@color/colorPrimary_DarkPurple</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark_DarkPurple</item>
+        <item name="colorPrimaryLight">@color/colorPrimaryLight_DarkPurple</item>
+        <item name="colorAccent">@color/colorAccent_DarkPurple</item>
+        <item name="colorPrimaryText">@color/colorText_DarkPurple</item>
+        <item name="colorProgressDialog">@color/colorProgressDialog_DarkPurple</item>
+        <item name="colorBackground">@color/colorBackground_DarkPurple</item>
+        <item name="colorTextLight">@color/colorTextLight_DarkPurple</item>
+        <item name="colorTextTheme">@color/colorTextTheme_DarkPurple</item>
+        <item name="colorSplash">@color/colorSplash_DarkPurple</item>
+        <item name="colorIcon">@color/colorIcon_DarkPurple</item>
+        <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+    </style>
+
     <style name="AppThemeRed" parent="BaseTheme">
         <item name="colorPrimary">@color/colorPrimary_Red</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark_Red</item>

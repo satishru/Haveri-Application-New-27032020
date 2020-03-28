@@ -130,7 +130,7 @@
                             android:clickable="true"
                             android:focusable="true"
                             android:gravity="start"
-                            android:onClick="@{()-> viewModel.onTalukListViewAllClicked()}"
+                            android:onClick="@{()-> viewModel.onPlaceListViewAllClicked()}"
                             android:text="@string/label_view_all"
                             android:textColor="?attr/colorTextTheme"
                             android:textSize="@dimen/font_medium"

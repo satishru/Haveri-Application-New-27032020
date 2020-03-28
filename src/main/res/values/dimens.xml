@@ -20,8 +20,11 @@
     <dimen name="taluk_image_height">120dp</dimen>
     <dimen name="taluk_image_height_full">220dp</dimen>
 
-    <dimen name="video_gallery_height">185dp</dimen>
+    <dimen name="place_image_width">220dp</dimen>
+    <dimen name="place_image_height">120dp</dimen>
+    <dimen name="place_image_height_full">220dp</dimen>
 
+    <dimen name="video_gallery_height">185dp</dimen>
     <dimen name="video_explore_height">220dp</dimen>
 
     <dimen name="image_gallery_width">200dp</dimen>
@@ -69,6 +72,7 @@
     <dimen name="margin_22">22dp</dimen>
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_50">50dp</dimen>
+    <dimen name="margin_80">80dp</dimen>
 
     <!-- Font -->
     <dimen name="font_small">12sp</dimen>

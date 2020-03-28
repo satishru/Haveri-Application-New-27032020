@@ -17,6 +17,8 @@ public final class AppConstants {
     static final String DATE_FORMAT_YYYY_MM_DD  = "yyyy-dd-MM"; // Api Format
     static final String DATE_FORMAT_DD_MMM_YYYY = "dd MMM yyyy";
 
+    public static final String SPLASH_IMAGE = "https://www.dropbox.com/s/ob7bzo3ux3c89tj/splash_bg.png?raw=1";
+
     // Pref Constants
     public static final String PREF_NAME = "haveri_tourism_pref";
 

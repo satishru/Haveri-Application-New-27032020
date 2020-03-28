@@ -53,7 +53,11 @@ public final class ViewUtils {
 
     public static float getMarker(int theme) {
         switch (theme) {
+            default:
+            case ScreenUtils.THEME_ID_DarkPurple:
+                return BitmapDescriptorFactory.HUE_MAGENTA;
             case ScreenUtils.THEME_ID_Dark:
+            case ScreenUtils.THEME_ID_Tile:
                 return BitmapDescriptorFactory.HUE_CYAN;
             case ScreenUtils.THEME_ID_Red:
                 return BitmapDescriptorFactory.HUE_RED;
@@ -61,9 +65,6 @@ public final class ViewUtils {
                 return BitmapDescriptorFactory.HUE_YELLOW;
             case ScreenUtils.THEME_ID_DeepBlue:
                 return BitmapDescriptorFactory.HUE_BLUE;
-            case ScreenUtils.THEME_ID_Default:
-            default:
-                return BitmapDescriptorFactory.HUE_ROSE;
         }
     }
 }

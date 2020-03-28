@@ -54,7 +54,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding , SplashV
     }
 
     private void setAnimation() {
-        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().ivSplash,ViewAnimationUtils.SCALE_DURATION_300);
+        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().ivSplashIcon,ViewAnimationUtils.SCALE_DURATION_300);
         Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
         getViewDataBinding().tvSplash.startAnimation(animFadeIn);
         ViewAnimationUtils.scaleAnimateView(getViewDataBinding().tvSplash,ViewAnimationUtils.SCALE_DURATION_300);

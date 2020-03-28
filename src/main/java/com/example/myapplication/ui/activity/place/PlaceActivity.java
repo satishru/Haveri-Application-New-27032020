@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -16,6 +17,8 @@ import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.ActivityPlaceBinding;
 import com.example.myapplication.ui.base.BaseActivity;
+import com.example.myapplication.ui.fragment.place.place_list.PlaceListFragment;
+import java.util.List;
 
 import javax.inject.Inject;
 
@@ -30,7 +33,9 @@ import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_TALUK
  * To Show place details, images, videos, events
  */
 public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActivityViewModel>
-        implements HasSupportFragmentInjector, iPlaceActivityContract.iPlaceActivityNavigator {
+        implements HasSupportFragmentInjector,
+        iPlaceActivityContract.iPlaceActivityNavigator,
+        PlaceListFragment.PlaceListFragmentCallBack {
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -113,12 +118,12 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
 
     @Override
     public void loadPlaceListFragment() {
-
+        loadFragment(PlaceListFragment.newInstance(),
+                activityPlaceBinding.fragmentContainer.getId(), true, true);
     }
 
     @Override
     public void loadPlaceDetailFragment() {
-
     }
     /* iPlaceActivityContract.iPlaceActivityNavigator Ends */
 
@@ -138,5 +143,26 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
             return;
         }
         exitActivityWithAnimation();
+    }
+
+    /**
+     * PlaceListFragment.PlaceListFragmentCallBack
+     *
+     * @return Place List
+     */
+    @Override
+    public List<Place> getPlaceList() {
+        return placeActivityViewModel.getPlaceList(district, selectedTaluk);
+    }
+
+    @Override
+    public void openPlaceDetailFragment(Place place) {
+        selectedPlace = place;
+        loadPlaceDetailFragment();
+    }
+
+    @Override
+    public void hidePopupDataTitle() {
+        activityPlaceBinding.layoutToolbar.tvTitle.setVisibility(View.GONE);
     }
 }

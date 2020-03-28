@@ -23,6 +23,7 @@ import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapte
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
+import com.example.myapplication.ui.fragment.place.place_list.adapter.PlaceAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukEventsAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukPlaceAdapter;
@@ -95,6 +96,12 @@ public final class BindingUtils {
                 adapter.clearItems();
                 adapter.addItems(placeList);
             }
+        } else if (recyclerView.getAdapter() instanceof PlaceAdapter) {
+            PlaceAdapter adapter = (PlaceAdapter) recyclerView.getAdapter();
+            if (adapter != null) {
+                adapter.clearItems();
+                adapter.addItems(placeList);
+            }
         }
     }
 
@@ -156,6 +163,19 @@ public final class BindingUtils {
                     placeholder(getProgressDrawable(imageView.getContext())).
                     animate(R.anim.fade_in).
                     into(imageView);
+        }
+    }
+
+    @BindingAdapter("imageSplashUrl")
+    public static void imageSplashUrl(ImageView imageView, String url) {
+        if (!CommonUtils.checkNullOrEmpty(url) && imageView.getContext() != null) {
+            try {
+                Glide.with(imageView.getContext()).
+                        load(url).
+                        into(imageView);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

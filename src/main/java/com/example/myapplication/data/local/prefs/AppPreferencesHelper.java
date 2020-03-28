@@ -74,6 +74,6 @@ public class AppPreferencesHelper implements PreferencesHelper {
 
     @Override
     public int getSelectedTheme() {
-        return mPrefs.getInt(PREF_KEY_THEME_COLOR, ScreenUtils.THEME_ID_Default);
+        return mPrefs.getInt(PREF_KEY_THEME_COLOR, ScreenUtils.THEME_ID_DarkPurple);
     }
 }

@@ -12,11 +12,12 @@ import java.util.List;
 
 public final class ScreenUtils {
 
-    public static final int THEME_ID_Default = 1;
-    public static final int THEME_ID_Dark    = 2;
-    public static final int THEME_ID_Red     = 3;
-    public static final int THEME_ID_AmberYellow = 4;
-    public static final int THEME_ID_DeepBlue    = 5;
+    public static final int THEME_ID_DarkPurple  = 1; //Default
+    public static final int THEME_ID_Tile        = 2;
+    public static final int THEME_ID_Dark        = 3;
+    public static final int THEME_ID_Red         = 4;
+    public static final int THEME_ID_AmberYellow = 5;
+    public static final int THEME_ID_DeepBlue    = 6;
 
     private ScreenUtils() {
         // This class is not publicly instantiable
@@ -54,7 +55,13 @@ public final class ScreenUtils {
         AppTheme appTheme;
 
         appTheme = new AppTheme();
-        appTheme.setId(THEME_ID_Default);
+        appTheme.setId(THEME_ID_DarkPurple);
+        appTheme.setColor_id(R.color.colorPrimary_DarkPurple);
+        appTheme.setColor_name("DarkPurple");
+        themeList.add(appTheme);
+
+        appTheme = new AppTheme();
+        appTheme.setId(THEME_ID_Tile);
         appTheme.setColor_id(R.color.colorPrimary_Default);
         appTheme.setColor_name("Default");
         themeList.add(appTheme);

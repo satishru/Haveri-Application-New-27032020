@@ -109,10 +109,15 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     }
 
     public void updateTheme() {
-        int themeColorId = R.style.AppTheme;
-        int SystemBarColor = R.color.colorPrimaryDark_Default;
+        int themeColorId;
+        int SystemBarColor;
         switch (getAppTheme()) {
-            case ScreenUtils.THEME_ID_Default:
+            default:
+            case ScreenUtils.THEME_ID_DarkPurple:
+                themeColorId = R.style.AppThemeDarkPurple;
+                SystemBarColor = R.color.colorPrimaryDark_DarkPurple;
+                break;
+            case ScreenUtils.THEME_ID_Tile:
                 themeColorId = R.style.AppTheme;
                 SystemBarColor = R.color.colorPrimaryDark_Default;
                 break;
@@ -327,7 +332,7 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         } else if(appPreferencesHelper != null) {
             return appPreferencesHelper.getSelectedTheme();
         }
-        return ScreenUtils.THEME_ID_Default;
+        return ScreenUtils.THEME_ID_DarkPurple;
     }
 
     protected boolean isDistrictNotNull() {

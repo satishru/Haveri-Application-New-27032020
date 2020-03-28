@@ -191,27 +191,6 @@ public final class CommonUtils {
      * @return talukEventCount
      */
     public static int getTalukEventCount(Taluk selectedTaluk) {
-        /*
-        int talukEventCount = 0;
-        District district = HaveriApplication.getInstance().getDistrict();
-        if (district != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                talukEventCount = (int) district.getEvents()
-                        .stream()
-                        .filter(e -> e.getTalukId().equals(selectedTaluk.getTalukId()) &&
-                                CommonUtils.isDateGreaterOrEqualToday(e.getEventDateEnd()))
-                        .count();
-            } else {
-                for (Event event : district.getEvents()) {
-                    if (event.getTalukId().equals(selectedTaluk.getTalukId()) &&
-                            CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
-                        talukEventCount++;
-                    }
-                }
-            }
-        }
-        return talukEventCount;
-        */
         return getEventList(selectedTaluk, null).size();
     }
 
@@ -222,25 +201,6 @@ public final class CommonUtils {
      * @return placeEventCount
      */
     public static int getPlaceEventCount(Place selectedPlace) {
-        /*
-        int placeEventCount = 0;
-        District district = HaveriApplication.getInstance().getDistrict();
-        if (district != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                placeEventCount = (int) district.getEvents()
-                        .stream()
-                        .filter(e -> e.getPlaceId().equals(selectedPlace.getPlaceId()))
-                        .count();
-            } else {
-                for (Event event : district.getEvents()) {
-                    if (event.getPlaceId().equals(selectedPlace.getPlaceId())) {
-                        placeEventCount++;
-                    }
-                }
-            }
-        }
-        return placeEventCount;
-        */
         return getEventList(null, selectedPlace).size();
     }
 
@@ -283,47 +243,59 @@ public final class CommonUtils {
         List<Event> eventList = new ArrayList<>();
         District district = HaveriApplication.getInstance().getDistrict();
         if (district != null) {
-            if (district.getEvents() != null) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                    if (selectedTaluk != null) {
-                        // Event list for Taluk
-                        eventList = district.getEvents().stream().filter(e ->
-                                e.getTalukId().equals(selectedTaluk.getTalukId()) &&
-                                        CommonUtils.isDateGreaterOrEqualToday(
-                                                e.getEventDateEnd())).collect(
-                                Collectors.toList());
-                    } else if (selectedPlace != null) {
-                        // Event list for Place
-                        eventList = district.getEvents().stream().filter(e ->
-                                e.getPlaceId().equals(selectedPlace.getPlaceId()) &&
-                                        CommonUtils.isDateGreaterOrEqualToday(
-                                                e.getEventDateEnd())).collect(
-                                Collectors.toList());
-                    } else {
-                        // All event list
-                        eventList = district.getEvents().stream().filter(e ->
-                                CommonUtils.isDateGreaterOrEqualToday(
-                                        e.getEventDateEnd())).collect(
-                                Collectors.toList());
-                    }
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                if (selectedTaluk != null) {
+                    // Event list for Taluk
+                    eventList = district.getEvents().stream().filter(e ->
+                            e.getTalukId().equals(selectedTaluk.getTalukId()) &&
+                                    CommonUtils.isDateGreaterOrEqualToday(
+                                            e.getEventDateEnd())).collect(
+                            Collectors.toList());
+                } else if (selectedPlace != null) {
+                    // Event list for Place
+                    eventList = district.getEvents().stream().filter(e ->
+                            e.getPlaceId().equals(selectedPlace.getPlaceId()) &&
+                                    CommonUtils.isDateGreaterOrEqualToday(
+                                            e.getEventDateEnd())).collect(
+                            Collectors.toList());
                 } else {
-                    for (Event event : district.getEvents()) {
-                        if (selectedTaluk != null && event.getTalukId().equals(
-                                selectedTaluk.getTalukId()) &&
-                                CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
-                            eventList.add(event);
-                        } else if (selectedPlace != null && event.getPlaceId().equals(
-                                selectedPlace.getPlaceId()) &&
-                                CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
-                            eventList.add(event);
-                        } else if (CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
-                            eventList.add(event);
-                        }
+                    // All event list
+                    eventList = district.getEvents().stream().filter(e ->
+                            CommonUtils.isDateGreaterOrEqualToday(
+                                    e.getEventDateEnd())).collect(
+                            Collectors.toList());
+                }
+            } else {
+                for (Event event : district.getEvents()) {
+                    if (selectedTaluk != null && event.getTalukId().equals(
+                            selectedTaluk.getTalukId()) &&
+                            CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
+                        eventList.add(event);
+                    } else if (selectedPlace != null && event.getPlaceId().equals(
+                            selectedPlace.getPlaceId()) &&
+                            CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
+                        eventList.add(event);
+                    } else if (CommonUtils.isDateGreaterOrEqualToday(event.getEventDateEnd())) {
+                        eventList.add(event);
                     }
                 }
             }
         }
         return eventList;
+    }
+
+    public static Taluk getTalukUsingPlace(Place place) {
+        Taluk taluk = null;
+        District district = HaveriApplication.getInstance().getDistrict();
+        if (district != null) {
+            for (Taluk talukObj : district.getTaluks()) {
+                if(place.getTalukId().equals(talukObj.getTalukId())) {
+                    taluk =  talukObj;
+                    break;
+                }
+            }
+        }
+        return taluk;
     }
 
     /**

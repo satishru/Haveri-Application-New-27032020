@@ -32,7 +32,7 @@ public class PlaceActivityViewModel extends BaseViewModel<iPlaceActivityContract
     public List<Place> getPlaceList(District district, Taluk selectedTaluk) {
         List<Place> placeList = new ArrayList<>();
         if (district != null) {
-            if(selectedTaluk != null) {
+            if (selectedTaluk != null) {
                 placeList.addAll(selectedTaluk.getPlaces());
             } else {
                 for (Taluk taluk : district.getTaluks()) {

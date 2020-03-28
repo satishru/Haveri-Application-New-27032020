@@ -63,6 +63,11 @@ public class HomeFragmentViewModel extends BaseViewModel<iHomeFragmentContract.i
     }
 
     @Override
+    public void onPlaceListViewAllClicked() {
+        getNavigator().openPlaceActivity();
+    }
+
+    @Override
     public void onMapClick() {
         MapSingleObject singleObject = new MapSingleObject();
         if (district.getValue() != null) {

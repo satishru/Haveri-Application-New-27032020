@@ -1,10 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.myapplication.ui.fragment.place.place_list.PlaceListFragmentViewModel" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_place_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_10"
+            android:clipToPadding="false"
+            app:adapter="@{viewModel.placeList}"
+            tools:listitem="@layout/layout_taluk_item"/>
 
     </LinearLayout>
 </layout>

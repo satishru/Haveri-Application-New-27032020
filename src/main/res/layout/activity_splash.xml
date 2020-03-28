@@ -1,47 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.activity.splash.SplashActivity">
 
     <data>
-
+        <import type="com.example.myapplication.utils.AppConstants"/>
         <variable
             name="viewModel"
             type="com.example.myapplication.ui.activity.splash.SplashViewModel" />
 
     </data>
 
+
     <RelativeLayout
         android:id="@+id/activity_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?attr/colorSplash"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingBottom="@dimen/activity_vertical_margin">
+        android:background="?attr/colorSplash">
 
         <ImageView
-            android:id="@+id/iv_splash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/iv_splash_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_30"
-            app:srcCompat="@drawable/ic_location_city" />
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            app:imageSplashUrl="@{AppConstants.SPLASH_IMAGE}"/>
 
-        <com.example.myapplication.ui.custom.CustomTextView
-            android:id="@+id/tv_splash"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:includeFontPadding="true"
-            android:textSize="@dimen/font_30"
-            android:layout_below="@+id/iv_splash"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/margin_16"
-            android:text="@string/title_app_name"
-            android:textColor="@color/color_white"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="@dimen/activity_vertical_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin"
+            android:paddingBottom="@dimen/activity_vertical_margin">
+
+            <ImageView
+                android:id="@+id/iv_splash_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_80"
+                android:contentDescription="@string/app_name"
+                app:srcCompat="@drawable/ic_location_city" />
+
+            <com.example.myapplication.ui.custom.CustomTextView
+                android:id="@+id/tv_splash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_splash_icon"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/margin_16"
+                android:includeFontPadding="true"
+                android:text="@string/title_app_name"
+                android:textColor="@color/color_white"
+                android:textSize="@dimen/font_30" />
+        </RelativeLayout>
+
+
     </RelativeLayout>
 
 </layout>
