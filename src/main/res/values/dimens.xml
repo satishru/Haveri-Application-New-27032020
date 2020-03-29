@@ -11,7 +11,7 @@
     <dimen name="bottom_sheet_button_slide">20dp</dimen>
 
     <dimen name="card_corner_no_radius">0dp</dimen>
-    <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="card_corner_radius">4dp</dimen>
     <dimen name="card_corner_radius_2">2dp</dimen>
     <dimen name="card_elevation">2dp</dimen>
     <dimen name="card_no_elevation">0dp</dimen>
@@ -43,7 +43,9 @@
 
     <dimen name="button_min_width">150dp</dimen>
 
-    <dimen name="map_home_height">120dp</dimen>
+    <dimen name="map_home_height">125dp</dimen>
+    <dimen name="map_taluk_height">125dp</dimen>
+    <dimen name="map_place_height">125dp</dimen>
 
     <dimen name="divider_height">0.5dp</dimen>
 
@@ -52,6 +54,8 @@
     <dimen name="description_line_spacing">2dp</dimen>
 
     <dimen name="spinner_dropdown_item_min_width">120dp</dimen>
+
+    <dimen name="rounded_background_corner_radius">25dp</dimen>
 
     <dimen name="explore_videos_translation_y">-26dp</dimen>
     <dimen name="explore_videos_corner_radius">25dp</dimen>

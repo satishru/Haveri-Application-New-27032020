@@ -135,6 +135,7 @@ public final class BindingUtils {
         //circularProgressDrawable.setColorSchemeColors(R.color.color_white);
         circularProgressDrawable.start();
         return circularProgressDrawable;
+        //return context.getDrawable(R.drawable.ic_image_place_holder);
     }
 
     @BindingAdapter("imageUrl")

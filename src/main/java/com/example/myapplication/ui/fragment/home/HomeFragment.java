@@ -24,7 +24,6 @@ import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.data.model.api.response.haveri_data.Videos;
 import com.example.myapplication.databinding.FragmentHomeBinding;
 import com.example.myapplication.ui.activity.event.EventDetailActivity;
-import com.example.myapplication.ui.activity.map.MapSingleActivity;
 import com.example.myapplication.ui.activity.media.image.ImageViewActivity;
 import com.example.myapplication.ui.activity.media.video.VideosExploreActivity;
 import com.example.myapplication.ui.activity.place.PlaceActivity;
@@ -34,15 +33,10 @@ import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapte
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
-import com.example.myapplication.utils.ViewUtils;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import org.jetbrains.annotations.NotNull;
@@ -77,7 +71,6 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
     private HomeFragmentViewModel homeFragmentViewModel;
     private FragmentHomeBinding fragmentHomeBinding;
     private BottomSheetBehavior bottomSheetBehavior;
-    private GoogleMap map;
     private District district;
 
     public interface HomeFragmentCallBack {
@@ -202,6 +195,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
                 haveriDataResponse -> {
                     this.district = haveriDataResponse;
                     HaveriApplication.getInstance().setDistrict(haveriDataResponse);
+                    setUpMap();
                 });
     }
 
@@ -221,28 +215,25 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     @Override
     public void setUpMap() {
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapDirection.setOnClickListener(v -> {
+                    if (district != null) {
+                        getBaseActivity().navigateToMap(district.getLatitude(), district.getLongitude());
+                    }
+                });
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapView.setOnClickListener(v -> {
+                    if (district != null) {
+                        getBaseActivity().openInMap(district.getLatitude(), district.getLongitude());
+                    }
+                });
         if (map != null && district != null) {
-            map.clear();
-            LatLng latLong = new LatLng(district.getLatitude(), district.getLongitude());
-            Marker marker = map.addMarker(new MarkerOptions()
-                    .position(latLong)
-                    .icon(BitmapDescriptorFactory.defaultMarker(ViewUtils.getMarker(
-                            homeFragmentViewModel.getDataManager().getSelectedTheme()))));
-            marker.showInfoWindow();
-            //map.setOnMarkerClickListener(marker1 -> true);
-            map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLong, 15));
-            map.getUiSettings().setScrollGesturesEnabled(false);
-            map.getUiSettings().setZoomGesturesEnabled(false);
+            setUpMap(district.getLatitude(), district.getLongitude());
             map.setOnMapClickListener(this);
         }
     }
 
     @Override
     public void openMapSingleActivity(MapSingleObject mapSingleObject) {
-        if (getBaseActivity() != null) {
-            getBaseActivity().startActivityWithAnimation(
-                    MapSingleActivity.newIntent(getBaseActivity(), mapSingleObject));
-        }
+        openMapActivity(mapSingleObject);
     }
 
     @Override

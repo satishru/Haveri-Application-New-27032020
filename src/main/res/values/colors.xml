@@ -7,14 +7,14 @@
     <color name="color_try_2">#6c0026</color>
     <color name="color_try_3">#92d49e</color>
 
-    <!-- Common -->
+    <!-- Common FF424242-->
     <color name="color_ripple">#33AAAAAA</color>
     <color name="color_divider">#33AAAAAA</color>
     <color name="color_stroke">#33484848</color>
     <color name="color_white">#FFFFFF</color>
     <color name="color_title_background">#30000000</color>
     <color name="color_transparent">#00000000</color>
-    <color name="color_image_background">#FF424242</color>
+    <color name="color_image_background">#EDEDED</color>
     <color name="color_image_full_background">#000000</color>
     <color name="color_play_video_background">#000000</color>
     <color name="color_window_background">#EDEDED</color>

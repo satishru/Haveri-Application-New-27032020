@@ -21,13 +21,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import javax.inject.Inject;
 
 /**
- *  To show map full
+ * To show map full
  */
 public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, MapSingleActivityViewModel> implements
         OnMapReadyCallback {
@@ -58,7 +57,8 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
 
     @Override
     public MapSingleActivityViewModel getViewModel() {
-        mapSingleActivityViewModel = new ViewModelProvider(this, factory).get(MapSingleActivityViewModel.class);
+        mapSingleActivityViewModel = new ViewModelProvider(this, factory).get(
+                MapSingleActivityViewModel.class);
         return mapSingleActivityViewModel;
     }
 
@@ -66,7 +66,7 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activityMapSingleBinding = getViewDataBinding();
-        setToolBar(activityMapSingleBinding.layoutToolbar.toolbar ,R.string.app_name, true);
+        setToolBar(activityMapSingleBinding.layoutToolbar.toolbar, R.string.app_name, true);
         setUp();
     }
 
@@ -78,27 +78,44 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
                     mapSingleObject.getTitleEn() : mapSingleObject.getTitleKn());
         }
         if (map == null) {
-            ((SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map)).getMapAsync(this);
+            SupportMapFragment supportMapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(
+                    R.id.map);
+            if (supportMapFragment != null) {
+                supportMapFragment.getMapAsync(this);
+            }
         }
     }
 
     private void setupMap() {
+        activityMapSingleBinding.ivMapDirection.setOnClickListener(v -> {
+            if (mapSingleObject != null) {
+                navigateToMap(mapSingleObject.getLatitude(), mapSingleObject.getLongitude());
+            }
+        });
+        activityMapSingleBinding.ivMapView.setOnClickListener(v -> {
+            if (mapSingleObject != null) {
+                openInMap(mapSingleObject.getLatitude(), mapSingleObject.getLongitude());
+            }
+        });
         if (map != null && mapSingleObject != null) {
             map.clear();
-            LatLng latLong = new LatLng(mapSingleObject.getLatitude(), mapSingleObject.getLongitude());
-            Marker marker = map.addMarker(new MarkerOptions()
+            LatLng latLong = new LatLng(mapSingleObject.getLatitude(),
+                    mapSingleObject.getLongitude());
+            map.addMarker(new MarkerOptions()
                     .title(mapSingleActivityViewModel.getDataManager().getSelectedLanguage() == 0 ?
                             mapSingleObject.getTitleEn() : mapSingleObject.getTitleKn())
                     .position(latLong)
                     .icon(BitmapDescriptorFactory.defaultMarker(ViewUtils.getMarker(0))));
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLong, 15));
-            marker.showInfoWindow();
+            //marker.showInfoWindow();
+            map.setOnMarkerClickListener(marker1 -> true);
         }
     }
 
     /**
      * OnMapReadyCallback
-     * @param googleMap
+     *
+     * @param googleMap GoogleMap
      */
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -108,13 +125,11 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                exitActivityWithAnimation();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            exitActivityWithAnimation();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -280,52 +280,12 @@
 
             </androidx.cardview.widget.CardView>
 
-            <RelativeLayout
+            <include
+                android:id="@+id/inc_layout_map"
+                layout="@layout/layout_map"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/map_home_height"
-                android:layout_marginTop="@dimen/margin_10">
-
-                <fragment
-                    android:id="@+id/map"
-                    android:name="com.google.android.gms.maps.SupportMapFragment"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/map_home_height" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentBottom="true"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:paddingLeft="@dimen/margin_10"
-                    android:paddingRight="@dimen/margin_10"
-                    android:paddingBottom="@dimen/margin_10"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@color/color_white"
-                        android:contentDescription="@string/app_name"
-                        android:padding="2dp"
-                        android:tint="?attr/colorIcon"
-                        app:srcCompat="@drawable/ic_map_direction" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:background="@color/color_white"
-                        android:contentDescription="@string/app_name"
-                        android:padding="2dp"
-                        android:tint="?attr/colorIcon"
-                        app:srcCompat="@drawable/ic_map" />
-
-                </LinearLayout>
-
-            </RelativeLayout>
+                android:layout_marginTop="@dimen/margin_10"/>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_events"

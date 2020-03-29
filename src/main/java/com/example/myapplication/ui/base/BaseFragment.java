@@ -18,8 +18,16 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.ViewModelProviderFactory;
+import com.example.myapplication.data.model.MapSingleObject;
+import com.example.myapplication.ui.activity.map.MapSingleActivity;
 import com.example.myapplication.ui.custom.ListSpacingItemDecorator;
 import com.example.myapplication.utils.AppConstants;
+import com.example.myapplication.utils.ViewUtils;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -36,6 +44,8 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
     private BaseActivity mActivity;
     private T mViewDataBinding;
     private V mViewModel;
+
+    protected GoogleMap map;
 
     /**
      * Override for set binding variable
@@ -194,5 +204,30 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         void onFragmentAttached();
 
         void onFragmentDetached(String tag);
+    }
+
+    protected void setUpMap(double latitude, double longitude) {
+        if (map != null) {
+            map.clear();
+            LatLng latLong = new LatLng(latitude, longitude);
+            map.addMarker(new MarkerOptions()
+                    .position(latLong)
+                    .icon(BitmapDescriptorFactory.defaultMarker(ViewUtils.getMarker(
+                            mViewModel.getDataManager().getSelectedTheme()))));
+            //marker.showInfoWindow();
+            map.setOnMarkerClickListener(marker1 -> true);
+            map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLong, 15));
+            map.getUiSettings().setScrollGesturesEnabled(false);
+            map.getUiSettings().setZoomGesturesEnabled(false);
+            //Set setOnMapClickListener in child fragment
+            //map.setOnMapClickListener(this);
+        }
+    }
+
+    protected void openMapActivity(MapSingleObject mapSingleObject) {
+        if (getBaseActivity() != null && mapSingleObject != null) {
+            getBaseActivity().startActivityWithAnimation(
+                    MapSingleActivity.newIntent(getBaseActivity(), mapSingleObject));
+        }
     }
 }

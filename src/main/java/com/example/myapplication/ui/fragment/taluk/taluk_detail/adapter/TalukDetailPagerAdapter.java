@@ -34,6 +34,7 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position) {
+            default:
             case 0:
                 return TalukAboutFragment.newInstance(selectedTaluk);
             case 1:
@@ -44,8 +45,6 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
                 return TalukVideosFragment.newInstance(selectedTaluk);
             case 4:
                 return TalukEventFragment.newInstance(selectedTaluk, district);
-            default:
-                return null;
         }
     }
 
@@ -54,16 +53,15 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return HaveriApplication.getInstance().getResources().getString(
-                        R.string.tab_title_about);
+                return getTitle(R.string.tab_title_about);
             case 1:
-                return "Places";
+                return getTitle(R.string.tab_title_places);
             case 2:
-                return "Gallery";
+                return getTitle(R.string.tab_title_gallery);
             case 3:
-                return "Videos";
+                return getTitle(R.string.tab_title_videos);
             case 4:
-                return "Events";
+                return getTitle(R.string.tab_title_events);
             default:
                 return null;
         }
@@ -72,5 +70,9 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         return TAB_COUNT;
+    }
+
+    private String getTitle(int str_id) {
+        return HaveriApplication.getInstance().getResources().getString(str_id);
     }
 }

@@ -399,6 +399,19 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
         return false;
     }
 
+    public void openInMap(double latitude, double longitude) {
+        if (latitude > 0 && longitude > 0) {
+            Uri mapUri = Uri.parse(String.format(Locale.getDefault(),"geo:%s,%s",latitude, longitude));
+            Intent mapIntent = new Intent(Intent.ACTION_VIEW, mapUri);
+            //mapIntent.setPackage("com.google.android.apps.maps");
+            if (mapIntent.resolveActivity(this.getPackageManager()) != null) {
+                startActivity(mapIntent);
+            } else {
+                openInOtherBrowser(buildMapNavigateUrl(latitude, longitude, false));
+            }
+        }
+    }
+
     public void navigateToMap(double latitude, double longitude) {
         if (latitude > 0 && longitude > 0) {
             String uri = "google.navigation:q=%f, %f";

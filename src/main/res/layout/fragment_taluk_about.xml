@@ -52,10 +52,16 @@
                         app:customFont="@string/font_roboto_regular" />
                 </androidx.cardview.widget.CardView>
 
+                <include
+                    layout="@layout/layout_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/map_taluk_height" />
+
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:cardBackgroundColor="?attr/colorBackground"
+                    android:layout_marginTop="@dimen/margin_12"
                     android:layout_marginLeft="@dimen/margin_10"
                     android:layout_marginRight="@dimen/margin_10"
                     android:layout_marginBottom="@dimen/margin_10"

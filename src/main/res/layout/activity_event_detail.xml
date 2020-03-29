@@ -98,7 +98,7 @@
                                 android:paddingStart="0dp"
                                 android:layout_toStartOf="@+id/iv_map_direction"
                                 android:textColor="?attr/colorPrimaryText"
-                                android:textSize="@dimen/font_medium"
+                                android:textSize="@dimen/font_normal"
                                 android:textStyle="bold"
                                 app:customFont="@string/font_roboto_medium" />
 
@@ -124,7 +124,7 @@
                             android:layout_marginEnd="@dimen/margin_10"
                             android:text="@{viewModel.eventPlace}"
                             android:textColor="?attr/colorPrimaryText"
-                            android:textSize="@dimen/font_small"
+                            android:textSize="@dimen/font_medium"
                             app:customFont="@string/font_roboto_regular" />
 
                         <com.example.myapplication.ui.custom.CustomTextView
@@ -137,7 +137,7 @@
                             android:text="@{viewModel.eventDate}"
                             android:textColor="?attr/colorPrimaryText"
                             android:textSize="@dimen/font_small"
-                            app:customFont="@string/font_roboto_regular" />
+                            app:customFont="@string/font_roboto_light" />
 
                         <com.example.myapplication.ui.custom.CustomTextView
                             android:id="@+id/tv_event_address"
@@ -149,7 +149,7 @@
                             android:text="@{viewModel.eventAddress}"
                             android:textColor="?attr/colorPrimaryText"
                             android:textSize="@dimen/font_small"
-                            app:customFont="@string/font_roboto_regular" />
+                            app:customFont="@string/font_roboto_light" />
 
                         <com.example.myapplication.ui.custom.CustomTextView
                             android:id="@+id/tv_event_detail"
