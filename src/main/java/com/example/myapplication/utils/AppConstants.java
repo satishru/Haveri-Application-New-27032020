@@ -9,7 +9,7 @@ public final class AppConstants {
     public static final long NULL_INDEX = -1L;
     public static final int MOCK_LIST_SIZE = 10;
 
-    public static final int LIST_SPACING_ITEM_MARGIN = 12;
+    public static final int LIST_SPACING_ITEM_MARGIN = 10;
 
     public static final int LOCATION_UPDATE_TIME = 15; // Seconds
     public static final int LOCATION_UPDATE_DISTANCE = 1;  // Meter

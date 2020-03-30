@@ -53,6 +53,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <include
+                    android:id="@+id/inc_layout_map"
                     layout="@layout/layout_map"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/map_taluk_height" />

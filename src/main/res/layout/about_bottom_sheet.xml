@@ -19,6 +19,7 @@
         android:orientation="vertical"
         app:behavior_hideable="false"
         app:behavior_peekHeight="@dimen/bottom_sheet_peek_height"
+        android:background="@color/color_transparent"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
 
@@ -26,12 +27,14 @@
             android:id="@+id/ll_bottom_sheet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/color_transparent"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btn_slide"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/bottom_sheet_button_slide"
+                android:textColor="@color/color_white"
                 android:layout_gravity="center"
                 android:background="@drawable/button_slide" />
 

@@ -23,6 +23,7 @@ public class TalukAboutFragment extends BaseFragment<FragmentTalukAboutBinding, 
         OnMapReadyCallback, GoogleMap.OnMapClickListener,
         iTalukAboutFragmentContract.iTalukAboutFragmentNavigator {
 
+    private FragmentTalukAboutBinding fragmentTalukAboutBinding;
     private TalukAboutFragmentViewModel talukAboutFragmentViewModel;
     private Taluk selectedTaluk;
 
@@ -53,7 +54,7 @@ public class TalukAboutFragment extends BaseFragment<FragmentTalukAboutBinding, 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        FragmentTalukAboutBinding fragmentTalukAboutBinding = getViewDataBinding();
+        fragmentTalukAboutBinding = getViewDataBinding();
         talukAboutFragmentViewModel.setNavigator(this);
         getBundleData();
         setUp();
@@ -79,9 +80,17 @@ public class TalukAboutFragment extends BaseFragment<FragmentTalukAboutBinding, 
 
     @Override
     public void setUpMap() {
+        fragmentTalukAboutBinding.incLayoutMap.ivMapDirection.setOnClickListener(v -> handleMap(true));
+        fragmentTalukAboutBinding.incLayoutMap.ivMapView.setOnClickListener(v -> handleMap(false));
         if (map != null && selectedTaluk != null) {
             setUpMap(selectedTaluk.getLatitude(), selectedTaluk.getLongitude());
             map.setOnMapClickListener(this);
+        }
+    }
+
+    private void handleMap(boolean isNavigation) {
+        if (selectedTaluk != null) {
+            getBaseActivity().handleMapViewAndNavigation(selectedTaluk.getLatitude(), selectedTaluk.getLongitude(), isNavigation);
         }
     }
 

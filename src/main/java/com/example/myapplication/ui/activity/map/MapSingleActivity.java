@@ -87,16 +87,8 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
     }
 
     private void setupMap() {
-        activityMapSingleBinding.ivMapDirection.setOnClickListener(v -> {
-            if (mapSingleObject != null) {
-                navigateToMap(mapSingleObject.getLatitude(), mapSingleObject.getLongitude());
-            }
-        });
-        activityMapSingleBinding.ivMapView.setOnClickListener(v -> {
-            if (mapSingleObject != null) {
-                openInMap(mapSingleObject.getLatitude(), mapSingleObject.getLongitude());
-            }
-        });
+        activityMapSingleBinding.ivMapDirection.setOnClickListener(v -> handleMap(true));
+        activityMapSingleBinding.ivMapView.setOnClickListener(v -> handleMap(false));
         if (map != null && mapSingleObject != null) {
             map.clear();
             LatLng latLong = new LatLng(mapSingleObject.getLatitude(),
@@ -109,6 +101,12 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(latLong, 15));
             //marker.showInfoWindow();
             map.setOnMarkerClickListener(marker1 -> true);
+        }
+    }
+
+    private void handleMap(boolean isNavigation) {
+        if (mapSingleObject != null) {
+            handleMapViewAndNavigation(mapSingleObject.getLatitude(), mapSingleObject.getLongitude(), isNavigation);
         }
     }
 

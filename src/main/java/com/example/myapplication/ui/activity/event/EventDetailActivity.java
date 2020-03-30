@@ -125,7 +125,7 @@ public class EventDetailActivity extends BaseActivity<ActivityEventDetailBinding
             if(currentYouTubePlayer != null) {
                 currentYouTubePlayer.pause();
             }
-            navigateToMap(selectedEvent.getEventLatitude(), selectedEvent.getEventLongitude());
+            handleMapViewAndNavigation(selectedEvent.getEventLatitude(), selectedEvent.getEventLongitude(), true);
         }
     }
 }

@@ -215,19 +215,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     @Override
     public void setUpMap() {
-        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapDirection.setOnClickListener(v -> {
-                    if (district != null) {
-                        getBaseActivity().navigateToMap(district.getLatitude(), district.getLongitude());
-                    }
-                });
-        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapView.setOnClickListener(v -> {
-                    if (district != null) {
-                        getBaseActivity().openInMap(district.getLatitude(), district.getLongitude());
-                    }
-                });
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapDirection.setOnClickListener(v -> handleMap(true));
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapView.setOnClickListener(v -> handleMap(false));
         if (map != null && district != null) {
             setUpMap(district.getLatitude(), district.getLongitude());
             map.setOnMapClickListener(this);
+        }
+    }
+
+    private void handleMap(boolean isNavigation) {
+        if (district != null) {
+            getBaseActivity().handleMapViewAndNavigation(district.getLatitude(), district.getLongitude(), isNavigation);
         }
     }
 

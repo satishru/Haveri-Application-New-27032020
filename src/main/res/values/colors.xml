@@ -3,7 +3,6 @@
     <!-- https://alexzh.com/2015/06/26/support-multiple-themes-in-android-application/ -->
     <!-- https://material.io/resources/color/#!/?view.left=0&view.right=0 -->
 
-    <color name="color_try_1">#001853</color>
     <color name="color_try_2">#6c0026</color>
     <color name="color_try_3">#92d49e</color>
 
@@ -38,8 +37,8 @@
     <color name="colorPrimary_Default">#00685e</color>
     <color name="colorPrimaryLight_Default">#43968b</color>
     <color name="colorPrimaryDark_Default">#003d34</color>
-    <color name="colorAccent_Default">#D81B60</color>
-    <color name="colorProgressDialog_Default">#D81B60</color>
+    <color name="colorAccent_Default">#43968b</color>
+    <color name="colorProgressDialog_Default">#003d34</color>
     <color name="colorWindowBackground_Default">#EDEDED</color>
     <color name="colorBackground_Default">#FFFFFF</color>
     <color name="colorText_Default">#000000</color>
@@ -81,30 +80,30 @@
     <color name="colorPrimaryLight_AmberYellow">#FFECB3</color>
     <color name="colorPrimaryDark_AmberYellow">#FFA000</color>
     <color name="colorAccent_AmberYellow">#FFEB3B</color>
-    <color name="colorProgressDialog_AmberYellow">#2a2a2a</color>
+    <color name="colorProgressDialog_AmberYellow">#FFA000</color>
     <color name="colorWindowBackground_AmberYellow">#EDEDED</color>
     <color name="colorBackground_AmberYellow">#FFFFFF</color>
     <color name="colorText_AmberYellow">#212121</color>
     <color name="colorTextLight_AmberYellow">#757575</color>
-    <color name="colorTextTheme_AmberYellow">#FFA000</color>
+    <color name="colorTextTheme_AmberYellow">#FFC107</color>
     <color name="colorSplash_AmberYellow">#FFA000</color>
-    <color name="colorIcon_AmberYellow">#FFC107</color>
+    <color name="colorIcon_AmberYellow">#FFA000</color>
 
     <!-- Theme Colors DeepBlue -->
-    <color name="colorPrimary_DeepBlue">#512da8</color>
-    <color name="colorPrimaryLight_DeepBlue">#8559da</color>
-    <color name="colorPrimaryDark_DeepBlue">#140078</color>
-    <color name="colorAccent_DeepBlue">#D81B60</color>
-    <color name="colorProgressDialog_DeepBlue">#2a2a2a</color>
+    <color name="colorPrimary_DeepBlue">#001853</color>
+    <color name="colorPrimaryLight_DeepBlue">#3a3e80</color>
+    <color name="colorPrimaryDark_DeepBlue">#00002b</color>
+    <color name="colorAccent_DeepBlue">#3a3e80</color>
+    <color name="colorProgressDialog_DeepBlue">#00002b</color>
     <color name="colorWindowBackground_DeepBlue">#EDEDED</color>
     <color name="colorBackground_DeepBlue">#FFFFFF</color>
     <color name="colorText_DeepBlue">#000000</color>
     <color name="colorTextLight_DeepBlue">#7e7e7e</color>
-    <color name="colorTextTheme_DeepBlue">#3B2DC2</color>
-    <color name="colorSplash_DeepBlue">#436db0</color>
-    <color name="colorIcon_DeepBlue">#140078</color>
+    <color name="colorTextTheme_DeepBlue">#001853</color>
+    <color name="colorSplash_DeepBlue">#00002b</color>
+    <color name="colorIcon_DeepBlue">#00002b</color>
 
-    <!-- Theme Colors Purple -->
+    <!-- Theme Colors Purple Not Used-->
     <color name="colorPrimary_Purple">#9C27B0</color>
     <color name="colorPrimaryLight_Purple">#E1BEE7</color>
     <color name="colorPrimaryDark_Purple">#7B1FA2</color>

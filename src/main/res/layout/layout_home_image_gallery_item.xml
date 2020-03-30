@@ -13,7 +13,7 @@
         android:id="@+id/card_gallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/card_corner_radius_2"
+        app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation"
         app:cardUseCompatPadding="true">
 
