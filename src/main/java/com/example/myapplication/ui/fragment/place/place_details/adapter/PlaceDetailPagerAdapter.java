@@ -46,12 +46,10 @@ public class PlaceDetailPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return getTitle(R.string.tab_title_about);
             case 1:
-                return getTitle(R.string.tab_title_places);
-            case 2:
                 return getTitle(R.string.tab_title_gallery);
-            case 3:
+            case 2:
                 return getTitle(R.string.tab_title_videos);
-            case 4:
+            case 3:
                 return getTitle(R.string.tab_title_events);
             default:
                 return null;

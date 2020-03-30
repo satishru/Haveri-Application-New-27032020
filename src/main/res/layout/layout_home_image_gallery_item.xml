@@ -19,9 +19,9 @@
 
         <RelativeLayout
             android:id="@+id/rl_content"
-            android:layout_width="@dimen/image_gallery_width"
+            android:layout_width="@dimen/home_image_gallery_width"
+            android:layout_height="@dimen/home_image_gallery_height"
             android:background="?android:attr/selectableItemBackground"
-            android:layout_height="@dimen/image_gallery_height"
             android:onClick="@{()->viewModel.onItemClick()}"
             android:orientation="vertical">
 

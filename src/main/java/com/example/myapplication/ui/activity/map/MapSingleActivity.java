@@ -42,6 +42,7 @@ public class MapSingleActivity extends BaseActivity<ActivityMapSingleBinding, Ma
     public static Intent newIntent(Activity activity, MapSingleObject mapSingleObject) {
         Intent intent = new Intent(activity, MapSingleActivity.class);
         intent.putExtra(AppConstants.INTENT_MAP_SINGLE, mapSingleObject);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 

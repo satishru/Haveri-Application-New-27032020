@@ -47,6 +47,7 @@ public class VideosExploreActivity extends BaseActivity<ActivityVideosExploreBin
         if (selectedVideo != null) {
             intent.putExtra(INTENT_SELECTED_VIDEO, selectedVideo);
         }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 

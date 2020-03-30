@@ -285,7 +285,7 @@
                 layout="@layout/layout_map"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/map_home_height"
-                android:layout_marginTop="@dimen/margin_10"/>
+                android:layout_marginTop="@dimen/margin_10" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_events"
@@ -394,6 +394,7 @@
                             android:id="@+id/tv_by_road"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:paddingLeft="@dimen/margin_16"
                             android:paddingRight="@dimen/margin_16"
                             android:text="@{viewModel.selectedLanguage == 0 ? viewModel.district.byRoadEn : viewModel.district.byRoadKn}"
@@ -429,6 +430,7 @@
                             android:id="@+id/tv_by_train"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:paddingLeft="@dimen/margin_16"
                             android:paddingRight="@dimen/margin_16"
                             android:text="@{viewModel.selectedLanguage == 0 ? viewModel.district.byTrainEn: viewModel.district.byTrainKn}"
@@ -465,6 +467,7 @@
                             android:id="@+id/tv_by_air"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_gravity="center"
                             android:paddingLeft="@dimen/margin_16"
                             android:paddingRight="@dimen/margin_16"
                             android:text="@{viewModel.selectedLanguage == 0 ? viewModel.district.byAirEn: viewModel.district.byAirKn}"

@@ -64,14 +64,14 @@ public class TalukDetailFragment extends BaseFragment<FragmentTalukDetailBinding
         return talukDetailFragmentViewModel;
     }
 
-    public void refreshFragment() {
-        loadData();
-    }
-
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fragmentTalukDetailBinding = getViewDataBinding();
+        loadData();
+    }
+
+    public void refreshFragment() {
         loadData();
     }
 

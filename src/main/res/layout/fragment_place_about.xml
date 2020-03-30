@@ -8,11 +8,11 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragmentViewModel" />
+            type="com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragmentViewModel" />
 
         <variable
-            name="talukObj"
-            type="com.example.myapplication.data.model.api.response.haveri_data.Taluk" />
+            name="placeObj"
+            type="com.example.myapplication.data.model.api.response.haveri_data.Place" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +34,145 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/margin_10"
                     android:layout_marginTop="@dimen/margin_12"
+                    android:layout_marginRight="@dimen/margin_10"
+                    app:cardBackgroundColor="?attr/colorBackground"
+                    app:cardCornerRadius="@dimen/card_corner_radius"
+                    app:cardElevation="@dimen/card_elevation">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:paddingRight="@dimen/margin_16"
+                            android:paddingBottom="@dimen/margin_16">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:alpha="0.6"
+                                android:contentDescription="@string/app_name"
+                                android:tint="?attr/colorIcon"
+                                app:srcCompat="@drawable/ic_time" />
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:id="@+id/tv_visit_time"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:hint="@string/hint_visit_time"
+                                android:paddingLeft="@dimen/margin_16"
+                                android:paddingRight="@dimen/margin_16"
+                                android:text="@{viewModel.getVisitingTime(placeObj)}"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_medium"
+                                app:customFont="@string/font_roboto_regular" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/divider_height"
+                            android:background="@color/color_divider" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{()-> viewModel.makePhoneCall(placeObj)}"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:paddingRight="@dimen/margin_16"
+                            android:paddingBottom="@dimen/margin_16">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:alpha="0.6"
+                                android:contentDescription="@string/app_name"
+                                android:tint="?attr/colorIcon"
+                                app:srcCompat="@drawable/ic_call" />
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:id="@+id/tv_contact_phone"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:hint="@string/hint_contact_phone"
+                                android:paddingLeft="@dimen/margin_16"
+                                android:paddingRight="@dimen/margin_16"
+                                android:text="@{viewModel.selectedLanguage == 0 ? placeObj.contactPhone : placeObj.contactPhone}"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_medium"
+                                app:customFont="@string/font_roboto_regular" />
+
+                        </LinearLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/divider_height"
+                            android:background="@color/color_divider" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{()-> viewModel.openWebLink(placeObj)}"
+                            android:orientation="horizontal"
+                            android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
+                            android:paddingRight="@dimen/margin_16"
+                            android:paddingBottom="@dimen/margin_16">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:alpha="0.6"
+                                android:contentDescription="@string/app_name"
+                                android:tint="?attr/colorIcon"
+                                app:srcCompat="@drawable/ic_link" />
+
+                            <com.example.myapplication.ui.custom.CustomTextView
+                                android:id="@+id/tv_web_link"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:hint="@string/hint_web_link"
+                                android:paddingLeft="@dimen/margin_16"
+                                android:paddingRight="@dimen/margin_16"
+                                android:text="@{viewModel.selectedLanguage == 0 ? placeObj.webLink : placeObj.webLink}"
+                                android:textColor="?attr/colorPrimaryText"
+                                android:textSize="@dimen/font_medium"
+                                app:customFont="@string/font_roboto_regular" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_10"
+                    android:layout_marginTop="@dimen/margin_10"
                     android:layout_marginRight="@dimen/margin_10"
                     android:layout_marginBottom="@dimen/margin_10"
                     app:cardBackgroundColor="?attr/colorBackground"
@@ -67,7 +206,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="@dimen/description_line_spacing"
                             android:padding="@dimen/margin_16"
-                            android:text="@{CommonUtils.toHtml(viewModel.selectedLanguage == 0 ? talukObj.descriptionEn : talukObj.descriptionKn)}"
+                            android:text="@{CommonUtils.toHtml(viewModel.selectedLanguage == 0 ? placeObj.descriptionEn : placeObj.descriptionKn)}"
                             android:textColor="?attr/colorPrimaryText"
                             android:textSize="@dimen/font_medium"
                             app:customFont="@string/font_roboto_regular" />
@@ -80,7 +219,7 @@
                     android:id="@+id/inc_layout_map"
                     layout="@layout/layout_map"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/map_taluk_height" />
+                    android:layout_height="@dimen/map_place_height" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
@@ -135,9 +274,10 @@
                                 android:id="@+id/tv_by_road"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:paddingLeft="@dimen/margin_16"
                                 android:paddingRight="@dimen/margin_16"
-                                android:text="@{viewModel.selectedLanguage == 0 ? talukObj.byRoadEn : talukObj.byRoadKn}"
+                                android:text="@{viewModel.selectedLanguage == 0 ? placeObj.byRoadEn : placeObj.byRoadKn}"
                                 android:textColor="?attr/colorPrimaryText"
                                 android:textSize="@dimen/font_medium"
                                 app:customFont="@string/font_roboto_regular" />
@@ -170,9 +310,10 @@
                                 android:id="@+id/tv_by_train"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:paddingLeft="@dimen/margin_16"
                                 android:paddingRight="@dimen/margin_16"
-                                android:text="@{viewModel.selectedLanguage == 0 ? talukObj.byTrainEn : talukObj.byTrainKn}"
+                                android:text="@{viewModel.selectedLanguage == 0 ? placeObj.byTrainEn : placeObj.byTrainKn}"
                                 android:textColor="?attr/colorPrimaryText"
                                 android:textSize="@dimen/font_medium"
                                 app:customFont="@string/font_roboto_regular" />
@@ -206,9 +347,10 @@
                                 android:id="@+id/tv_by_air"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center"
                                 android:paddingLeft="@dimen/margin_16"
                                 android:paddingRight="@dimen/margin_16"
-                                android:text="@{viewModel.selectedLanguage == 0 ? talukObj.byAirEn : talukObj.byAirKn}"
+                                android:text="@{viewModel.selectedLanguage == 0 ? placeObj.byAirEn : placeObj.byAirKn}"
                                 android:textColor="?attr/colorPrimaryText"
                                 android:textSize="@dimen/font_medium"
                                 app:customFont="@string/font_roboto_regular" />

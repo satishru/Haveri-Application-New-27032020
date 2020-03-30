@@ -3,9 +3,11 @@ package com.example.myapplication.ui.activity.place;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -17,7 +19,9 @@ import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.ActivityPlaceBinding;
 import com.example.myapplication.ui.base.BaseActivity;
+import com.example.myapplication.ui.fragment.place.place_details.PlaceDetailFragment;
 import com.example.myapplication.ui.fragment.place.place_list.PlaceListFragment;
+
 import java.util.List;
 
 import javax.inject.Inject;
@@ -35,7 +39,8 @@ import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_TALUK
 public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActivityViewModel>
         implements HasSupportFragmentInjector,
         iPlaceActivityContract.iPlaceActivityNavigator,
-        PlaceListFragment.PlaceListFragmentCallBack {
+        PlaceListFragment.PlaceListFragmentCallBack,
+        PlaceDetailFragment.PlaceDetailFragmentCallBack {
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -55,6 +60,16 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
         if (selectedPlace != null) {
             intent.putExtra(INTENT_SELECTED_PLACE, selectedPlace);
         }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent;
+    }
+
+    public static Intent newIntent(Activity activity, Place selectedPlace) {
+        Intent intent = new Intent(activity, PlaceActivity.class);
+        if (selectedPlace != null) {
+            intent.putExtra(INTENT_SELECTED_PLACE, selectedPlace);
+        }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 
@@ -94,6 +109,10 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
     private void getBundleData() {
         district = HaveriApplication.getInstance().getDistrict();
         if (getIntent().getExtras() != null) {
+            if (getIntent().hasExtra(INTENT_SELECTED_TALUK) && getIntent().getSerializableExtra(
+                    INTENT_SELECTED_TALUK) != null) {
+                selectedTaluk = (Taluk) getIntent().getSerializableExtra(INTENT_SELECTED_TALUK);
+            }
             if (getIntent().hasExtra(INTENT_SELECTED_PLACE) && getIntent().getSerializableExtra(
                     INTENT_SELECTED_PLACE) != null) {
                 selectedPlace = (Place) getIntent().getSerializableExtra(INTENT_SELECTED_PLACE);
@@ -103,7 +122,28 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
     }
 
     private void setUpPopUp() {
-
+        activityPlaceBinding.layoutToolbar.tvTitle.setOnClickListener(v -> {
+            List<Place> placeList = placeActivityViewModel.getPlaceList(district, selectedTaluk);
+            PopupMenu popup = new PopupMenu(PlaceActivity.this, v, Gravity.TOP);
+            for (int i = 0; i < placeList.size(); i++) {
+                popup.getMenu().add(i, i, i, (getLanguage() == languageEnglish() ?
+                        placeList.get(i).getPlaceNameEn() : placeList.get(i).getPlaceNameKn()));
+                if (selectedPlace.getPlaceId().equals(placeList.get(i).getPlaceId())) {
+                    popup.getMenu().setGroupCheckable(i, true, true);
+                    popup.getMenu().getItem(i).setChecked(true);
+                }
+            }
+            popup.setOnMenuItemClickListener(item -> {
+                selectedPlace = placeList.get(item.getOrder());
+                Fragment fragment = getSupportFragmentManager().findFragmentById(
+                        R.id.fragment_container);
+                if (fragment instanceof PlaceDetailFragment) {
+                    ((PlaceDetailFragment) fragment).refreshFragment();
+                }
+                return true;
+            });
+            popup.show();
+        });
     }
 
     /**
@@ -124,6 +164,8 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
 
     @Override
     public void loadPlaceDetailFragment() {
+        loadFragment(PlaceDetailFragment.newInstance(),
+                activityPlaceBinding.fragmentContainer.getId(), true, true);
     }
     /* iPlaceActivityContract.iPlaceActivityNavigator Ends */
 
@@ -164,5 +206,23 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
     @Override
     public void hidePopupDataTitle() {
         activityPlaceBinding.layoutToolbar.tvTitle.setVisibility(View.GONE);
+    }
+
+    /**
+     * PlaceDetailFragment.PlaceDetailFragmentCallBack
+     *
+     * @return Place
+     */
+    @Override
+    public Place getSelectedPlace() {
+        return selectedPlace;
+    }
+
+    @Override
+    public void setPopupDataTitle() {
+        activityPlaceBinding.layoutToolbar.tvTitle.setVisibility(View.VISIBLE);
+        activityPlaceBinding.layoutToolbar.tvTitle.setText(
+                getLanguage() == languageEnglish() ? selectedPlace.getPlaceNameEn() :
+                        selectedPlace.getPlaceNameKn());
     }
 }

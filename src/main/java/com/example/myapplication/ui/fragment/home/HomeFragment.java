@@ -260,7 +260,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
     @Override
     public void openPlaceActivity() {
         if (getBaseActivity() != null) {
-            startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), null, null));
+            startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), null));
         }
     }
 
@@ -333,7 +333,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      */
     @Override
     public void onPlaceClick(Place place) {
-
+        if (getBaseActivity() != null) {
+            startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), place));
+        }
     }
 
     /**

@@ -39,6 +39,7 @@ public class ImageViewActivity extends BaseActivity<ActivityImageViewBinding, Im
         Intent intent = new Intent(activity, ImageViewActivity.class);
         intent.putExtra(INTENT_IMAGE_LIST, (Serializable) imagesList);
         intent.putExtra(INTENT_SELECTED_IMAGE, selectedPosition);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 

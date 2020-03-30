@@ -58,6 +58,7 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
         if (selectedTaluk != null) {
             intent.putExtra(INTENT_SELECTED_TALUK, selectedTaluk);
         }
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
     }
 

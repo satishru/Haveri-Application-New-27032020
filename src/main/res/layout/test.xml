@@ -5,61 +5,129 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardCornerRadius="@dimen/card_corner_no_radius"
-        app:cardBackgroundColor="@android:color/transparent"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginTop="@dimen/margin_12"
+        android:layout_marginRight="@dimen/margin_10"
+        android:layout_marginBottom="@dimen/margin_12"
+        app:cardBackgroundColor="?attr/colorBackground"
+        app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation">
 
-
-        <RelativeLayout
-            android:id="@+id/rl_map"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/map_home_height">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:gravity="center"
-                android:layout_gravity="center"
+                android:background="?selectableItemBackground"
                 android:orientation="horizontal"
-                android:layout_marginEnd="@dimen/margin_10"
-                android:background="@drawable/rounded_background_semi_transparent"
-                android:visibility="visible">
+                android:paddingLeft="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:paddingRight="@dimen/margin_16">
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:alpha="0.5"
                     android:contentDescription="@string/app_name"
-                    android:paddingTop="@dimen/margin_8"
-                    android:paddingBottom="@dimen/margin_8"
-                    android:paddingStart="@dimen/margin_16"
-                    android:paddingEnd="@dimen/margin_16"
                     android:tint="?attr/colorIcon"
-                    android:src="@drawable/ic_map_direction" />
+                    app:srcCompat="@drawable/ic_time" />
 
-                <View
-                    android:layout_width="0.5dp"
-                    android:layout_height="match_parent"
-                    android:background="?attr/colorIcon"/>
-
-                <ImageView
-                    android:layout_width="wrap_content"
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_visit_time"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:contentDescription="@string/app_name"
-                    android:paddingTop="@dimen/margin_8"
-                    android:paddingBottom="@dimen/margin_8"
-                    android:paddingStart="@dimen/margin_16"
-                    android:paddingEnd="@dimen/margin_16"
-                    android:tint="?attr/colorIcon"
-                    android:src="@drawable/ic_map" />
+                    android:hint="@string/hint_visit_time"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingRight="@dimen/margin_16"
+                    android:textColor="?attr/colorPrimaryText"
+                    android:textSize="@dimen/font_medium"
+                    app:customFont="@string/font_roboto_regular" />
 
             </LinearLayout>
 
-        </RelativeLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_16"
+                android:background="@color/color_divider" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:paddingRight="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/app_name"
+                    android:tint="?attr/colorIcon"
+                    app:srcCompat="@drawable/ic_call" />
+
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_contact_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/hint_contact_phone"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingRight="@dimen/margin_16"
+                    android:textColor="?attr/colorPrimaryText"
+                    android:textSize="@dimen/font_medium"
+                    app:customFont="@string/font_roboto_regular" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/divider_height"
+                android:layout_marginTop="@dimen/margin_16"
+                android:background="@color/color_divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:paddingRight="@dimen/margin_16"
+                android:paddingBottom="@dimen/margin_16">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:alpha="0.5"
+                    android:contentDescription="@string/app_name"
+                    android:tint="?attr/colorIcon"
+                    app:srcCompat="@drawable/ic_link" />
+
+                <com.example.myapplication.ui.custom.CustomTextView
+                    android:id="@+id/tv_web_link"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/hint_web_link"
+                    android:paddingLeft="@dimen/margin_16"
+                    android:paddingRight="@dimen/margin_16"
+                    android:textColor="?attr/colorPrimaryText"
+                    android:textSize="@dimen/font_medium"
+                    app:customFont="@string/font_roboto_regular" />
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

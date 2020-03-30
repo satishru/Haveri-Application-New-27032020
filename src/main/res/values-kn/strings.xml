@@ -50,6 +50,7 @@
     <string name="label_explore_video">ವೀಡಿಯೊವನ್ನು ಅನ್ವೇಷಿಸಿ</string>
     <string name="label_how_to_reach_haveri">ಹಾವೇರಿಯನ್ನು ತಲುಪುವುದು ಹೇಗೆ</string>
     <string name="label_how_to_reach">ತಲುಪುವುದು ಹೇಗೆ</string>
+    <string name="label_description">ವಿವರಣೆ</string>
 
     <string name="label_select_language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
     <string name="label_language_english">English</string>
@@ -74,6 +75,10 @@
     <string name="tab_title_gallery">ಗ್ಯಾಲರಿ</string>
     <string name="tab_title_videos">ವೀಡಿಯೊಗಳು</string>
     <string name="tab_title_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
+
+    <string name="hint_visit_time">ಭೇಟಿ ಸಮಯ</string>
+    <string name="hint_contact_phone">ಸಂಪರ್ಕ ಸಂಖ್ಯೆ</string>
+    <string name="hint_web_link">ವೆಬ್ ಲಿಂಕ್</string>
 
     <!-- Error  -->
     <string name="error_db_load_data">ಡೇಟಾವನ್ನು ಲೋಡ್ ಮಾಡುವಲ್ಲಿ ಸಮಸ್ಯೆಯಾಗಿದೆ</string>

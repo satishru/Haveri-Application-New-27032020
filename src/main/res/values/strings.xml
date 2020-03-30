@@ -50,6 +50,7 @@
     <string name="label_explore_video">Explore Video\'s</string>
     <string name="label_how_to_reach_haveri">How to reach Haveri</string>
     <string name="label_how_to_reach">How to reach</string>
+    <string name="label_description">Description</string>
 
     <string name="label_select_language">Select Language</string>
     <string name="label_language_english">English</string>
@@ -75,6 +76,10 @@
     <string name="tab_title_gallery">Gallery</string>
     <string name="tab_title_videos">Videos</string>
     <string name="tab_title_events">Events</string>
+
+    <string name="hint_visit_time">Visiting Time</string>
+    <string name="hint_contact_phone">Contact Number</string>
+    <string name="hint_web_link">Web Link</string>
 
     <!-- Error  -->
     <string name="error_db_load_data">Problem in loading data</string>

@@ -25,7 +25,9 @@ public class SettingActivity extends BaseActivity<ActivitySettingBinding, Settin
     private Thread thread;
 
     public static Intent newIntent(Activity activity) {
-        return  new Intent(activity, SettingActivity.class);
+        Intent intent = new Intent(activity, SettingActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        return intent;
     }
 
     @Override

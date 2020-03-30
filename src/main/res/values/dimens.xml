@@ -27,8 +27,8 @@
     <dimen name="video_gallery_height">185dp</dimen>
     <dimen name="video_explore_height">220dp</dimen>
 
-    <dimen name="image_gallery_width">200dp</dimen>
-    <dimen name="image_gallery_height">100dp</dimen>
+    <dimen name="home_image_gallery_width">200dp</dimen>
+    <dimen name="home_image_gallery_height">120dp</dimen>
 
     <dimen name="home_event_image_width">180dp</dimen>
     <dimen name="home_event_image_height">120dp</dimen>

@@ -11,6 +11,8 @@ import com.example.myapplication.ui.activity.setting.SettingActivity;
 import com.example.myapplication.ui.activity.splash.SplashActivity;
 import com.example.myapplication.ui.activity.taluk.TalukActivity;
 import com.example.myapplication.ui.fragment.home.HomeFragmentProvider;
+import com.example.myapplication.ui.fragment.place.place_details.PlaceDetailFragmentProvider;
+import com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragmentProvider;
 import com.example.myapplication.ui.fragment.place.place_list.PlaceListFragmentProvider;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.TalukDetailFragmentProvider;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragmentProvider;
@@ -43,8 +45,8 @@ public abstract class ActivityBuilder {
     @ContributesAndroidInjector(modules = {
             TalukListFragmentProvider.class,
             TalukDetailFragmentProvider.class,
-            TalukPlacesFragmentProvider.class,
             TalukAboutFragmentProvider.class,
+            TalukPlacesFragmentProvider.class,
             TalukGalleryFragmentProvider.class,
             TalukVideosFragmentProvider.class,
             TalukEventFragmentProvider.class
@@ -64,7 +66,9 @@ public abstract class ActivityBuilder {
     abstract VideosExploreActivity bindVideosExploreActivity();
 
     @ContributesAndroidInjector(modules = {
-            PlaceListFragmentProvider.class
+            PlaceListFragmentProvider.class,
+            PlaceDetailFragmentProvider.class,
+            PlaceAboutFragmentProvider.class,
     })
     abstract PlaceActivity bindPlaceActivity();
 }
