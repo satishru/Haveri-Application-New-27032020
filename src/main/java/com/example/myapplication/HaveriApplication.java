@@ -1,7 +1,6 @@
 package com.example.myapplication;
 
 import android.app.Activity;
-import android.content.res.Configuration;
 import android.location.Location;
 
 import androidx.multidex.MultiDexApplication;
@@ -12,7 +11,6 @@ import com.bumptech.glide.Glide;
 import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.di.components.DaggerAppComponent;
 import com.example.myapplication.utils.AppLogger;
-import com.example.myapplication.utils.AppUtils;
 
 import javax.inject.Inject;
 

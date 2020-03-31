@@ -1,21 +1,19 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import androidx.databinding.ObservableField;
 
 import com.example.myapplication.data.model.api.response.haveri_data.Images;
 import com.example.myapplication.utils.Language;
 
-public class TalukImageGalleryAdapterViewModel {
+public class ImageGalleryAdapterViewModel {
     public ObservableField<String> imageUrl;
     public ObservableField<String> imageTitle;
 
     private int position;
-    private Images image;
-    private TalukImageGalleryAdapterViewModelListener mListener;
+    private ImageGalleryAdapterViewModelListener mListener;
 
-    TalukImageGalleryAdapterViewModel(int position, Images image, TalukImageGalleryAdapterViewModelListener mListener, int language) {
+    ImageGalleryAdapterViewModel(int position, Images image, ImageGalleryAdapterViewModelListener mListener, int language) {
         this.position  = position;
-        this.image     = image;
         this.mListener = mListener;
         imageUrl = new ObservableField<>(image.getImageUrl());
         imageTitle = new ObservableField<>(Language.EN.getValue() == language ? image.getImageTitleEn() : image.getImageTitleKn());
@@ -27,7 +25,7 @@ public class TalukImageGalleryAdapterViewModel {
         }
     }
 
-    public interface TalukImageGalleryAdapterViewModelListener {
+    public interface ImageGalleryAdapterViewModelListener {
         void onItemClick(int position);
     }
 }

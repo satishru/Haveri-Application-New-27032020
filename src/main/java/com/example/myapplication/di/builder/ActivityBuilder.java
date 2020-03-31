@@ -13,6 +13,7 @@ import com.example.myapplication.ui.activity.taluk.TalukActivity;
 import com.example.myapplication.ui.fragment.home.HomeFragmentProvider;
 import com.example.myapplication.ui.fragment.place.place_details.PlaceDetailFragmentProvider;
 import com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragmentProvider;
+import com.example.myapplication.ui.fragment.place.place_details.gallery.PlaceGalleryFragmentProvider;
 import com.example.myapplication.ui.fragment.place.place_list.PlaceListFragmentProvider;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.TalukDetailFragmentProvider;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragmentProvider;
@@ -69,6 +70,7 @@ public abstract class ActivityBuilder {
             PlaceListFragmentProvider.class,
             PlaceDetailFragmentProvider.class,
             PlaceAboutFragmentProvider.class,
+            PlaceGalleryFragmentProvider.class
     })
     abstract PlaceActivity bindPlaceActivity();
 }

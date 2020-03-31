@@ -2,7 +2,7 @@ package com.example.myapplication.ui.fragment.taluk.taluk_detail.places;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukPlaceAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
 
 import java.util.ArrayList;
 
@@ -12,8 +12,8 @@ import dagger.Provides;
 @Module
 public class TalukPlacesFragmentModule {
     @Provides
-    TalukPlaceAdapter provideTalukEventsAdapter() {
-        return new TalukPlaceAdapter(new ArrayList<>());
+    PlaceAdapter providePlaceAdapter() {
+        return new PlaceAdapter(new ArrayList<>());
     }
 
     @Provides

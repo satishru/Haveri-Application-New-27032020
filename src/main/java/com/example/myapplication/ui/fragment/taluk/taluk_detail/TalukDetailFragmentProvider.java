@@ -6,6 +6,6 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class TalukDetailFragmentProvider {
-    @ContributesAndroidInjector(modules = TalukDetailFragmentModule.class)
+    @ContributesAndroidInjector
     abstract TalukDetailFragment provideTalukDetailFragment();
 }

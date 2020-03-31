@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.places.TalukPlacesFragmentViewModel" />
+            type="com.example.myapplication.ui.fragment.place.place_details.gallery.PlaceGalleryFragmentViewModel" />
     </data>
 
     <LinearLayout
@@ -14,16 +15,14 @@
         android:layout_height="wrap_content">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_place_list"
+            android:id="@+id/rv_image_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingTop="@dimen/margin_10"
             android:paddingBottom="@dimen/margin_10"
-            android:paddingEnd="@dimen/margin_10"
-            android:paddingStart="@dimen/margin_10"
             android:clipToPadding="false"
-            app:adapter="@{viewModel.placeList}"
-            tools:listitem="@layout/layout_place_item" />
+            app:adapter="@{viewModel.imageList}"
+            tools:listitem="@layout/layout_image_gallery_item" />
 
     </LinearLayout>
 </layout>

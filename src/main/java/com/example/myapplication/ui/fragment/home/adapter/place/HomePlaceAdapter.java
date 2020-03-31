@@ -85,6 +85,7 @@ public class HomePlaceAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     place, getLanguage(homePlaceItemBinding), this);
             homePlaceItemBinding.setViewModel(viewModel);
             homePlaceItemBinding.executePendingBindings();
+            homePlaceItemBinding.cardContent.setOnClickListener(v -> onItemClick(place));
         }
 
         @Override

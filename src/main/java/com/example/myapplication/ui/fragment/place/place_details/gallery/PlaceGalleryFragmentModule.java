@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.gallery;
+package com.example.myapplication.ui.fragment.place.place_details.gallery;
 
 import androidx.recyclerview.widget.GridLayoutManager;
 
@@ -10,7 +10,7 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class TalukGalleryFragmentModule {
+public class PlaceGalleryFragmentModule {
 
     @Provides
     ImageGalleryAdapter provideImageGalleryAdapter() {
@@ -18,7 +18,7 @@ public class TalukGalleryFragmentModule {
     }
 
     @Provides
-    GridLayoutManager provideTalukGridLayoutManager(TalukGalleryFragment fragment) {
+    GridLayoutManager providePlaceGridLayoutManager(PlaceGalleryFragment fragment) {
         return new GridLayoutManager(fragment.getActivity(), 2, GridLayoutManager.VERTICAL, false);
     }
 }

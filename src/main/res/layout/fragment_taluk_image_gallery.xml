@@ -22,7 +22,7 @@
             android:paddingBottom="@dimen/margin_10"
             android:clipToPadding="false"
             app:adapter="@{viewModel.imageList}"
-            tools:listitem="@layout/layout_taluk_image_gallery_item" />
+            tools:listitem="@layout/layout_image_gallery_item" />
 
     </LinearLayout>
 </layout>

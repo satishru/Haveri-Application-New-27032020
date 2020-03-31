@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.place.place_list.adapter.PlaceListAdapterViewModel" />
+            type="com.example.myapplication.ui.fragment.common.adapter.PlaceListAdapterViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

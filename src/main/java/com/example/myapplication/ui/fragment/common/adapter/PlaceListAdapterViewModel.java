@@ -1,39 +1,44 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import androidx.databinding.ObservableField;
 
 import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
+import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.utils.CommonUtils;
 import com.example.myapplication.utils.Language;
 
-public class TalukPlaceAdapterViewModel {
+public class PlaceListAdapterViewModel {
+
     public ObservableField<String> placeName;
+    public ObservableField<String> talukName;
     public ObservableField<String> placeDescription;
     public ObservableField<String> imageUrl;
     public ObservableField<String> distanceInKm;
     public ObservableField<String> eventCount;
 
-    public int language;
-    public Place place;
-    private TalukPlaceAdapterViewModelListener mListener;
+    private Place place;
+    private PlaceListAdapterViewModelListener mListener;
 
-    TalukPlaceAdapterViewModel(Place place, int language, TalukPlaceAdapterViewModelListener listener) {
+    PlaceListAdapterViewModel(Place place, int language, PlaceListAdapterViewModelListener listener) {
         this.place = place;
         this.mListener = listener;
-        this.language = language;
         placeName = new ObservableField<>(
-                language == Language.EN.getValue() ? place.getPlaceNameEn() :
-                        place.getPlaceNameKn());
+                language == 0 ? place.getPlaceNameEn() : place.getPlaceNameKn());
         placeDescription = new ObservableField<>(
-                CommonUtils.toHtml(language == Language.EN.getValue() ? place.getDescriptionEn() :
-                        place.getDescriptionKn()));
+                language == 0 ? place.getDescriptionEn() : place.getDescriptionKn());
         imageUrl = new ObservableField<>(getImage());
         distanceInKm = new ObservableField<>(
                 CommonUtils.getDistance(place.getLatitude(), place.getLongitude(),
                         HaveriApplication.getInstance().getLocation()));
         eventCount = new ObservableField<>(getEventCountString());
+        Taluk taluk = CommonUtils.getTalukUsingPlace(place);
+        if(taluk != null) {
+            talukName = new ObservableField<>(
+                    language == Language.EN.getValue() ? taluk.getTalukNameEn() :
+                            taluk.getTalukNameKn());
+        }
     }
 
     private String getEventCountString() {
@@ -63,7 +68,7 @@ public class TalukPlaceAdapterViewModel {
         }
     }
 
-    public interface TalukPlaceAdapterViewModelListener {
+    public interface PlaceListAdapterViewModelListener {
         void onItemClick(Place place);
     }
 }

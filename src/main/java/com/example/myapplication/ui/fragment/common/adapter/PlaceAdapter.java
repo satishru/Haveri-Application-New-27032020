@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.place.place_list.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;

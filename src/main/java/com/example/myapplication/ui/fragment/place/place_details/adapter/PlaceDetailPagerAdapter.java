@@ -10,6 +10,7 @@ import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragment;
+import com.example.myapplication.ui.fragment.place.place_details.gallery.PlaceGalleryFragment;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -31,7 +32,7 @@ public class PlaceDetailPagerAdapter extends FragmentPagerAdapter {
             case 0:
                 return PlaceAboutFragment.newInstance(selectedPlace);
             case 2:
-                return PlaceAboutFragment.newInstance(selectedPlace);
+                return PlaceGalleryFragment.newInstance(selectedPlace);
             case 3:
                 return PlaceAboutFragment.newInstance(selectedPlace);
             case 4:

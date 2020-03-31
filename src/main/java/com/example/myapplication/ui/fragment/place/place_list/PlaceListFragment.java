@@ -15,7 +15,7 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.databinding.FragmentPlaceListBinding;
 import com.example.myapplication.ui.base.BaseFragment;
-import com.example.myapplication.ui.fragment.place.place_list.adapter.PlaceAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
 
 import org.jetbrains.annotations.NotNull;
 

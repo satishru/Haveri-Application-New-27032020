@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,31 +8,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.data.model.api.response.haveri_data.Images;
-import com.example.myapplication.databinding.LayoutTalukImageGalleryItemBinding;
+import com.example.myapplication.databinding.LayoutImageGalleryItemBinding;
 import com.example.myapplication.ui.base.BaseViewHolder;
 import com.example.myapplication.utils.AppConstants;
 import com.example.myapplication.utils.CommonUtils;
 
 import java.util.List;
 
-public class TalukImageGalleryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class ImageGalleryAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private List<Images> imagesList;
-    private TalukImageGalleryAdapterListener talukImageGalleryAdapterListener;
+    private ImageGalleryAdapterListener talukImageGalleryAdapterListener;
 
-    public interface TalukImageGalleryAdapterListener {
+    public interface ImageGalleryAdapterListener {
         void onItemClick(int position);
     }
 
-    public TalukImageGalleryAdapter(List<Images> imagesList) {
+    public ImageGalleryAdapter(List<Images> imagesList) {
         this.imagesList = imagesList;
     }
 
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutTalukImageGalleryItemBinding imageGalleryItemBinding =
-                LayoutTalukImageGalleryItemBinding.inflate(LayoutInflater.from(parent.getContext()),
+        LayoutImageGalleryItemBinding imageGalleryItemBinding =
+                LayoutImageGalleryItemBinding.inflate(LayoutInflater.from(parent.getContext()),
                         parent, false);
         return new TalukImageGalleryViewHolder(imageGalleryItemBinding);
     }
@@ -50,7 +50,7 @@ public class TalukImageGalleryAdapter extends RecyclerView.Adapter<BaseViewHolde
     @Override
     public void onViewRecycled(@NonNull BaseViewHolder holder) {
         Glide.clear(
-                ((TalukImageGalleryViewHolder) holder).layoutTalukImageGalleryItemBinding.ivImage);
+                ((TalukImageGalleryViewHolder) holder).layoutImageGalleryItemBinding.ivImage);
     }
 
     public void addItems(List<Images> imagesList) {
@@ -64,29 +64,29 @@ public class TalukImageGalleryAdapter extends RecyclerView.Adapter<BaseViewHolde
         imagesList.clear();
     }
 
-    public void setListener(TalukImageGalleryAdapterListener talukImageGalleryAdapterListener) {
+    public void setListener(ImageGalleryAdapterListener talukImageGalleryAdapterListener) {
         this.talukImageGalleryAdapterListener = talukImageGalleryAdapterListener;
     }
 
     public class TalukImageGalleryViewHolder extends BaseViewHolder implements
-            TalukImageGalleryAdapterViewModel.TalukImageGalleryAdapterViewModelListener {
+            ImageGalleryAdapterViewModel.ImageGalleryAdapterViewModelListener {
 
-        LayoutTalukImageGalleryItemBinding layoutTalukImageGalleryItemBinding;
+        LayoutImageGalleryItemBinding layoutImageGalleryItemBinding;
 
-        TalukImageGalleryViewHolder(LayoutTalukImageGalleryItemBinding layoutTalukImageGalleryItemBinding) {
-            super(layoutTalukImageGalleryItemBinding.getRoot());
-            this.layoutTalukImageGalleryItemBinding = layoutTalukImageGalleryItemBinding;
+        TalukImageGalleryViewHolder(LayoutImageGalleryItemBinding layoutImageGalleryItemBinding) {
+            super(layoutImageGalleryItemBinding.getRoot());
+            this.layoutImageGalleryItemBinding = layoutImageGalleryItemBinding;
         }
 
         @Override
         public void onBind(int position) {
             final Images image = imagesList.get(position);
-            TalukImageGalleryAdapterViewModel viewModel = new TalukImageGalleryAdapterViewModel(
+            ImageGalleryAdapterViewModel viewModel = new ImageGalleryAdapterViewModel(
                     position,
                     image, this,
-                    getLanguage(layoutTalukImageGalleryItemBinding));
-            layoutTalukImageGalleryItemBinding.setViewModel(viewModel);
-            layoutTalukImageGalleryItemBinding.executePendingBindings();
+                    getLanguage(layoutImageGalleryItemBinding));
+            layoutImageGalleryItemBinding.setViewModel(viewModel);
+            layoutImageGalleryItemBinding.executePendingBindings();
         }
 
         @Override

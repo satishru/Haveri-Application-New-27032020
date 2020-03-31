@@ -23,10 +23,9 @@ import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapte
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
-import com.example.myapplication.ui.fragment.place.place_list.adapter.PlaceAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukEventsAdapter;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukImageGalleryAdapter;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukPlaceAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_list.adapter.TalukListAdapter;
 
 import java.util.List;
@@ -62,8 +61,8 @@ public final class BindingUtils {
                 adapter.clearItems();
                 adapter.addItems(imagesList);
             }
-        } else if (recyclerView.getAdapter() instanceof TalukImageGalleryAdapter) {
-            TalukImageGalleryAdapter adapter = (TalukImageGalleryAdapter) recyclerView.getAdapter();
+        } else if (recyclerView.getAdapter() instanceof ImageGalleryAdapter) {
+            ImageGalleryAdapter adapter = (ImageGalleryAdapter) recyclerView.getAdapter();
             if (adapter != null) {
                 adapter.clearItems();
                 adapter.addItems(imagesList);
@@ -86,12 +85,6 @@ public final class BindingUtils {
     public static void addPlaceItems(RecyclerView recyclerView, List<Place> placeList) {
         if (recyclerView.getAdapter() instanceof HomePlaceAdapter) {
             HomePlaceAdapter adapter = (HomePlaceAdapter) recyclerView.getAdapter();
-            if (adapter != null) {
-                adapter.clearItems();
-                adapter.addItems(placeList);
-            }
-        } else if (recyclerView.getAdapter() instanceof TalukPlaceAdapter) {
-            TalukPlaceAdapter adapter = (TalukPlaceAdapter) recyclerView.getAdapter();
             if (adapter != null) {
                 adapter.clearItems();
                 adapter.addItems(placeList);

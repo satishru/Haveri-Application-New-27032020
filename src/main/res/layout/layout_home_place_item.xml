@@ -11,11 +11,11 @@
             type="com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapterViewModel" />
     </data>
 
+    <!-- android:onClick="@{()->viewModel.onItemClick()}" -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_content"
         android:layout_width="@dimen/home_place_image_width"
-        android:layout_height="wrap_content"
-        android:onClick="@{()->viewModel.onItemClick()}"
+        android:layout_height="@dimen/home_place_image_height"
         app:cardBackgroundColor="?attr/colorBackground"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation"

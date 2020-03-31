@@ -5,6 +5,6 @@ import dagger.android.ContributesAndroidInjector;
 
 @Module
 public abstract class PlaceDetailFragmentProvider {
-    @ContributesAndroidInjector(modules = PlaceDetailFragmentModule.class)
+    @ContributesAndroidInjector
     abstract PlaceDetailFragment providePlaceDetailFragment();
 }

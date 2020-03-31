@@ -85,6 +85,7 @@ public class HomeTalukAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             layoutHomeTalukItemBinding.executePendingBindings();
             setAnimation(position, layoutHomeTalukItemBinding.cardContent, false,
                     R.anim.slide_from_right);
+            layoutHomeTalukItemBinding.cardContent.setOnClickListener(v -> onItemClick(taluk));
         }
 
         @Override

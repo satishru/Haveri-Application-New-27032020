@@ -14,7 +14,7 @@ import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.FragmentTalukImageGalleryBinding;
 import com.example.myapplication.ui.activity.media.image.ImageViewActivity;
 import com.example.myapplication.ui.base.BaseFragment;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukImageGalleryAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapter;
 import com.example.myapplication.utils.AppConstants;
 
 import javax.inject.Inject;
@@ -22,10 +22,10 @@ import javax.inject.Provider;
 
 public class TalukGalleryFragment extends BaseFragment<FragmentTalukImageGalleryBinding, TalukGalleryFragmentViewModel> implements
         iTalukGalleryFragmentContract.iTalukGalleryFragmentNavigator,
-        TalukImageGalleryAdapter.TalukImageGalleryAdapterListener {
+        ImageGalleryAdapter.ImageGalleryAdapterListener {
 
     @Inject
-    TalukImageGalleryAdapter talukImageGalleryAdapter;
+    ImageGalleryAdapter imageGalleryAdapter;
 
     @Inject
     Provider<GridLayoutManager> gridLayoutManager;
@@ -80,16 +80,16 @@ public class TalukGalleryFragment extends BaseFragment<FragmentTalukImageGallery
     }
 
     private void setImageGalleryAdapter() {
-        talukImageGalleryAdapter.setListener(this);
+        imageGalleryAdapter.setListener(this);
         fragmentTalukImageGalleryBinding.rvImageList.setLayoutManager(gridLayoutManager.get());
         fragmentTalukImageGalleryBinding.rvImageList.setItemAnimator(new DefaultItemAnimator());
         //fragmentTalukImageGalleryBinding.rvImageList.addItemDecoration(getHorizontalDivider());
-        fragmentTalukImageGalleryBinding.rvImageList.setAdapter(talukImageGalleryAdapter);
+        fragmentTalukImageGalleryBinding.rvImageList.setAdapter(imageGalleryAdapter);
         fragmentTalukImageGalleryBinding.rvImageList.setNestedScrollingEnabled(true);
     }
 
     /**
-     * TalukImageGalleryAdapter.TalukImageGalleryAdapterListener
+     * ImageGalleryAdapter.ImageGalleryAdapterListener
      *
      * @param position Images position
      */

@@ -14,8 +14,9 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.FragmentTalukPlacesBinding;
+import com.example.myapplication.ui.activity.place.PlaceActivity;
 import com.example.myapplication.ui.base.BaseFragment;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukPlaceAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
 import com.example.myapplication.utils.AppConstants;
 
 import javax.inject.Inject;
@@ -23,10 +24,10 @@ import javax.inject.Provider;
 
 public class TalukPlacesFragment extends BaseFragment<FragmentTalukPlacesBinding, TalukPlacesFragmentViewModel>
         implements iTalukPlacesFragmentContract.iTalukPlacesFragmentNavigator,
-        TalukPlaceAdapter.TalukPlaceAdapterListener {
+        PlaceAdapter.PlaceAdapterListener {
 
     @Inject
-    TalukPlaceAdapter talukPlaceAdapter;
+    PlaceAdapter placeAdapter;
     @Inject
     Provider<LinearLayoutManager> layoutManager;
     private FragmentTalukPlacesBinding fragmentTalukPlacesBinding;
@@ -77,20 +78,23 @@ public class TalukPlacesFragment extends BaseFragment<FragmentTalukPlacesBinding
     }
 
     private void setPlaceAdapter() {
-        talukPlaceAdapter.setListener(this);
+        placeAdapter.setListener(this);
         fragmentTalukPlacesBinding.rvPlaceList.setLayoutManager(layoutManager.get());
         fragmentTalukPlacesBinding.rvPlaceList.setItemAnimator(new DefaultItemAnimator());
         fragmentTalukPlacesBinding.rvPlaceList.addItemDecoration(getVerticalDivider());
-        fragmentTalukPlacesBinding.rvPlaceList.setAdapter(talukPlaceAdapter);
+        fragmentTalukPlacesBinding.rvPlaceList.setAdapter(placeAdapter);
         fragmentTalukPlacesBinding.rvPlaceList.setNestedScrollingEnabled(true);
     }
 
     /**
-     * TalukPlaceAdapter.TalukPlaceAdapterListener
+     * PlaceAdapter.PlaceAdapterListener
      *
      * @param place Place
      */
     @Override
-    public void onPlaceClick(Place place) {
+    public void onItemClick(Place place) {
+        if (getBaseActivity() != null) {
+            startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), selectedTaluk, place));
+        }
     }
 }

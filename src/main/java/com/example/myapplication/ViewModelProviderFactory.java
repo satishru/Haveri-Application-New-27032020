@@ -16,6 +16,7 @@ import com.example.myapplication.ui.activity.taluk.TalukActivityViewModel;
 import com.example.myapplication.ui.fragment.home.HomeFragmentViewModel;
 import com.example.myapplication.ui.fragment.place.place_details.PlaceDetailFragmentViewModel;
 import com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragmentViewModel;
+import com.example.myapplication.ui.fragment.place.place_details.gallery.PlaceGalleryFragmentViewModel;
 import com.example.myapplication.ui.fragment.place.place_list.PlaceListFragmentViewModel;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.TalukDetailFragmentViewModel;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragmentViewModel;
@@ -116,6 +117,9 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         }
         else if (modelClass.isAssignableFrom(PlaceAboutFragmentViewModel.class)) {
             return (T) new PlaceAboutFragmentViewModel(dataManager, schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(PlaceGalleryFragmentViewModel.class)) {
+            return (T) new PlaceGalleryFragmentViewModel(dataManager, schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
