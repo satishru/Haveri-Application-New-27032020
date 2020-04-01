@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.BR;
-import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
@@ -107,7 +106,7 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
     }
 
     private void getBundleData() {
-        district = HaveriApplication.getInstance().getDistrict();
+        district = getDistrictData();
         if (getIntent().getExtras() != null) {
             if (getIntent().hasExtra(INTENT_SELECTED_TALUK) && getIntent().getSerializableExtra(
                     INTENT_SELECTED_TALUK) != null) {
@@ -158,14 +157,18 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
 
     @Override
     public void loadPlaceListFragment() {
-        loadFragment(PlaceListFragment.newInstance(),
-                activityPlaceBinding.fragmentContainer.getId(), true, true);
+        if (isDistrictNotNull()) {
+            loadFragment(PlaceListFragment.newInstance(),
+                    activityPlaceBinding.fragmentContainer.getId(), true, true);
+        }
     }
 
     @Override
     public void loadPlaceDetailFragment() {
-        loadFragment(PlaceDetailFragment.newInstance(),
-                activityPlaceBinding.fragmentContainer.getId(), true, true);
+        if (isDistrictNotNull()) {
+            loadFragment(PlaceDetailFragment.newInstance(),
+                    activityPlaceBinding.fragmentContainer.getId(), true, true);
+        }
     }
     /* iPlaceActivityContract.iPlaceActivityNavigator Ends */
 
@@ -199,8 +202,10 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
 
     @Override
     public void openPlaceDetailFragment(Place place) {
-        selectedPlace = place;
-        loadPlaceDetailFragment();
+        if(isDistrictNotNull()) {
+            selectedPlace = place;
+            loadPlaceDetailFragment();
+        }
     }
 
     @Override

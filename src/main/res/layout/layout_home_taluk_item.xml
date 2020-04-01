@@ -9,7 +9,7 @@
             type="com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapterViewModel" />
     </data>
 
-    <!-- android:onClick="@{()->viewModel.onItemClick()}" -->
+    <!--  -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_content"
         android:layout_width="@dimen/taluk_image_width"
@@ -19,11 +19,11 @@
         app:cardElevation="@dimen/card_elevation"
         app:cardCornerRadius="@dimen/card_corner_radius">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:orientation="vertical">
+            android:onClick="@{()->viewModel.onItemClick()}"
+            android:background="?android:attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv_taluk"
@@ -41,6 +41,7 @@
                 android:layout_marginLeft="@dimen/margin_10"
                 android:layout_marginTop="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_6"
+                android:layout_below="@+id/iv_taluk"
                 android:orientation="vertical">
 
                 <com.example.myapplication.ui.custom.CustomTextView
@@ -67,6 +68,6 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>

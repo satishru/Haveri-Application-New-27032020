@@ -11,21 +11,20 @@
             type="com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapterViewModel" />
     </data>
 
-    <!-- android:onClick="@{()->viewModel.onItemClick()}" -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_content"
         android:layout_width="@dimen/home_place_image_width"
-        android:layout_height="@dimen/home_place_image_height"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="?attr/colorBackground"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardElevation="@dimen/card_elevation"
         app:cardUseCompatPadding="true">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:orientation="vertical">
+            android:onClick="@{()->viewModel.onItemClick()}"
+            android:background="?android:attr/selectableItemBackground">
 
             <com.example.myapplication.ui.custom.SquareImageView
                 android:id="@+id/iv_place"
@@ -43,7 +42,8 @@
                 android:layout_marginTop="@dimen/margin_10"
                 android:layout_marginRight="@dimen/margin_10"
                 android:layout_marginBottom="@dimen/margin_6"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:layout_below="@+id/iv_place">
 
                 <com.example.myapplication.ui.custom.CustomTextView
                     android:id="@+id/tv_place_name"
@@ -81,6 +81,6 @@
 
             </LinearLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
     </androidx.cardview.widget.CardView>
 </layout>

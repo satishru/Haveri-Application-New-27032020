@@ -6,7 +6,6 @@ import com.example.myapplication.data.local.db.DbHelper;
 import com.example.myapplication.data.local.prefs.PreferencesHelper;
 import com.example.myapplication.data.model.api.request.haveri_data.HaveriDataRequest;
 import com.example.myapplication.data.model.api.response.BaseResponse;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.remote.ApiHeader;
 import com.example.myapplication.data.remote.ApiHelper;
 import com.google.gson.Gson;
@@ -20,7 +19,7 @@ import io.reactivex.Single;
 public class AppDataManager extends PreAppDataManager {
 
     @Inject
-    public AppDataManager(Context context, DbHelper dbHelper,
+    AppDataManager(Context context, DbHelper dbHelper,
                           PreferencesHelper preferencesHelper, ApiHelper apiHelper, Gson gson) {
         super(context,dbHelper,preferencesHelper,apiHelper,gson);
     }
@@ -37,7 +36,5 @@ public class AppDataManager extends PreAppDataManager {
     public Single<BaseResponse> doCallHaveriDataApiCall(HaveriDataRequest request) {
         return mApiHelper.doCallHaveriDataApiCall(request);
     }
-
-    /* ApiHelper Call Backs Ends
-     */
+    /* ApiHelper Call Backs Ends */
 }

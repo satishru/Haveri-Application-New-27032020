@@ -8,7 +8,6 @@ import androidx.fragment.app.FragmentPagerAdapter;
 
 import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.about.TalukAboutFragment;
 import com.example.myapplication.ui.fragment.taluk.taluk_detail.events.TalukEventFragment;
@@ -22,12 +21,10 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
 
     public final static int TAB_COUNT = 5;
     private final Taluk selectedTaluk;
-    private final District district;
 
-    public TalukDetailPagerAdapter(@NonNull FragmentManager fm, int behavior, Taluk selectedTaluk, District district) {
+    public TalukDetailPagerAdapter(@NonNull FragmentManager fm, int behavior, Taluk selectedTaluk) {
         super(fm, behavior);
         this.selectedTaluk = selectedTaluk;
-        this.district = district;
     }
 
     @NotNull
@@ -44,7 +41,7 @@ public class TalukDetailPagerAdapter extends FragmentPagerAdapter {
             case 3:
                 return TalukVideosFragment.newInstance(selectedTaluk);
             case 4:
-                return TalukEventFragment.newInstance(selectedTaluk, district);
+                return TalukEventFragment.newInstance(selectedTaluk);
         }
     }
 

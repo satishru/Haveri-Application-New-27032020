@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.events;
+package com.example.myapplication.ui.fragment.place.place_details.events;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -10,15 +10,14 @@ import dagger.Module;
 import dagger.Provides;
 
 @Module
-public class TalukEventFragmentModule {
-
+public class PlaceEventFragmentModule {
     @Provides
     EventsAdapter provideEventsAdapter() {
         return new EventsAdapter(new ArrayList<>());
     }
 
     @Provides
-    LinearLayoutManager provideLinearLayoutManager(TalukEventFragment fragment) {
+    LinearLayoutManager provideLinearLayoutManager(PlaceEventFragment fragment) {
         return new LinearLayoutManager(fragment.getActivity());
     }
 }

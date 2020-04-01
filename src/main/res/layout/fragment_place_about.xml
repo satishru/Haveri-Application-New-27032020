@@ -47,7 +47,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="?selectableItemBackground"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:orientation="horizontal"
@@ -88,7 +88,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="?selectableItemBackground"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="@{()-> viewModel.makePhoneCall(placeObj)}"
@@ -130,7 +130,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="?selectableItemBackground"
+                            android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
                             android:onClick="@{()-> viewModel.openWebLink(placeObj)}"
@@ -257,10 +257,14 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:orientation="horizontal"
                             android:paddingLeft="@dimen/margin_16"
                             android:paddingTop="@dimen/margin_16"
-                            android:paddingRight="@dimen/margin_16">
+                            android:paddingRight="@dimen/margin_16"
+                            android:paddingBottom="@dimen/margin_16">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -287,16 +291,19 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/divider_height"
-                            android:layout_marginTop="@dimen/margin_16"
-                            android:layout_marginBottom="@dimen/margin_16"
                             android:background="@color/color_divider" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:orientation="horizontal"
                             android:paddingLeft="@dimen/margin_16"
-                            android:paddingRight="@dimen/margin_16">
+                            android:paddingTop="@dimen/margin_16"
+                            android:paddingRight="@dimen/margin_16"
+                            android:paddingBottom="@dimen/margin_16">
 
                             <ImageView
                                 android:layout_width="wrap_content"
@@ -323,15 +330,17 @@
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/divider_height"
-                            android:layout_marginTop="@dimen/margin_16"
-                            android:layout_marginBottom="@dimen/margin_16"
                             android:background="@color/color_divider" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="?attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
                             android:orientation="horizontal"
                             android:paddingLeft="@dimen/margin_16"
+                            android:paddingTop="@dimen/margin_16"
                             android:paddingRight="@dimen/margin_16"
                             android:paddingBottom="@dimen/margin_16">
 

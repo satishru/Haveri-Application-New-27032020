@@ -10,13 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.myapplication.BR;
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Event;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.FragmentTalukEventBinding;
 import com.example.myapplication.ui.activity.event.EventDetailActivity;
 import com.example.myapplication.ui.base.BaseFragment;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukEventsAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.EventsAdapter;
 import com.example.myapplication.utils.AppConstants;
 
 import javax.inject.Inject;
@@ -24,10 +23,10 @@ import javax.inject.Provider;
 
 public class TalukEventFragment extends BaseFragment<FragmentTalukEventBinding, TalukEventFragmentViewModel> implements
         iTalukEventFragmentContract.iTalukEventFragmentNavigator,
-        TalukEventsAdapter.TalukEventsAdapterListener {
+        EventsAdapter.EventsAdapterListener {
 
     @Inject
-    TalukEventsAdapter talukEventsAdapter;
+    EventsAdapter eventsAdapter;
 
     @Inject
     Provider<LinearLayoutManager> layoutManager;
@@ -35,13 +34,11 @@ public class TalukEventFragment extends BaseFragment<FragmentTalukEventBinding, 
     private FragmentTalukEventBinding fragmentTalukEventBinding;
     private TalukEventFragmentViewModel talukEventFragmentViewModel;
     private Taluk selectedTaluk;
-    private District district;
 
-    public static TalukEventFragment newInstance(Taluk selectedTaluk, District district) {
+    public static TalukEventFragment newInstance(Taluk selectedTaluk) {
         Bundle args = new Bundle();
         TalukEventFragment fragment = new TalukEventFragment();
         args.putSerializable(AppConstants.INTENT_SELECTED_TALUK, selectedTaluk);
-        args.putSerializable(AppConstants.INTENT_HAVERI_DATA, district);
         fragment.setArguments(args);
         return fragment;
     }
@@ -81,25 +78,20 @@ public class TalukEventFragment extends BaseFragment<FragmentTalukEventBinding, 
             selectedTaluk = (Taluk) getArguments().getSerializable(
                     AppConstants.INTENT_SELECTED_TALUK);
         }
-        if (getArguments() != null && getArguments().containsKey(
-                AppConstants.INTENT_HAVERI_DATA)) {
-            district = (District) getArguments().getSerializable(
-                    AppConstants.INTENT_HAVERI_DATA);
-        }
     }
 
     private void setEventAdapter() {
-        talukEventsAdapter.setListener(this);
+        eventsAdapter.setListener(this);
         fragmentTalukEventBinding.rvEventList.setLayoutManager(layoutManager.get());
         fragmentTalukEventBinding.rvEventList.setItemAnimator(new DefaultItemAnimator());
         fragmentTalukEventBinding.rvEventList.addItemDecoration(getHorizontalDivider());
-        fragmentTalukEventBinding.rvEventList.setAdapter(talukEventsAdapter);
+        fragmentTalukEventBinding.rvEventList.setAdapter(eventsAdapter);
         fragmentTalukEventBinding.rvEventList.setNestedScrollingEnabled(true);
     }
 
     @Override
     public void onEventClick(Event event) {
         startActivityWithAnimation(
-                EventDetailActivity.newIntent(getBaseActivity(), district, event));
+                EventDetailActivity.newIntent(getBaseActivity(), event));
     }
 }

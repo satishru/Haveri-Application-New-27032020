@@ -10,11 +10,9 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:clickable="true"
-        android:focusable="true"
-        android:onClick="@{()->viewModel.onVideoClick()}"
         app:cardBackgroundColor="?attr/colorBackground"
         app:cardCornerRadius="@dimen/card_corner_radius"
         app:cardUseCompatPadding="true">
@@ -23,7 +21,8 @@
             android:id="@+id/rl_content"
             android:layout_width="match_parent"
             android:layout_height="@dimen/video_gallery_height"
-            android:orientation="vertical">
+            android:onClick="@{()->viewModel.onVideoClick()}"
+            android:background="?attr/selectableItemBackground">
 
             <ImageView
                 android:id="@+id/iv_video_thumb"

@@ -115,7 +115,7 @@ public class HomeImageGalleryAdapter extends RecyclerView.Adapter<BaseViewHolder
                         viewModel.getRemainingCount(totalImagesList.size(), imagesList.size()));
             }
             layoutHomeImageGalleryItemBinding.executePendingBindings();
-            setAnimation(position, layoutHomeImageGalleryItemBinding.rlContent, false,
+            setAnimation(position, layoutHomeImageGalleryItemBinding.cardContent, false,
                     R.anim.slide_from_right);
         }
 

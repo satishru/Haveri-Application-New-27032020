@@ -13,18 +13,18 @@ import java.util.List;
 import io.reactivex.Observable;
 
 public abstract class PreAppDataManager implements DataManager {
-    protected final ApiHelper mApiHelper;
+    final ApiHelper mApiHelper;
 
-    protected final Context mContext;
+    private final Context mContext;
 
-    protected final DbHelper mDbHelper;
+    private final DbHelper mDbHelper;
 
-    protected final Gson mGson;
+    private final Gson mGson;
 
-    protected final PreferencesHelper mPreferencesHelper;
+    private final PreferencesHelper mPreferencesHelper;
 
-    public PreAppDataManager(Context context, DbHelper dbHelper,
-                             PreferencesHelper preferencesHelper, ApiHelper apiHelper, Gson gson) {
+    PreAppDataManager(Context context, DbHelper dbHelper,
+                      PreferencesHelper preferencesHelper, ApiHelper apiHelper, Gson gson) {
         mContext = context;
         mDbHelper = dbHelper;
         mPreferencesHelper = preferencesHelper;
@@ -35,7 +35,7 @@ public abstract class PreAppDataManager implements DataManager {
     /**
      * DbHelper Call Backs
      *
-     * @return
+     * @return Observable<List < HaveriData>>
      */
     @Override
     public Observable<List<HaveriData>> getHaveriData() {
@@ -56,9 +56,7 @@ public abstract class PreAppDataManager implements DataManager {
     public Observable<Boolean> insertHaveriData(HaveriData data) {
         return mDbHelper.insertHaveriData(data);
     }
-    /**
-     * DbHelper Call Backs Ends
-     */
+    /* DbHelper Call Backs Ends */
 
     /**
      * DataManager Call Backs
@@ -85,9 +83,7 @@ public abstract class PreAppDataManager implements DataManager {
         setCurrentUserId(userId);
         updateApiHeader(userId, accessToken);
     }
-    /**
-     * DataManager Call Backs Ends
-     */
+    /* DataManager Call Backs Ends */
 
     /**
      * PreferencesHelper Call Backs
@@ -142,7 +138,5 @@ public abstract class PreAppDataManager implements DataManager {
     public int getSelectedTheme() {
         return mPreferencesHelper.getSelectedTheme();
     }
-    /**
-     * PreferencesHelper Call Backs Ends
-     */
+    /* PreferencesHelper Call Backs Ends */
 }

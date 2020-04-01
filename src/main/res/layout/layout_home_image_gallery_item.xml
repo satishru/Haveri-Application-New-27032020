@@ -10,7 +10,7 @@
     </data>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_gallery"
+        android:id="@+id/card_content"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:cardCornerRadius="@dimen/card_corner_radius"

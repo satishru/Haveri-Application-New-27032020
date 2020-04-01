@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -7,23 +7,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.myapplication.data.model.api.response.haveri_data.Event;
-import com.example.myapplication.databinding.LayoutTalukEventItemBinding;
+import com.example.myapplication.databinding.LayoutEventItemBinding;
 import com.example.myapplication.ui.base.BaseViewHolder;
 import com.example.myapplication.utils.AppConstants;
 import com.example.myapplication.utils.CommonUtils;
 
 import java.util.List;
 
-public class TalukEventsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class EventsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
     private List<Event> eventList;
-    private TalukEventsAdapterListener talukEventsAdapterListener;
+    private EventsAdapterListener eventsAdapterListener;
 
-    public TalukEventsAdapter(List<Event> eventList) {
+    public EventsAdapter(List<Event> eventList) {
         this.eventList = eventList;
     }
 
-    public interface TalukEventsAdapterListener {
+    public interface EventsAdapterListener {
         void onEventClick(Event event);
     }
 
@@ -39,16 +39,16 @@ public class TalukEventsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         eventList.clear();
     }
 
-    public void setListener(TalukEventsAdapterListener talukEventsAdapterListener) {
-        this.talukEventsAdapterListener = talukEventsAdapterListener;
+    public void setListener(EventsAdapterListener eventsAdapterListener) {
+        this.eventsAdapterListener = eventsAdapterListener;
     }
 
     @NonNull
     @Override
     public BaseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutTalukEventItemBinding layoutTalukEventItemBinding = LayoutTalukEventItemBinding.inflate(
+        LayoutEventItemBinding layoutEventItemBinding = LayoutEventItemBinding.inflate(
                 LayoutInflater.from(parent.getContext()), parent, false);
-        return new TalukEventsViewHolder(layoutTalukEventItemBinding);
+        return new TalukEventsViewHolder(layoutEventItemBinding);
     }
 
     @Override
@@ -62,27 +62,28 @@ public class TalukEventsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     }
 
     public class TalukEventsViewHolder extends BaseViewHolder
-            implements TalukEventsAdapterViewModel.TalukEventsAdapterViewModelListener {
+            implements EventsAdapterViewModel.TalukEventsAdapterViewModelListener {
 
-        LayoutTalukEventItemBinding layoutTalukEventItemBinding;
+        LayoutEventItemBinding layoutEventItemBinding;
 
-        TalukEventsViewHolder(LayoutTalukEventItemBinding layoutTalukEventItemBinding) {
-            super(layoutTalukEventItemBinding.getRoot());
-            this.layoutTalukEventItemBinding = layoutTalukEventItemBinding;
+        TalukEventsViewHolder(LayoutEventItemBinding layoutEventItemBinding) {
+            super(layoutEventItemBinding.getRoot());
+            this.layoutEventItemBinding = layoutEventItemBinding;
         }
 
         @Override
         public void onBind(int position) {
             final Event event = eventList.get(position);
-            TalukEventsAdapterViewModel talukEventsAdapterViewModel = new TalukEventsAdapterViewModel(position, event, this,
-                    getLanguage(layoutTalukEventItemBinding));
-            layoutTalukEventItemBinding.setViewModel(talukEventsAdapterViewModel);
+            EventsAdapterViewModel eventsAdapterViewModel = new EventsAdapterViewModel(position,
+                    event, this,
+                    getLanguage(layoutEventItemBinding));
+            layoutEventItemBinding.setViewModel(eventsAdapterViewModel);
         }
 
         @Override
         public void onEventClick(int position) {
-            if(talukEventsAdapterListener != null) {
-                talukEventsAdapterListener.onEventClick(eventList.get(position));
+            if (eventsAdapterListener != null) {
+                eventsAdapterListener.onEventClick(eventList.get(position));
             }
         }
     }

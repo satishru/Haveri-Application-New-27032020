@@ -66,7 +66,8 @@ public class PlaceAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         placeList.clear();
     }
 
-    public class PlaceListAdapterViewHolder extends BaseViewHolder implements PlaceListAdapterViewModel.PlaceListAdapterViewModelListener {
+    public class PlaceListAdapterViewHolder extends BaseViewHolder implements
+            PlaceListAdapterViewModel.PlaceListAdapterViewModelListener {
 
         private LayoutPlaceItemBinding layoutPlaceItemBinding;
 

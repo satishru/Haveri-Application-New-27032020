@@ -11,7 +11,6 @@ import android.widget.Toast;
 import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.fragment.app.Fragment;
@@ -19,6 +18,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.ViewModelProviderFactory;
 import com.example.myapplication.data.model.MapSingleObject;
+import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.ui.activity.map.MapSingleActivity;
 import com.example.myapplication.ui.custom.ListSpacingItemDecorator;
 import com.example.myapplication.utils.AppConstants;
@@ -131,34 +131,9 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         return mActivity != null && mActivity.isNetworkConnected();
     }
 
-    public ActionBar getBaseSupportActionBar() {
-        if (mActivity != null) {
-            return mActivity.getSupportActionBar();
-        }
-        return null;
-    }
-
-    public void hideKeyboard() {
-        if (mActivity != null) {
-            mActivity.hideKeyboard();
-        }
-    }
-
-    public void openActivityOnTokenExpire() {
-        if (mActivity != null) {
-            mActivity.openActivityOnTokenExpire();
-        }
-    }
-
     protected void startActivityWithAnimation(Intent intent) {
         if (mActivity != null) {
             mActivity.startActivityWithAnimation(intent);
-        }
-    }
-
-    public void exitActivityWithAnimation() {
-        if (mActivity != null) {
-            mActivity.exitActivityWithAnimation();
         }
     }
 
@@ -176,6 +151,10 @@ public abstract class BaseFragment<T extends ViewDataBinding, V extends BaseView
         if (mActivity != null) {
             Toast.makeText(mActivity, message, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    protected District getDistrictData() {
+        return HaveriApplication.getInstance().getDistrict();
     }
 
     protected boolean isDistrictNotNull() {

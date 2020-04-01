@@ -138,7 +138,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         fragmentHomeBinding.layoutContent.rvTalukList.setItemAnimator(new DefaultItemAnimator());
         fragmentHomeBinding.layoutContent.rvTalukList.addItemDecoration(getHorizontalDivider());
         fragmentHomeBinding.layoutContent.rvTalukList.setAdapter(homeTalukAdapter);
-        fragmentHomeBinding.layoutContent.rvTalukList.setNestedScrollingEnabled(false);
+        //fragmentHomeBinding.layoutContent.rvTalukList.setNestedScrollingEnabled(false);
     }
 
     private void setImageGalleryAdapter() {
@@ -147,7 +147,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         fragmentHomeBinding.layoutContent.rvImageList.setItemAnimator(new DefaultItemAnimator());
         fragmentHomeBinding.layoutContent.rvImageList.addItemDecoration(getHorizontalDivider());
         fragmentHomeBinding.layoutContent.rvImageList.setAdapter(homeImageGalleryAdapter);
-        fragmentHomeBinding.layoutContent.rvImageList.setNestedScrollingEnabled(false);
+        //fragmentHomeBinding.layoutContent.rvImageList.setNestedScrollingEnabled(false);
     }
 
     private void setHomeEventsAdapter() {
@@ -156,7 +156,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         fragmentHomeBinding.layoutContent.rvEventList.setItemAnimator(new DefaultItemAnimator());
         fragmentHomeBinding.layoutContent.rvEventList.addItemDecoration(getHorizontalDivider());
         fragmentHomeBinding.layoutContent.rvEventList.setAdapter(homeEventsAdapter);
-        fragmentHomeBinding.layoutContent.rvEventList.setNestedScrollingEnabled(false);
+        //fragmentHomeBinding.layoutContent.rvEventList.setNestedScrollingEnabled(false);
     }
 
     private void setHomePlaceAdapter() {
@@ -165,7 +165,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         fragmentHomeBinding.layoutContent.rvPlaceList.setItemAnimator(new DefaultItemAnimator());
         fragmentHomeBinding.layoutContent.rvPlaceList.addItemDecoration(getHorizontalDivider());
         fragmentHomeBinding.layoutContent.rvPlaceList.setAdapter(homePlaceAdapter);
-        fragmentHomeBinding.layoutContent.rvPlaceList.setNestedScrollingEnabled(false);
+        //fragmentHomeBinding.layoutContent.rvPlaceList.setNestedScrollingEnabled(false);
     }
 
     private void setupBottomSheet() {
@@ -252,14 +252,14 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     @Override
     public void openTalukActivity() {
-        if (getBaseActivity() != null) {
-            startActivityWithAnimation(TalukActivity.newIntent(getBaseActivity(), district, null));
+        if (getBaseActivity() != null && isDistrictNotNull()) {
+            startActivityWithAnimation(TalukActivity.newIntent(getBaseActivity(), null));
         }
     }
 
     @Override
     public void openPlaceActivity() {
-        if (getBaseActivity() != null) {
+        if (getBaseActivity() != null && isDistrictNotNull()) {
             startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), null));
         }
     }
@@ -321,8 +321,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      */
     @Override
     public void onTalukItemClick(Taluk taluk) {
-        if (getBaseActivity() != null) {
-            startActivityWithAnimation(TalukActivity.newIntent(getBaseActivity(), district, taluk));
+        if (getBaseActivity() != null && isDistrictNotNull()) {
+            startActivityWithAnimation(TalukActivity.newIntent(getBaseActivity(), taluk));
         }
     }
 
@@ -333,7 +333,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      */
     @Override
     public void onPlaceClick(Place place) {
-        if (getBaseActivity() != null) {
+        if (getBaseActivity() != null && isDistrictNotNull()) {
             startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), place));
         }
     }
@@ -355,7 +355,9 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      */
     @Override
     public void onEventClick(Event event) {
-        startActivityWithAnimation(
-                EventDetailActivity.newIntent(getBaseActivity(), district, event));
+        if(isDistrictNotNull()) {
+            startActivityWithAnimation(
+                    EventDetailActivity.newIntent(getBaseActivity(), event));
+        }
     }
 }

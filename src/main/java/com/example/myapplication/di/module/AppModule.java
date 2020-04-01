@@ -6,7 +6,6 @@ import android.content.Context;
 import androidx.room.Room;
 
 import com.example.myapplication.BuildConfig;
-import com.example.myapplication.R;
 import com.example.myapplication.data.AppDataManager;
 import com.example.myapplication.data.DataManager;
 import com.example.myapplication.data.local.db.AppDatabase;

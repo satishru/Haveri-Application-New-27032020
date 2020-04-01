@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.example.myapplication.BR;
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.FragmentTalukListBinding;
 import com.example.myapplication.ui.base.BaseFragment;
@@ -38,8 +37,6 @@ public class TalukListFragment extends BaseFragment<FragmentTalukListBinding, Ta
     private TalukListFragmentViewModel talukListFragmentViewModel;
 
     public interface TalukListFragmentCallBack {
-        District getDistrict();
-
         void openTalukDetailFragment(Taluk taluk);
 
         void hidePopupDataTitle();
@@ -80,9 +77,7 @@ public class TalukListFragment extends BaseFragment<FragmentTalukListBinding, Ta
         super.onViewCreated(view, savedInstanceState);
         fragmentTalukListBinding = getViewDataBinding();
         talukListFragmentViewModel.setNavigator(this);
-        if (iTalukListFragmentCallBack != null) {
-            talukListFragmentViewModel.startLoadingData(iTalukListFragmentCallBack.getDistrict());
-        }
+        talukListFragmentViewModel.startLoadingData(getDistrictData());
         setTalukListAdapter();
     }
 

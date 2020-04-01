@@ -75,6 +75,9 @@ public class VideoListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     new VideoListAdapterViewModel(position, videosList.get(position), this,
                             getLanguage(layoutVideoListItemBinding));
             layoutVideoListItemBinding.setViewModel(videoListAdapterViewModel);
+            layoutVideoListItemBinding.executePendingBindings();
+            setAnimation(position, layoutVideoListItemBinding.cardContent, false,
+                    android.R.anim.slide_in_left);
         }
 
         @Override

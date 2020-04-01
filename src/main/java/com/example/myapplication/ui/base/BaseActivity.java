@@ -37,6 +37,7 @@ import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.ViewModelProviderFactory;
 import com.example.myapplication.data.local.prefs.AppPreferencesHelper;
+import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.ui.fragment.home.HomeFragment;
 import com.example.myapplication.utils.AppConstants;
 import com.example.myapplication.utils.AppUtils;
@@ -60,9 +61,9 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
     @Inject
     public AppPreferencesHelper appPreferencesHelper;
 
-    private ProgressDialog mProgressDialog;
     private T mViewDataBinding;
     private V mViewModel;
+    private ProgressDialog mProgressDialog;
     public LocationManager locationManager;
 
     /**
@@ -336,6 +337,10 @@ public abstract class BaseActivity<T extends ViewDataBinding, V extends BaseView
             return appPreferencesHelper.getSelectedTheme();
         }
         return ScreenUtils.THEME_ID_DarkPurple;
+    }
+
+    protected District getDistrictData() {
+        return HaveriApplication.getInstance().getDistrict();
     }
 
     protected boolean isDistrictNotNull() {

@@ -84,24 +84,6 @@ public class VideosExploreActivity extends BaseActivity<ActivityVideosExploreBin
         videosExploreActivityViewModel.startLoadingData();
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        if (getBackStackEntryCount() > 1) {
-            popBackStack();
-            return;
-        }
-        exitActivityWithAnimation();
-    }
-
     private void getBundleData() {
         if (getIntent().getExtras() != null) {
             if (getIntent().hasExtra(INTENT_SELECTED_VIDEO) && getIntent().getSerializableExtra(
@@ -157,5 +139,23 @@ public class VideosExploreActivity extends BaseActivity<ActivityVideosExploreBin
                 getSupportActionBar().show();
             }
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            onBackPressed();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (getBackStackEntryCount() > 1) {
+            popBackStack();
+            return;
+        }
+        exitActivityWithAnimation();
     }
 }

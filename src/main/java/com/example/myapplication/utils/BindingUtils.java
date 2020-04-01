@@ -18,6 +18,7 @@ import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.data.model.api.response.haveri_data.Videos;
 import com.example.myapplication.data.remote.ApiEndPoint;
+import com.example.myapplication.ui.fragment.common.adapter.EventsAdapter;
 import com.example.myapplication.ui.fragment.common.adapter.VideoListAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
@@ -25,7 +26,6 @@ import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
 import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
 import com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapter;
-import com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukEventsAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_list.adapter.TalukListAdapter;
 
 import java.util.List;
@@ -100,8 +100,8 @@ public final class BindingUtils {
 
     @BindingAdapter({"adapter"})
     public static void addEventItems(RecyclerView recyclerView, List<Event> eventList) {
-        if (recyclerView.getAdapter() instanceof TalukEventsAdapter) {
-            TalukEventsAdapter adapter = (TalukEventsAdapter) recyclerView.getAdapter();
+        if (recyclerView.getAdapter() instanceof EventsAdapter) {
+            EventsAdapter adapter = (EventsAdapter) recyclerView.getAdapter();
             if (adapter != null) {
                 adapter.clearItems();
                 adapter.addItems(eventList);
@@ -248,7 +248,7 @@ public final class BindingUtils {
                 image.getImageTitleKn());
     }
 
-    @BindingAdapter({"setPlaceText", "selectedLanguage", "setTextType"})
+    /*@BindingAdapter({"setPlaceText", "selectedLanguage", "setTextType"})
     public static void setPlaceText(TextView textView, Place place, int selectedLanguage, int textType) {
         if (textType == 0) {
             textView.setText((selectedLanguage == Language.EN.getValue()) ?
@@ -259,5 +259,5 @@ public final class BindingUtils {
                     place.getDescriptionEn() :
                     place.getDescriptionKn()));
         }
-    }
+    }*/
 }

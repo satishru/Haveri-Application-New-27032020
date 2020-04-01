@@ -15,7 +15,7 @@ public class AppDbHelper implements DbHelper {
     private final AppDatabase mAppDatabase;
 
     @Inject
-    public AppDbHelper(AppDatabase appDatabase) {
+    AppDbHelper(AppDatabase appDatabase) {
         this.mAppDatabase = appDatabase;
     }
 

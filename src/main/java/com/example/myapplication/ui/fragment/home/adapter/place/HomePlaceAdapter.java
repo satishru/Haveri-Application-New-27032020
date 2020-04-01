@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Place;
 import com.example.myapplication.databinding.LayoutHomePlaceItemBinding;
 import com.example.myapplication.ui.base.BaseViewHolder;
@@ -85,7 +86,9 @@ public class HomePlaceAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     place, getLanguage(homePlaceItemBinding), this);
             homePlaceItemBinding.setViewModel(viewModel);
             homePlaceItemBinding.executePendingBindings();
-            homePlaceItemBinding.cardContent.setOnClickListener(v -> onItemClick(place));
+            homePlaceItemBinding.executePendingBindings();
+            setAnimation(position, homePlaceItemBinding.cardContent, false,
+                    R.anim.slide_from_right);
         }
 
         @Override

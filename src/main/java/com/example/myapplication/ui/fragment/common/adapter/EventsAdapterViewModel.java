@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter;
+package com.example.myapplication.ui.fragment.common.adapter;
 
 import androidx.databinding.ObservableField;
 
@@ -7,7 +7,7 @@ import com.example.myapplication.data.remote.ApiEndPoint;
 import com.example.myapplication.utils.CommonUtils;
 import com.example.myapplication.utils.Language;
 
-public class TalukEventsAdapterViewModel {
+public class EventsAdapterViewModel {
 
     public ObservableField<String> eventTitle;
     public ObservableField<String> eventImage;
@@ -16,7 +16,7 @@ public class TalukEventsAdapterViewModel {
     private int position;
     private TalukEventsAdapterViewModelListener mListener;
 
-    TalukEventsAdapterViewModel(int position, Event event, TalukEventsAdapterViewModelListener mListener, int language) {
+    EventsAdapterViewModel(int position, Event event, TalukEventsAdapterViewModelListener mListener, int language) {
         this.position = position;
         this.mListener = mListener;
 

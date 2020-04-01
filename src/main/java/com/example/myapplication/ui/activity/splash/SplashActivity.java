@@ -3,6 +3,7 @@ package com.example.myapplication.ui.activity.splash;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
@@ -17,7 +18,7 @@ import com.example.myapplication.utils.NetworkUtils;
 import com.example.myapplication.utils.ViewAnimationUtils;
 
 /**
- * Ref : // https://github.com/MindorksOpenSource/android-mvvm-architecture
+ * Splash Screen
  */
 public class SplashActivity extends BaseActivity<ActivitySplashBinding , SplashViewModel> implements
         iSplashActivityContract.iSplashNavigator,
@@ -98,6 +99,8 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding , SplashV
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         showLoading(false);
     }
 }

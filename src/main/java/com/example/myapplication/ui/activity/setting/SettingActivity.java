@@ -9,7 +9,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
 import com.example.myapplication.BR;
-import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.ActivitySettingBinding;
 import com.example.myapplication.ui.activity.setting.adapter.ThemeSelectionAdapter;

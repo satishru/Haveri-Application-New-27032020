@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Event;
 import com.example.myapplication.databinding.LayoutHomeEventItemBinding;
 import com.example.myapplication.ui.base.BaseViewHolder;
@@ -78,6 +79,9 @@ public class HomeEventsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     position, event, this,
                     getLanguage(layoutEventItemBinding));
             layoutEventItemBinding.setViewModel(homeEventsAdapterViewModel);
+            layoutEventItemBinding.executePendingBindings();
+            setAnimation(position, layoutEventItemBinding.cardContent, false,
+                    R.anim.slide_from_right);
         }
 
         @Override

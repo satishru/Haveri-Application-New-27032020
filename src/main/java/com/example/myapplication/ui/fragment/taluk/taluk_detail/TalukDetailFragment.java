@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.BR;
 import com.example.myapplication.R;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.databinding.FragmentTalukDetailBinding;
 import com.example.myapplication.ui.base.BaseFragment;
@@ -26,11 +25,10 @@ public class TalukDetailFragment extends BaseFragment<FragmentTalukDetailBinding
     private TalukDetailFragmentViewModel talukDetailFragmentViewModel;
     private TalukDetailFragmentCallBack talukDetailFragmentCallBack;
     private Taluk selectedTaluk;
-    private District district;
 
     public interface TalukDetailFragmentCallBack {
-        District getDistrict();
         Taluk getSelectedTaluk();
+
         void setPopupDataTitle();
     }
 
@@ -78,7 +76,6 @@ public class TalukDetailFragment extends BaseFragment<FragmentTalukDetailBinding
     private void loadData() {
         if (talukDetailFragmentCallBack != null) {
             selectedTaluk = talukDetailFragmentCallBack.getSelectedTaluk();
-            district = talukDetailFragmentCallBack.getDistrict();
             setToolBarTitle();
             talukDetailFragmentCallBack.setPopupDataTitle();
         }
@@ -90,7 +87,7 @@ public class TalukDetailFragment extends BaseFragment<FragmentTalukDetailBinding
     }
 
     private void setToolBarTitle() {
-        if(getBaseActivity() != null) {
+        if (getBaseActivity() != null) {
             getBaseActivity().setToolBarTitle("");
         }
     }
@@ -98,7 +95,7 @@ public class TalukDetailFragment extends BaseFragment<FragmentTalukDetailBinding
     private void setViewPager() {
         final TalukDetailPagerAdapter adapter = new TalukDetailPagerAdapter(
                 getChildFragmentManager(),
-                fragmentTalukDetailBinding.tabLayout.getTabCount(), selectedTaluk, district);
+                fragmentTalukDetailBinding.tabLayout.getTabCount(), selectedTaluk);
         fragmentTalukDetailBinding.pagerDetail.setAdapter(adapter);
         fragmentTalukDetailBinding.pagerDetail.setOffscreenPageLimit(
                 TalukDetailPagerAdapter.TAB_COUNT);

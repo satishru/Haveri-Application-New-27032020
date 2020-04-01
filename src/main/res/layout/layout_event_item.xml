@@ -10,7 +10,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.adapter.TalukEventsAdapterViewModel" />
+            type="com.example.myapplication.ui.fragment.common.adapter.EventsAdapterViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView

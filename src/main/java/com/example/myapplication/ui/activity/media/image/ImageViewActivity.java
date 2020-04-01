@@ -24,7 +24,7 @@ import static com.example.myapplication.utils.AppConstants.INTENT_IMAGE_LIST;
 import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_IMAGE;
 
 /**
- *  To show image gallery
+ * To show image gallery
  */
 public class ImageViewActivity extends BaseActivity<ActivityImageViewBinding, ImageViewActivityViewModel> implements
         iImageViewActivityContract.iImageViewActivityNavigator {
@@ -66,22 +66,28 @@ public class ImageViewActivity extends BaseActivity<ActivityImageViewBinding, Im
         super.onCreate(savedInstanceState);
         activityImageViewBinding = getViewDataBinding();
         imageViewActivityViewModel.setNavigator(this);
-        getData();
+        getBundleData();
     }
 
-    private void getData() {
-        ArrayList<Images> imagesList = (ArrayList<Images>) getIntent().getSerializableExtra(INTENT_IMAGE_LIST);
-        if(imagesList != null && imagesList.size() > 0) {
-            activityImageViewBinding.tvTotalCount.setText(
-                    String.format(getString(R.string.text_separator), "" + imagesList.size()));
-            setUpViewPager(imagesList);
+    @SuppressWarnings("unchecked")
+    private void getBundleData() {
+        if (getIntent() != null && getIntent().hasExtra(INTENT_IMAGE_LIST) &&
+                getIntent().getSerializableExtra(INTENT_IMAGE_LIST) != null) {
+            ArrayList<Images> imagesList = (ArrayList<Images>) getIntent().getSerializableExtra(
+                    INTENT_IMAGE_LIST);
+            if (imagesList != null && imagesList.size() > 0) {
+                activityImageViewBinding.tvTotalCount.setText(
+                        String.format(getString(R.string.text_separator), "" + imagesList.size()));
+                setUpViewPager(imagesList);
+            }
         }
     }
 
     private void setUpViewPager(ArrayList<Images> imagesList) {
         imageViewAdapter.clearItems();
         activityImageViewBinding.imagePager.setAdapter(imageViewAdapter);
-        imageViewAdapter.addItems(imageViewActivityViewModel.getDataManager().getSelectedLanguage(),imagesList);
+        imageViewAdapter.addItems(imageViewActivityViewModel.getDataManager().getSelectedLanguage(),
+                imagesList);
         activityImageViewBinding.imagePager.setCurrentItem(
                 getIntent().getIntExtra(INTENT_SELECTED_IMAGE, 0));
         setCurrentItemText();

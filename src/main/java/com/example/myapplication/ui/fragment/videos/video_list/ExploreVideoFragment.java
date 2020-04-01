@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -77,6 +78,9 @@ public class ExploreVideoFragment extends BaseFragment<FragmentExploreVideoBindi
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        if(getBaseActivity() != null) {
+            getBaseActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
         fragmentExploreVideoBinding = getViewDataBinding();
         exploreVideoFragmentViewModel.setNavigator(this);
         if (HaveriApplication.getInstance().getDistrict() != null) {

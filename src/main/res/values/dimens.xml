@@ -77,6 +77,7 @@
     <dimen name="margin_30">30dp</dimen>
     <dimen name="margin_50">50dp</dimen>
     <dimen name="margin_80">80dp</dimen>
+    <dimen name="margin_140">140dp</dimen>
 
     <!-- Font -->
     <dimen name="font_small">12sp</dimen>

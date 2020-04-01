@@ -3,7 +3,6 @@ package com.example.myapplication.ui.fragment.taluk.taluk_detail.events;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.myapplication.data.DataManager;
-import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Event;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.ui.base.BaseViewModel;

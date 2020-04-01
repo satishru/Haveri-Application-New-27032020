@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -65,6 +66,7 @@ public class PlayVideoFragment extends BaseFragment<FragmentPlayVideoBinding, Pl
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        makeFullScreen();
         if (playVideoFragmentCallBack != null) {
             playVideoFragmentCallBack.hideToolBar(true);
         }
@@ -74,11 +76,40 @@ public class PlayVideoFragment extends BaseFragment<FragmentPlayVideoBinding, Pl
         loadVideo();
     }
 
+    private void makeFullScreen() {
+        if(getBaseActivity() != null) {
+            getBaseActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                    WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (currentYouTubePlayer != null) {
+            currentYouTubePlayer.pause();
+        }
+    }
+
     @Override
     public void onDetach() {
         super.onDetach();
+        if(getBaseActivity() != null) {
+            getBaseActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+        releaseVideo();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        releaseVideo();
+    }
+
+    private void releaseVideo() {
         if (currentYouTubePlayer != null) {
             currentYouTubePlayer.pause();
+            fragmentPlayVideoBinding.youtubePlayerView.release();
         }
     }
 
@@ -87,10 +118,13 @@ public class PlayVideoFragment extends BaseFragment<FragmentPlayVideoBinding, Pl
             fragmentPlayVideoBinding.youtubePlayerView.getYouTubePlayerWhenReady(
                     youTubePlayer -> {
                         currentYouTubePlayer = youTubePlayer;
+
                         currentYouTubePlayer.loadVideo(
                                 playVideoFragmentCallBack.getSelectedVideo().getVedioUrl(), 0);
                         currentYouTubePlayer.play();
                     });
+
+            getLifecycle().addObserver(fragmentPlayVideoBinding.youtubePlayerView);
         }
     }
 

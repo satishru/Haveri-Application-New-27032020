@@ -31,7 +31,6 @@ import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
 
-import static com.example.myapplication.utils.AppConstants.INTENT_HAVERI_DATA;
 import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_TALUK;
 
 /**
@@ -52,9 +51,8 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
     private Taluk selectedTaluk;
     private boolean isSingleTalukShow;
 
-    public static Intent newIntent(Activity activity, District district, Taluk selectedTaluk) {
+    public static Intent newIntent(Activity activity, Taluk selectedTaluk) {
         Intent intent = new Intent(activity, TalukActivity.class);
-        intent.putExtra(INTENT_HAVERI_DATA, district);
         if (selectedTaluk != null) {
             intent.putExtra(INTENT_SELECTED_TALUK, selectedTaluk);
         }
@@ -96,11 +94,8 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
     }
 
     private void getBundleData() {
+        district = getDistrictData();
         if (getIntent().getExtras() != null) {
-            if (getIntent().hasExtra(INTENT_HAVERI_DATA)) {
-                district = (District) getIntent().getSerializableExtra(
-                        INTENT_HAVERI_DATA);
-            }
             if (getIntent().hasExtra(INTENT_SELECTED_TALUK) && getIntent().getSerializableExtra(
                     INTENT_SELECTED_TALUK) != null) {
                 selectedTaluk = (Taluk) getIntent().getSerializableExtra(INTENT_SELECTED_TALUK);
@@ -163,34 +158,32 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
 
     @Override
     public void openTalukDetailFragment(Taluk taluk) {
-        this.selectedTaluk = taluk;
-        loadTalukDetailFragment();
+        if (isDistrictNotNull()) {
+            this.selectedTaluk = taluk;
+            loadTalukDetailFragment();
+        }
     }
 
     @Override
     public void loadTalukListFragment() {
-        loadFragment(TalukListFragment.newInstance(),
-                activityTalukBinding.fragmentContainer.getId(), true, true);
+        if (isDistrictNotNull()) {
+            loadFragment(TalukListFragment.newInstance(),
+                    activityTalukBinding.fragmentContainer.getId(), true, true);
+        }
     }
 
     @Override
     public void loadTalukDetailFragment() {
-        loadFragment(TalukDetailFragment.newInstance(),
-                activityTalukBinding.fragmentContainer.getId(), true, true);
+        if (isDistrictNotNull()) {
+            loadFragment(TalukDetailFragment.newInstance(),
+                    activityTalukBinding.fragmentContainer.getId(), true, true);
+        }
     }
     /* iTalukActivityContract.iTalukActivityNavigator CallBacks Ends */
 
     @Override
     public void hidePopupDataTitle() {
         activityTalukBinding.layoutToolbar.tvTitle.setVisibility(View.GONE);
-    }
-
-    /**
-     * TalukListFragmentCallBack and TalukDetailFragmentCallBack
-     */
-    @Override
-    public District getDistrict() {
-        return district;
     }
 
     @Override
@@ -209,6 +202,7 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
 
     /**
      * TalukVideosFragment.TalukVideosFragmentCallBack
+     *
      * @param selectedVideo SelectedVideo
      */
     @Override

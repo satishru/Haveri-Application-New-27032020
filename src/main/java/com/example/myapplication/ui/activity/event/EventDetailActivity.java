@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.myapplication.BR;
+import com.example.myapplication.HaveriApplication;
 import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.District;
 import com.example.myapplication.data.model.api.response.haveri_data.Event;
@@ -17,7 +18,6 @@ import com.example.myapplication.ui.base.BaseActivity;
 import com.example.myapplication.utils.Language;
 import com.pierfrancescosoffritti.androidyoutubeplayer.core.player.YouTubePlayer;
 
-import static com.example.myapplication.utils.AppConstants.INTENT_HAVERI_DATA;
 import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_EVENT;
 
 /**
@@ -32,9 +32,8 @@ public class EventDetailActivity extends BaseActivity<ActivityEventDetailBinding
     private Event selectedEvent;
     private YouTubePlayer currentYouTubePlayer;
 
-    public static Intent newIntent(Activity activity, District district, Event selectedEvent) {
+    public static Intent newIntent(Activity activity, Event selectedEvent) {
         Intent intent = new Intent(activity, EventDetailActivity.class);
-        intent.putExtra(INTENT_HAVERI_DATA, district);
         intent.putExtra(INTENT_SELECTED_EVENT, selectedEvent);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         return intent;
@@ -83,11 +82,8 @@ public class EventDetailActivity extends BaseActivity<ActivityEventDetailBinding
     }
 
     private void getBundleData() {
+        district = HaveriApplication.getInstance().getDistrict();
         if (getIntent().getExtras() != null) {
-            if (getIntent().hasExtra(INTENT_HAVERI_DATA)) {
-                district = (District) getIntent().getSerializableExtra(
-                        INTENT_HAVERI_DATA);
-            }
             if (getIntent().hasExtra(INTENT_SELECTED_EVENT) && getIntent().getSerializableExtra(
                     INTENT_SELECTED_EVENT) != null) {
                 selectedEvent = (Event) getIntent().getSerializableExtra(INTENT_SELECTED_EVENT);
@@ -122,10 +118,11 @@ public class EventDetailActivity extends BaseActivity<ActivityEventDetailBinding
     @Override
     public void navigateToMap() {
         if (selectedEvent != null) {
-            if(currentYouTubePlayer != null) {
+            if (currentYouTubePlayer != null) {
                 currentYouTubePlayer.pause();
             }
-            handleMapViewAndNavigation(selectedEvent.getEventLatitude(), selectedEvent.getEventLongitude(), true);
+            handleMapViewAndNavigation(selectedEvent.getEventLatitude(),
+                    selectedEvent.getEventLongitude(), true);
         }
     }
 }
