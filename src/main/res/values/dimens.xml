@@ -57,6 +57,8 @@
 
     <dimen name="rounded_background_corner_radius">25dp</dimen>
 
+    <dimen name="slider_indicator_margin">35dp</dimen>
+
     <dimen name="explore_videos_translation_y">-26dp</dimen>
     <dimen name="explore_videos_corner_radius">25dp</dimen>
     <dimen name="explore_videos_layout_bottom">-22dp</dimen>

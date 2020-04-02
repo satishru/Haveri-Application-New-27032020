@@ -19,13 +19,13 @@ import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.data.model.api.response.haveri_data.Videos;
 import com.example.myapplication.data.remote.ApiEndPoint;
 import com.example.myapplication.ui.fragment.common.adapter.EventsAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapter;
+import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
 import com.example.myapplication.ui.fragment.common.adapter.VideoListAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
-import com.example.myapplication.ui.fragment.common.adapter.PlaceAdapter;
-import com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.taluk.taluk_list.adapter.TalukListAdapter;
 
 import java.util.List;
@@ -155,6 +155,16 @@ public final class BindingUtils {
             Glide.with(imageView.getContext()).
                     load(url).
                     placeholder(getProgressDrawable(imageView.getContext())).
+                    animate(R.anim.fade_in).
+                    into(imageView);
+        }
+    }
+
+    @BindingAdapter("imageFullUrl")
+    public static void setImageFullUrl(ImageView imageView, String url) {
+        if (!CommonUtils.checkNullOrEmpty(url)) {
+            Glide.with(imageView.getContext()).
+                    load(url).
                     animate(R.anim.fade_in).
                     into(imageView);
         }
