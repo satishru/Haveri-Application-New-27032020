@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
+import com.example.myapplication.ui.fragment.home.adapter.slider.SliderAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
 
 import java.util.ArrayList;
@@ -15,6 +16,11 @@ import dagger.Provides;
 
 @Module
 public class HomeFragmentModule {
+
+    @Provides
+    SliderAdapter provideSliderAdapter() {
+        return new SliderAdapter(new ArrayList<>());
+    }
 
     @Provides
     HomeTalukAdapter provideTalukAdapter() {

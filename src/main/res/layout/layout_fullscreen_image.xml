@@ -17,12 +17,22 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/iv_place_holder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:tint="@color/color_white"
+            android:alpha="0.25"
+            android:src="@drawable/ic_image_place_holder"
+            android:contentDescription="@string/app_name" />
+
         <com.example.myapplication.ui.custom.TouchImageView
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitCenter"
-            app:imageUrl="@{imageObj.imageUrl}" />
+            app:imageFullUrl="@{imageObj.imageUrl}" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -42,6 +52,7 @@
                 app:selectedLanguage="@{selectedLanguage}"
                 app:setImageText="@{imageObj}" />
         </LinearLayout>
+
 
     </RelativeLayout>
 </layout>

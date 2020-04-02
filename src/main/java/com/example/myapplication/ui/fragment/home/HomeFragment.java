@@ -32,12 +32,15 @@ import com.example.myapplication.ui.base.BaseFragment;
 import com.example.myapplication.ui.fragment.home.adapter.event.HomeEventsAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.place.HomePlaceAdapter;
+import com.example.myapplication.ui.fragment.home.adapter.slider.SliderAdapter;
 import com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapter;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.SliderAnimations;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -54,6 +57,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         HomeEventsAdapter.HomeEventsAdapterListener,
         HomePlaceAdapter.HomePlaceAdapterListener {
 
+    @Inject
+    SliderAdapter sliderAdapter;
     @Inject
     HomeTalukAdapter homeTalukAdapter;
     @Inject
@@ -125,11 +130,22 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
                 supportMapFragment.getMapAsync(this);
             }
         }
+        setHomeSliderAdapter();
         setupBottomSheet();
         setHomeTalukAdapter();
         setImageGalleryAdapter();
         setHomeEventsAdapter();
         setHomePlaceAdapter();
+    }
+
+    private void setHomeSliderAdapter() {
+        homeFragmentViewModel.getImageList().observe(getViewLifecycleOwner(),
+                imagesList -> sliderAdapter.addItems(imagesList));
+        fragmentHomeBinding.imageSlider.setSliderAdapter(sliderAdapter);
+        fragmentHomeBinding.imageSlider.setIndicatorAnimation(IndicatorAnimations.WORM);
+        fragmentHomeBinding.imageSlider.setSliderTransformAnimation(
+                SliderAnimations.SIMPLETRANSFORMATION);
+        fragmentHomeBinding.imageSlider.startAutoCycle();
     }
 
     private void setHomeTalukAdapter() {
@@ -215,8 +231,10 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     @Override
     public void setUpMap() {
-        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapDirection.setOnClickListener(v -> handleMap(true));
-        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapView.setOnClickListener(v -> handleMap(false));
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapDirection.setOnClickListener(
+                v -> handleMap(true));
+        fragmentHomeBinding.layoutContent.incLayoutMap.ivMapView.setOnClickListener(
+                v -> handleMap(false));
         if (map != null && district != null) {
             setUpMap(district.getLatitude(), district.getLongitude());
             map.setOnMapClickListener(this);
@@ -225,7 +243,8 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
 
     private void handleMap(boolean isNavigation) {
         if (district != null) {
-            getBaseActivity().handleMapViewAndNavigation(district.getLatitude(), district.getLongitude(), isNavigation);
+            getBaseActivity().handleMapViewAndNavigation(district.getLatitude(),
+                    district.getLongitude(), isNavigation);
         }
     }
 
@@ -355,7 +374,7 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
      */
     @Override
     public void onEventClick(Event event) {
-        if(isDistrictNotNull()) {
+        if (isDistrictNotNull()) {
             startActivityWithAnimation(
                     EventDetailActivity.newIntent(getBaseActivity(), event));
         }
