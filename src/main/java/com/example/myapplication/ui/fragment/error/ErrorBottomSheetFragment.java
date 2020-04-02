@@ -36,8 +36,8 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
     public static ErrorBottomSheetFragment newInstance(int drawable, String errorMessage) {
         ErrorBottomSheetFragment fragment = new ErrorBottomSheetFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(AppConstants.INTENT_ERROR_ICON, drawable);
-        bundle.putString(AppConstants.INTENT_ERROR_MESSAGE, errorMessage);
+        bundle.putInt(AppConstants.INTENT_ERROR_ICON,drawable);
+        bundle.putString(AppConstants.INTENT_ERROR_MESSAGE,errorMessage);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -45,7 +45,7 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
     public static ErrorBottomSheetFragment newInstance(int drawable) {
         ErrorBottomSheetFragment fragment = new ErrorBottomSheetFragment();
         Bundle bundle = new Bundle();
-        bundle.putInt(AppConstants.INTENT_ERROR_ICON, drawable);
+        bundle.putInt(AppConstants.INTENT_ERROR_ICON,drawable);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -53,7 +53,7 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
     public static ErrorBottomSheetFragment newInstance(String errorMessage) {
         ErrorBottomSheetFragment fragment = new ErrorBottomSheetFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(AppConstants.INTENT_ERROR_MESSAGE, errorMessage);
+        bundle.putString(AppConstants.INTENT_ERROR_MESSAGE,errorMessage);
         fragment.setArguments(bundle);
         return fragment;
     }
@@ -67,15 +67,14 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+        if(getArguments() != null ) {
             drawable = getArguments().getInt(AppConstants.INTENT_ERROR_ICON, R.drawable.ic_error);
-            errorMessage = getArguments().getString(AppConstants.INTENT_ERROR_MESSAGE,
-                    getString(R.string.label_error));
+            errorMessage = getArguments().getString(AppConstants.INTENT_ERROR_MESSAGE, getString(R.string.label_error));
         }
-        if (drawable <= 0) {
-            drawable = R.drawable.ic_error;
+        if(drawable <= 0) {
+            drawable =  R.drawable.ic_error;
         }
-        if (TextUtils.isEmpty(errorMessage)) {
+        if(TextUtils.isEmpty(errorMessage)) {
             errorMessage = getString(R.string.label_error);
         }
     }
@@ -83,8 +82,7 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
     @Override
     public View onCreateView(@NotNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mLayoutErrorBinding = DataBindingUtil.inflate(inflater, R.layout.layout_error, container,
-                false);
+        mLayoutErrorBinding = DataBindingUtil.inflate(inflater,R.layout.layout_error, container, false);
         return mLayoutErrorBinding.getRoot();
     }
 
@@ -94,10 +92,10 @@ public class ErrorBottomSheetFragment extends BottomSheetDialogFragment {
         mLayoutErrorBinding.ivError.setImageDrawable(getResources().getDrawable(drawable));
         mLayoutErrorBinding.tvMessage.setText(errorMessage);
         mLayoutErrorBinding.btnRetry.setOnClickListener(v -> {
-            if (errorBottomSheetFragmentCallBack != null) {
+            if(errorBottomSheetFragmentCallBack != null ) {
                 errorBottomSheetFragmentCallBack.onRetryButtonClick();
+                this.dismiss();
             }
-            this.dismiss();
         });
     }
 }
