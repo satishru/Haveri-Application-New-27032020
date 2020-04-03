@@ -3,13 +3,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".ui.activity.splash.SplashActivity">
+    tools:context="application.haveri.tourism.ui.activity.splash.SplashActivity">
 
     <data>
-        <import type="com.example.myapplication.utils.AppConstants"/>
+        <import type="application.haveri.tourism.utils.AppConstants"/>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.splash.SplashViewModel" />
+            type="application.haveri.tourism.ui.activity.splash.SplashViewModel" />
 
     </data>
 
@@ -46,7 +46,7 @@
                 android:contentDescription="@string/app_name"
                 app:srcCompat="@drawable/ic_location_city" />
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_splash"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.TalukDetailFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.taluk.taluk_detail.TalukDetailFragmentViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

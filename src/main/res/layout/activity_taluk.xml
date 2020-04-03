@@ -7,13 +7,13 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.taluk.TalukActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.taluk.TalukActivityViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.taluk.TalukActivity">
+        tools:context="application.haveri.tourism.ui.activity.taluk.TalukActivity">
 
         <include
             android:id="@+id/layout_toolbar"
@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".ui.activity.taluk.TalukActivity"
+            tools:context="application.haveri.tourism.ui.activity.taluk.TalukActivity"
             tools:showIn="@layout/activity_taluk">
 
             <FrameLayout

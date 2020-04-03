@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "660426494477",
+    "firebase_url": "https://haveri-application-test.firebaseio.com",
+    "project_id": "haveri-application-test",
+    "storage_bucket": "haveri-application-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660426494477:android:01347bb68297d97cb93b44",
+        "android_client_info": {
+          "package_name": "application.haveri.tourism"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660426494477-cq1qfvuv8tu1r67rh50b9sdb9vj43o0e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBUiObD5MEAmgwqnM5AurdIx-qf5pwfi0s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660426494477-cq1qfvuv8tu1r67rh50b9sdb9vj43o0e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

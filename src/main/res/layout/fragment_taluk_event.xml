@@ -7,14 +7,14 @@
         <import type="android.view.View"/>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_detail.events.TalukEventFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.taluk.taluk_detail.events.TalukEventFragmentViewModel" />
     </data>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.example.myapplication.ui.custom.CustomTextView
+        <application.haveri.tourism.ui.custom.CustomTextView
             android:id="@+id/tv_no_data"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

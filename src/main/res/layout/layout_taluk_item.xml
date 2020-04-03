@@ -5,11 +5,11 @@
 
     <data>
 
-        <import type="com.example.myapplication.utils.CommonUtils" />
+        <import type="application.haveri.tourism.utils.CommonUtils" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.taluk.taluk_list.adapter.TalukListAdapterViewModel" />
+            type="application.haveri.tourism.ui.fragment.taluk.taluk_list.adapter.TalukListAdapterViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -50,7 +50,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_taluk_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
                         android:textStyle="bold"
                         app:customFont="@string/font_roboto_medium" />
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_distance"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_6">
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_place_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -89,7 +89,7 @@
                         app:customFont="@string/font_roboto_regular"
                         tools:ignore="RelativeOverlap" />
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_events_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
                         tools:ignore="RelativeOverlap" />
                 </RelativeLayout>
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_taluk_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

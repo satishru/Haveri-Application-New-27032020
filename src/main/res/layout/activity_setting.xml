@@ -5,17 +5,17 @@
 
     <data>
 
-        <import type="com.example.myapplication.utils.Language" />
+        <import type="application.haveri.tourism.utils.Language" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.setting.SettingActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.setting.SettingActivityViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.setting.SettingActivity">
+        tools:context="application.haveri.tourism.ui.activity.setting.SettingActivity">
 
         <include
             android:id="@+id/layout_toolbar"
@@ -41,7 +41,7 @@
                         android:orientation="vertical"
                         android:visibility="gone">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/margin_16"
@@ -56,7 +56,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="@dimen/margin_16"
@@ -79,7 +79,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:padding="@dimen/margin_16"
@@ -111,7 +111,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/margin_16"
@@ -122,7 +122,7 @@
                             android:textSize="@dimen/font_normal"
                             app:customFont="@string/font_roboto_medium" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_language_english"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -136,18 +136,15 @@
                             android:text="@string/label_language_english"
                             android:textColor="?attr/colorPrimaryText"
                             android:textSize="@dimen/font_normal"
-                            app:customFont="@string/font_roboto_regular"
-                            tools:targetApi="m" />
+                            app:customFont="@string/font_roboto_regular"/>
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_language_kannada"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="?android:attr/selectableItemBackground"
                             android:clickable="true"
                             android:drawableEnd="@{viewModel.selectedLanguage}"
-                            android:drawableTint="?attr/colorIcon"
-                            tools:targetApi="m"
                             android:focusable="true"
                             android:onClick="@{()->viewModel.onLanguageClicked(Language.KN)}"
                             android:padding="@dimen/margin_16"
@@ -168,7 +165,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/margin_16"
@@ -179,7 +176,7 @@
                             android:textSize="@dimen/font_normal"
                             app:customFont="@string/font_roboto_medium" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/iv_image_cache"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -205,7 +202,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:paddingStart="@dimen/margin_16"

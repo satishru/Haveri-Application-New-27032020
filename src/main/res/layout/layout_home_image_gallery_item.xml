@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapterViewModel" />
+            type="application.haveri.tourism.ui.fragment.home.adapter.gallery.HomeImageGalleryAdapterViewModel" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -35,7 +35,7 @@
                 android:scaleType="centerCrop"
                 app:imageCropUrl="@{viewModel.imageUrl}" />
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_plus_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:visibility="gone"
                 app:customFont="@string/font_roboto_medium"/>
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_image_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

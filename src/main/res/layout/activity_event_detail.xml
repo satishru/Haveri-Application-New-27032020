@@ -5,19 +5,19 @@
 
     <data>
 
-        <import type="com.example.myapplication.utils.CommonUtils" />
+        <import type="application.haveri.tourism.utils.CommonUtils" />
 
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.event.EventDetailActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.event.EventDetailActivityViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.event.EventDetailActivity">
+        tools:context="application.haveri.tourism.ui.activity.event.EventDetailActivity">
 
         <include
             android:id="@+id/layout_toolbar"
@@ -89,7 +89,7 @@
                             android:layout_marginTop="@dimen/margin_16"
                             android:layout_marginEnd="@dimen/margin_10">
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_event_title"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
 
                         </RelativeLayout>
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_place_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -127,7 +127,7 @@
                             android:textSize="@dimen/font_medium"
                             app:customFont="@string/font_roboto_regular" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_event_date"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -139,7 +139,7 @@
                             android:textSize="@dimen/font_small"
                             app:customFont="@string/font_roboto_light" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_event_address"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -151,7 +151,7 @@
                             android:textSize="@dimen/font_small"
                             app:customFont="@string/font_roboto_light" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:id="@+id/tv_event_detail"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

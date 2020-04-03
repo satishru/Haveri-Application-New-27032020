@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.example.myapplication.utils.CommonUtils" />
+        <import type="application.haveri.tourism.utils.CommonUtils" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.home.HomeFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.home.HomeFragmentViewModel" />
     </data>
 
     <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -38,7 +38,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/button_slide" />
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_about"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

@@ -1,11 +1,16 @@
 apply plugin: 'com.android.application'
 
+// Google Services Gradle plugin
+apply plugin: 'com.google.gms.google-services'
+// Apply the Crashlytics Gradle plugin
+apply plugin: 'com.google.firebase.crashlytics'
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        applicationId "com.example.myapplication"
+        applicationId "application.haveri.tourism"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -17,10 +22,10 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.myjson.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.npoint.io/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
 
-            resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyDOmFuJOnfhrEeiHbZBuTXXilqEmECD0tk"
+            resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyD6wkYAu1-Zu0NVOY9w8ZuE11MJqImdvtI"
         }
         release {
             minifyEnabled false
@@ -28,7 +33,7 @@ android {
             buildConfigField("String", "BASE_URL", "\"https://api.myjson.com/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
 
-            resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyDOmFuJOnfhrEeiHbZBuTXXilqEmECD0tk"
+            resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyD6wkYAu1-Zu0NVOY9w8ZuE11MJqImdvtI"
         }
     }
 
@@ -111,10 +116,12 @@ dependencies {
     //DebugImplementation because LeakCanary should only run in debug builds.
     //debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-3'
 
-    //Google Play Services
+    //Google Play Services and FireBase lib
     implementation "androidx.multidex:multidex:$rootProject.multidexVersion"
     implementation "com.google.android.gms:play-services-location:$rootProject.playSrviceVersion"
     implementation "com.google.android.gms:play-services-maps:$rootProject.playSrviceVersion"
+    implementation "com.google.firebase:firebase-analytics:$rootProject.firebaseAnalyticsVersion"     //Firebase SDK for Google Analytics.
+    implementation "com.google.firebase:firebase-crashlytics:$rootProject.firebaseCrashlyticsVersion" //Firebase SDK for Crashlytics.
 
     //Youtube lib
     implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$rootProject.androidYouTubePlayerVersion"
@@ -123,7 +130,7 @@ dependencies {
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:$rootProject.swiperefreshlayoutVersion"
 
     //Auto image Slider
-    implementation "com.github.smarteist:autoimageslider:1.3.5"
+    implementation "com.github.smarteist:autoimageslider:$rootProject.autoimageSliderVersion"
 }
 
 configurations.all {

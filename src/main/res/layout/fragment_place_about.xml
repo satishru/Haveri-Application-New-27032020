@@ -4,15 +4,15 @@
 
     <data>
 
-        <import type="com.example.myapplication.utils.CommonUtils" />
+        <import type="application.haveri.tourism.utils.CommonUtils" />
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.place.place_details.about.PlaceAboutFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.place.place_details.about.PlaceAboutFragmentViewModel" />
 
         <variable
             name="placeObj"
-            type="com.example.myapplication.data.model.api.response.haveri_data.Place" />
+            type="application.haveri.tourism.data.model.api.response.haveri_data.Place" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -65,7 +65,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_time" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_visit_time"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -107,7 +107,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_call" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_contact_phone"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -149,7 +149,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_link" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_web_link"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -184,7 +184,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -201,7 +201,7 @@
                             android:layout_height="@dimen/divider_height"
                             android:background="@color/color_divider" />
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="@dimen/description_line_spacing"
@@ -237,7 +237,7 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <com.example.myapplication.ui.custom.CustomTextView
+                        <application.haveri.tourism.ui.custom.CustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="start"
@@ -274,7 +274,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_bus" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_by_road"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -313,7 +313,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_train" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_by_train"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -352,7 +352,7 @@
                                 android:tint="?attr/colorIcon"
                                 app:srcCompat="@drawable/ic_air" />
 
-                            <com.example.myapplication.ui.custom.CustomTextView
+                            <application.haveri.tourism.ui.custom.CustomTextView
                                 android:id="@+id/tv_by_air"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

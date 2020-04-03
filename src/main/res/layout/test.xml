@@ -36,7 +36,7 @@
                     android:tint="?attr/colorIcon"
                     app:srcCompat="@drawable/ic_time" />
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_visit_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -74,7 +74,7 @@
                     android:tint="?attr/colorIcon"
                     app:srcCompat="@drawable/ic_call" />
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_contact_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -113,7 +113,7 @@
                     android:tint="?attr/colorIcon"
                     app:srcCompat="@drawable/ic_link" />
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_web_link"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

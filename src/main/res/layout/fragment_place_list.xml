@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.place.place_list.PlaceListFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.place.place_list.PlaceListFragmentViewModel" />
     </data>
 
     <LinearLayout

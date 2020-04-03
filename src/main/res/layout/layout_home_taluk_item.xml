@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-        <import type="com.example.myapplication.utils.CommonUtils"/>
+        <import type="application.haveri.tourism.utils.CommonUtils"/>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.home.adapter.taluk.HomeTalukAdapterViewModel" />
+            type="application.haveri.tourism.ui.fragment.home.adapter.taluk.HomeTalukAdapterViewModel" />
     </data>
 
     <!--  -->
@@ -44,7 +44,7 @@
                 android:layout_below="@+id/iv_taluk"
                 android:orientation="vertical">
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_taluk_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -54,7 +54,7 @@
                     android:textSize="@dimen/font_medium"
                     app:customFont="@string/font_roboto_medium" />
 
-                <com.example.myapplication.ui.custom.CustomTextView
+                <application.haveri.tourism.ui.custom.CustomTextView
                     android:id="@+id/tv_taluk_desc"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

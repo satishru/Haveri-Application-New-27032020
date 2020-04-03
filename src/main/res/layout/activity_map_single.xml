@@ -7,7 +7,7 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.home.HomeActivity">
+        tools:context="application.haveri.tourism.ui.activity.home.HomeActivity">
 
         <include
             android:id="@+id/layout_toolbar"
@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:context=".ui.activity.map.MapSingleActivity">
+            tools:context="application.haveri.tourism.ui.activity.map.MapSingleActivity">
 
             <RelativeLayout
                 android:layout_width="match_parent"

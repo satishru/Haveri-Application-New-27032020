@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.media.image.ImageViewActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.media.image.ImageViewActivityViewModel" />
     </data>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@color/color_image_full_background"
         tools:ignore="RtlHardcoded"
-        tools:context=".ui.activity.media.image.ImageViewActivity">
+        tools:context="application.haveri.tourism.ui.activity.media.image.ImageViewActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -41,7 +41,7 @@
                         app:srcCompat="@drawable/ic_close"
                         android:contentDescription="@string/app_name" />
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_current_count"
                         android:layout_width="wrap_content"
                         android:layout_height="?attr/actionBarSize"
@@ -52,7 +52,7 @@
                         android:textSize="@dimen/font_medium"
                         app:customFont="@string/font_roboto_regular"/>
 
-                    <com.example.myapplication.ui.custom.CustomTextView
+                    <application.haveri.tourism.ui.custom.CustomTextView
                         android:id="@+id/tv_total_count"
                         android:layout_width="wrap_content"
                         android:layout_height="?attr/actionBarSize"

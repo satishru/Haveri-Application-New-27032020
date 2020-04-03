@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.myapplication">
+    package="application.haveri.tourism">
 
     <dist:module dist:instant="true" />
 
@@ -13,7 +13,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".HaveriApplication"
+        android:name="application.haveri.tourism.HaveriApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:hardwareAccelerated="true"
@@ -26,7 +26,7 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:allowBackup">
         <activity
-            android:name=".ui.activity.splash.SplashActivity"
+            android:name="application.haveri.tourism.ui.activity.splash.SplashActivity"
             android:configChanges="locale">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,28 +35,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.home.HomeActivity"
+            android:name="application.haveri.tourism.ui.activity.home.HomeActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden" />
         <activity
-            android:name=".ui.activity.map.MapSingleActivity"
+            android:name="application.haveri.tourism.ui.activity.map.MapSingleActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden" />
         <activity
-            android:name=".ui.activity.setting.SettingActivity"
+            android:name="application.haveri.tourism.ui.activity.setting.SettingActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
-            android:name=".ui.activity.taluk.TalukActivity"
+            android:name="application.haveri.tourism.ui.activity.taluk.TalukActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
-            android:name=".ui.activity.media.image.ImageViewActivity"
+            android:name="application.haveri.tourism.ui.activity.media.image.ImageViewActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
-            android:name=".ui.activity.event.EventDetailActivity"
+            android:name="application.haveri.tourism.ui.activity.event.EventDetailActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
-            android:name=".ui.activity.media.video.VideosExploreActivity"
+            android:name="application.haveri.tourism.ui.activity.media.video.VideosExploreActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
         <activity
-            android:name=".ui.activity.place.PlaceActivity"
+            android:name="application.haveri.tourism.ui.activity.place.PlaceActivity"
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
 
         <meta-data

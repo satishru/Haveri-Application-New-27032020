@@ -6,12 +6,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.home.HomeActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.home.HomeActivityViewModel" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.activity.home.HomeActivity">
+        tools:context="application.haveri.tourism.ui.activity.home.HomeActivity">
 
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"

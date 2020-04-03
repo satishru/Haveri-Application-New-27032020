@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.videos.video_list.ExploreVideoFragmentViewModel" />
+            type="application.haveri.tourism.ui.fragment.videos.video_list.ExploreVideoFragmentViewModel" />
     </data>
 
     <LinearLayout

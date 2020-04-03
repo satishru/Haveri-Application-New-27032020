@@ -16,7 +16,7 @@
             app:contentInsetStart="?attr/actionBarSize"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_title"
                 android:layout_width="wrap_content"
                 android:layout_height="?attr/actionBarSize"

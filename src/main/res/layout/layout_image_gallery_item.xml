@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.fragment.common.adapter.ImageGalleryAdapterViewModel" />
+            type="application.haveri.tourism.ui.fragment.common.adapter.ImageGalleryAdapterViewModel" />
     </data>
 
 
@@ -24,7 +24,7 @@
             android:onClick="@{()->viewModel.onItemClick()}"
             android:orientation="vertical">
 
-            <com.example.myapplication.ui.custom.SquareImageView
+            <application.haveri.tourism.ui.custom.SquareImageView
                 android:id="@+id/iv_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                 android:background="@color/color_image_background"
                 app:imageUrl="@{viewModel.imageUrl}" />
 
-            <com.example.myapplication.ui.custom.CustomTextView
+            <application.haveri.tourism.ui.custom.CustomTextView
                 android:id="@+id/tv_img_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.myapplication.ui.activity.home.HomeActivityViewModel" />
+            type="application.haveri.tourism.ui.activity.home.HomeActivityViewModel" />
     </data>
 
     <androidx.appcompat.widget.Toolbar
@@ -27,7 +27,7 @@
             android:contentDescription="@string/app_name"
             tools:ignore="RtlHardcoded,RtlSymmetry" />
 
-        <com.example.myapplication.ui.custom.CustomTextView
+        <application.haveri.tourism.ui.custom.CustomTextView
             android:id="@+id/tv_title"
             android:layout_width="wrap_content"
             android:layout_height="?attr/actionBarSize"
