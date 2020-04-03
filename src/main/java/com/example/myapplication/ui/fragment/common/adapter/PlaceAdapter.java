@@ -21,7 +21,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private PlaceAdapterListener placeAdapterListener;
 
     public interface PlaceAdapterListener {
-        void onItemClick(Place place);
+        void onPlaceItemClick(Place place);
     }
 
     public PlaceAdapter(List<Place> placeList) {
@@ -90,7 +90,7 @@ public class PlaceAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         @Override
         public void onItemClick(Place place) {
             if (placeAdapterListener != null) {
-                placeAdapterListener.onItemClick(place);
+                placeAdapterListener.onPlaceItemClick(place);
             }
         }
     }

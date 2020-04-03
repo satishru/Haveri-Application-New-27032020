@@ -53,14 +53,13 @@ dependencies {
     implementation "androidx.vectordrawable:vectordrawable:$rootProject.vectorDrawableVersion"
     implementation "androidx.vectordrawable:vectordrawable-animated:$rootProject.animatedVectorDrawableVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
+    //implementation 'com.android.support:appcompat-v7:28.0.0'
 
     //Network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
 
     //Database
     implementation "androidx.room:room-rxjava2:$rootProject.roomDatabaseVersion"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     annotationProcessor "androidx.room:room-compiler:$rootProject.roomDatabaseVersion"
 
     //Font

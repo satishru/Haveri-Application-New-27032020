@@ -92,7 +92,7 @@ public class TalukPlacesFragment extends BaseFragment<FragmentTalukPlacesBinding
      * @param place Place
      */
     @Override
-    public void onItemClick(Place place) {
+    public void onPlaceItemClick(Place place) {
         if (getBaseActivity() != null) {
             startActivityWithAnimation(PlaceActivity.newIntent(getBaseActivity(), selectedTaluk, place));
         }

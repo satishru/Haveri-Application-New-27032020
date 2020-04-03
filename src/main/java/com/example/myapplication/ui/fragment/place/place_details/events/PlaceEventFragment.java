@@ -89,6 +89,11 @@ public class PlaceEventFragment extends BaseFragment<FragmentPlaceEventBinding, 
         fragmentPlaceEventBinding.rvEventList.setNestedScrollingEnabled(true);
     }
 
+    /**
+     * EventsAdapter.EventsAdapterListener
+     *
+     * @param event Event
+     */
     @Override
     public void onEventClick(Event event) {
         if (isDistrictNotNull()) {

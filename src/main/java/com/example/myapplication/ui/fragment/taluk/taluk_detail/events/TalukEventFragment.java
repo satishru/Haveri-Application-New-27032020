@@ -89,6 +89,11 @@ public class TalukEventFragment extends BaseFragment<FragmentTalukEventBinding, 
         fragmentTalukEventBinding.rvEventList.setNestedScrollingEnabled(true);
     }
 
+    /**
+     * EventsAdapter.EventsAdapterListener
+     *
+     * @param event Event
+     */
     @Override
     public void onEventClick(Event event) {
         startActivityWithAnimation(

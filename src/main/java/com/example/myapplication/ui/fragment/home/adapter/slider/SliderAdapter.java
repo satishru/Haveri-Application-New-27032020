@@ -1,23 +1,20 @@
 package com.example.myapplication.ui.fragment.home.adapter.slider;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Images;
 import com.example.myapplication.databinding.LayoutImageSliderItemBinding;
 import com.example.myapplication.utils.AppConstants;
 import com.example.myapplication.utils.CommonUtils;
 import com.smarteist.autoimageslider.SliderViewAdapter;
+
 import java.util.List;
 
 public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapterViewHolder> {
 
     private List<Images> mSliderItems;
-    private static final int MAX_SIZE =10;
+    private static final int MAX_SIZE = 10;
 
     public SliderAdapter(List<Images> sliderItems) {
         this.mSliderItems = sliderItems;
@@ -43,19 +40,14 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
 
     @Override
     public SliderAdapterViewHolder onCreateViewHolder(ViewGroup parent) {
-        View inflate = LayoutInflater.from(parent.getContext()).inflate(
-                R.layout.layout_image_slider_item, null);
-        return new SliderAdapterViewHolder(inflate);
+        LayoutImageSliderItemBinding imageSliderItemBinding =
+                LayoutImageSliderItemBinding.inflate(LayoutInflater.from(parent.getContext()),
+                        parent, false);
+        return new SliderAdapterViewHolder(imageSliderItemBinding);
     }
 
     @Override
     public void onBindViewHolder(SliderAdapterViewHolder viewHolder, final int position) {
-        /*Images sliderItem = mSliderItems.get(position);
-        //
-        Glide.with(viewHolder.item_view.getContext())
-                .load(sliderItem.getImageUrl())
-                .fitCenter()
-                .into(viewHolder.iv_slider_image);*/
         viewHolder.bindData(position);
     }
 
@@ -65,15 +57,13 @@ public class SliderAdapter extends SliderViewAdapter<SliderAdapter.SliderAdapter
     }
 
     class SliderAdapterViewHolder extends SliderViewAdapter.ViewHolder {
-        View item_view;
-        ImageView iv_slider_image;
-        LayoutImageSliderItemBinding imageSliderItemBinding;
+        private LayoutImageSliderItemBinding imageSliderItemBinding;
 
-        SliderAdapterViewHolder(View itemView) {
-            super(itemView);
-            item_view = itemView;
-            iv_slider_image = itemView.findViewById(R.id.iv_slider_image);
+        SliderAdapterViewHolder(LayoutImageSliderItemBinding imageSliderItemBinding) {
+            super(imageSliderItemBinding.getRoot());
+            this.imageSliderItemBinding = imageSliderItemBinding;
         }
+
         void bindData(final int position) {
             imageSliderItemBinding.setImageObj(mSliderItems.get(position));
         }

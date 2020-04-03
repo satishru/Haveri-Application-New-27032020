@@ -202,7 +202,7 @@ public class PlaceActivity extends BaseActivity<ActivityPlaceBinding, PlaceActiv
 
     @Override
     public void openPlaceDetailFragment(Place place) {
-        if(isDistrictNotNull()) {
+        if (isDistrictNotNull()) {
             selectedPlace = place;
             loadPlaceDetailFragment();
         }

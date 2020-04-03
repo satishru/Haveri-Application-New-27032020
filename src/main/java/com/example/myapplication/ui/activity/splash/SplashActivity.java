@@ -19,6 +19,7 @@ import com.example.myapplication.utils.ViewAnimationUtils;
 
 /**
  * Splash Screen
+ * https://github.com/android10/Android-CleanArchitecture/tree/master/data
  */
 public class SplashActivity extends BaseActivity<ActivitySplashBinding , SplashViewModel> implements
         iSplashActivityContract.iSplashNavigator,

@@ -1,6 +1,5 @@
 package com.example.myapplication.ui.fragment.taluk.taluk_detail.video;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -15,11 +14,10 @@ import com.example.myapplication.R;
 import com.example.myapplication.data.model.api.response.haveri_data.Taluk;
 import com.example.myapplication.data.model.api.response.haveri_data.Videos;
 import com.example.myapplication.databinding.FragmentTalukVideosBinding;
+import com.example.myapplication.ui.activity.media.video.VideosExploreActivity;
 import com.example.myapplication.ui.base.BaseFragment;
 import com.example.myapplication.ui.fragment.common.adapter.VideoListAdapter;
 import com.example.myapplication.utils.AppConstants;
-
-import org.jetbrains.annotations.NotNull;
 
 import javax.inject.Inject;
 import javax.inject.Provider;
@@ -36,18 +34,7 @@ public class TalukVideosFragment extends BaseFragment<FragmentTalukVideosBinding
 
     private FragmentTalukVideosBinding fragmentTalukVideosBinding;
     private TalukVideosFragmentViewModel talukVideosFragmentViewModel;
-    private TalukVideosFragmentCallBack talukVideosFragmentCallBack;
     private Taluk selectedTaluk;
-
-    public interface TalukVideosFragmentCallBack {
-        void openVideoSingleActivity(Videos selectedVideo);
-    }
-
-    @Override
-    public void onAttach(@NotNull Context context) {
-        super.onAttach(context);
-        talukVideosFragmentCallBack = (TalukVideosFragmentCallBack) context;
-    }
 
     public static TalukVideosFragment newInstance(Taluk selectedTaluk) {
         Bundle args = new Bundle();
@@ -104,14 +91,15 @@ public class TalukVideosFragment extends BaseFragment<FragmentTalukVideosBinding
     }
 
     /**
-     * TalukVideosGalleryAdapter.TalukVideosGalleryAdapterListener
+     * VideoListAdapter.VideoListAdapterListener
      *
-     * @param video Video
+     * @param selectedVideo Video
      */
     @Override
-    public void onVideoClick(Videos video) {
-        if(talukVideosFragmentCallBack != null) {
-            talukVideosFragmentCallBack.openVideoSingleActivity(video);
+    public void onVideoClick(Videos selectedVideo) {
+        if (getBaseActivity() != null && isDistrictNotNull()) {
+            startActivityWithAnimation(
+                    VideosExploreActivity.newIntent(getBaseActivity(), selectedVideo));
         }
     }
 }

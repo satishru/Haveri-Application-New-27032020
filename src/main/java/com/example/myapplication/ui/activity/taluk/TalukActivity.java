@@ -39,8 +39,7 @@ import static com.example.myapplication.utils.AppConstants.INTENT_SELECTED_TALUK
 public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActivityViewModel> implements
         HasSupportFragmentInjector, iTalukActivityContract.iTalukActivityNavigator,
         TalukListFragment.TalukListFragmentCallBack,
-        TalukDetailFragment.TalukDetailFragmentCallBack,
-        TalukVideosFragment.TalukVideosFragmentCallBack {
+        TalukDetailFragment.TalukDetailFragmentCallBack {
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -199,17 +198,4 @@ public class TalukActivity extends BaseActivity<ActivityTalukBinding, TalukActiv
                         selectedTaluk.getTalukNameKn());
     }
     /* TalukListFragmentCallBack and TalukDetailFragmentCallBack Ends */
-
-    /**
-     * TalukVideosFragment.TalukVideosFragmentCallBack
-     *
-     * @param selectedVideo SelectedVideo
-     */
-    @Override
-    public void openVideoSingleActivity(Videos selectedVideo) {
-        if (isDistrictNotNull()) {
-            startActivityWithAnimation(
-                    VideosExploreActivity.newIntent(this, selectedVideo));
-        }
-    }
 }

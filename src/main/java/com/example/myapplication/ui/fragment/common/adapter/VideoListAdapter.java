@@ -19,7 +19,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private VideoListAdapterListener videoListAdapterListener;
 
     public interface VideoListAdapterListener {
-        void onVideoClick(Videos video);
+        void onVideoClick(Videos selectedVideo);
     }
 
     public VideoListAdapter(List<Videos> videosList) {

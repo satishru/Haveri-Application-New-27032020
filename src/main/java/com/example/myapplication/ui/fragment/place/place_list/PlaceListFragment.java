@@ -101,7 +101,7 @@ public class PlaceListFragment extends BaseFragment<FragmentPlaceListBinding, Pl
      * @param place Place
      */
     @Override
-    public void onItemClick(Place place) {
+    public void onPlaceItemClick(Place place) {
         if (placeListFragmentCallBack != null) {
             placeListFragmentCallBack.openPlaceDetailFragment(place);
         }
