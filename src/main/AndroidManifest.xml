@@ -60,6 +60,9 @@
             android:configChanges="locale|orientation|screenSize|keyboardHidden|locale" />
 
         <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="@string/ADD_MOB_APP_ID"/>
+        <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/GOOGLE_MAP_API_KEY" />
     </application>

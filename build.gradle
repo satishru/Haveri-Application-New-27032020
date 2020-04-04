@@ -29,14 +29,21 @@ android {
 
             resValue "string", "app_name", "@string/app_name_dev"
             resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyD6wkYAu1-Zu0NVOY9w8ZuE11MJqImdvtI"
+            resValue "string", "ADD_MOB_APP_ID", "ca-app-pub-3653483375521597~6339288583"
+            resValue "string", "ADD_MOB_UNIT_ID", "ca-app-pub-3940256099942544/6300978111" // Google Test Unit Id
         }
 
         release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
             buildConfigField("String", "BASE_URL", "\"https://api.myjson.com/\"")
             buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
 
             resValue "string", "app_name", "@string/app_name_prod"
             resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyD6wkYAu1-Zu0NVOY9w8ZuE11MJqImdvtI"
+            resValue "string", "ADD_MOB_APP_ID", "ca-app-pub-3653483375521597~6339288583"
+            resValue "string", "ADD_MOB_UNIT_ID", "ca-app-pub-3653483375521597/8374231467" // Google Live Unit Id
         }
     }
 
@@ -123,8 +130,10 @@ dependencies {
     implementation "androidx.multidex:multidex:$rootProject.multidexVersion"
     implementation "com.google.android.gms:play-services-location:$rootProject.playSrviceVersion"
     implementation "com.google.android.gms:play-services-maps:$rootProject.playSrviceVersion"
+    implementation "com.google.android.gms:play-services-ads:19.0.1"
     implementation "com.google.firebase:firebase-analytics:$rootProject.firebaseAnalyticsVersion"     //Firebase SDK for Google Analytics.
     implementation "com.google.firebase:firebase-crashlytics:$rootProject.firebaseCrashlyticsVersion" //Firebase SDK for Crashlytics.
+
 
     //Youtube lib
     implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$rootProject.androidYouTubePlayerVersion"

@@ -13,17 +13,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import application.haveri.tourism.databinding.ActivityHomeBinding;
+import javax.inject.Inject;
 
 import application.haveri.tourism.BR;
 import application.haveri.tourism.R;
+import application.haveri.tourism.databinding.ActivityHomeBinding;
 import application.haveri.tourism.ui.activity.setting.SettingActivity;
 import application.haveri.tourism.ui.base.BaseActivity;
 import application.haveri.tourism.ui.fragment.home.HomeFragment;
 import application.haveri.tourism.utils.AppConstants;
-
-import javax.inject.Inject;
-
 import dagger.android.AndroidInjector;
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.support.HasSupportFragmentInjector;
@@ -72,7 +70,8 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mActivityHomeBinding = getViewDataBinding();
-        setToolBar(mActivityHomeBinding.layoutToolbar.toolbar, R.string.title_activity_empty, false);
+        setToolBar(mActivityHomeBinding.layoutToolbar.toolbar, R.string.title_activity_empty,
+                false);
         mHomeActivityViewModel.setNavigator(this);
         checkPermissionAndGetLocation();
         loadFragment(HomeFragment.newInstance(),

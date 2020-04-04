@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -119,9 +121,17 @@ public class HomeFragment extends BaseFragment<FragmentHomeBinding, HomeFragment
         super.onViewCreated(view, savedInstanceState);
         fragmentHomeBinding = getViewDataBinding();
         homeFragmentViewModel.setNavigator(this);
+        setAddMob();
         setUp();
         subscribeToHaveriDataResponseLiveData();
         homeFragmentViewModel.startLoadingLocalData();
+    }
+
+    private void setAddMob() {
+        MobileAds.initialize(getBaseActivity(), initializationStatus -> {
+        });
+        AdRequest adRequest = new AdRequest.Builder().build();
+        fragmentHomeBinding.layoutContent.adView.loadAd(adRequest);
     }
 
     private void setUp() {
