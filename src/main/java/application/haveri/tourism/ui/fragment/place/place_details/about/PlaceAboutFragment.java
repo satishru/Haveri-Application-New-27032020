@@ -106,12 +106,24 @@ public class PlaceAboutFragment extends BaseFragment<FragmentPlaceAboutBinding, 
 
     @Override
     public void makePhoneCall(String phoneNumber) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + phoneNumber)));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:" + phoneNumber));
+        if (intent.resolveActivity(getBaseActivity().getPackageManager()) != null) {
+            //startActivity(browserIntent);
+            startActivity(intent);
+        } else {
+            showToast("No app's found to call");
+        }
     }
 
     @Override
     public void openWebLink(String webLink) {
-        startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(webLink)));
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(webLink));
+        if (intent.resolveActivity(getBaseActivity().getPackageManager()) != null) {
+            //startActivity(browserIntent);
+            startActivity(intent);
+        } else {
+            showToast("No app's found to open this link");
+        }
     }
 
     /**

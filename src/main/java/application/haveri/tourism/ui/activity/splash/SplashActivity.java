@@ -9,10 +9,10 @@ import android.view.animation.AnimationUtils;
 
 import androidx.lifecycle.ViewModelProvider;
 
-import application.haveri.tourism.databinding.ActivitySplashBinding;
 
 import application.haveri.tourism.BR;
 import application.haveri.tourism.R;
+import application.haveri.tourism.databinding.ActivitySplashBinding;
 import application.haveri.tourism.ui.activity.home.HomeActivity;
 import application.haveri.tourism.ui.base.BaseActivity;
 import application.haveri.tourism.ui.fragment.error.ErrorBottomSheetFragment;

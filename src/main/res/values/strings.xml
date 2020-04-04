@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Haveri Tourism</string>
+    <string name="app_name_dev">Haveri Tourism Test</string>
+    <string name="app_name_prod">Haveri Tourism</string>
     <string name="action_settings">Settings</string>
 
     <!-- Play Store -->

@@ -145,6 +145,7 @@
                             android:background="?android:attr/selectableItemBackground"
                             android:clickable="true"
                             android:drawableEnd="@{viewModel.selectedLanguage}"
+                            android:drawableTint="?attr/colorIcon"
                             android:focusable="true"
                             android:onClick="@{()->viewModel.onLanguageClicked(Language.KN)}"
                             android:padding="@dimen/margin_16"

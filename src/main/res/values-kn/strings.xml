@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ಹಾವೇರಿ ಪ್ರವಾಸೋದ್ಯಮ</string>
+    <string name="app_name_dev">ಹಾವೇರಿ ಪ್ರವಾಸೋದ್ಯಮ Test</string>
+    <string name="app_name_prod">ಹಾವೇರಿ ಪ್ರವಾಸೋದ್ಯಮ</string>
     <string name="action_settings">ಸೆಟ್ಟಿಂಗ್ಸ್</string>
 
     <!-- Play Store -->
