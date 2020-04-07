@@ -130,7 +130,6 @@
                                 android:textSize="@dimen/font_medium"
                                 app:customFont="@string/font_roboto_regular" />
 
-                            H
                         </LinearLayout>
 
                         <View
