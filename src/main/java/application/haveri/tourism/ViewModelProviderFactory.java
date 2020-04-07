@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 import application.haveri.tourism.data.DataManager;
+import application.haveri.tourism.ui.activity.about.AboutActivityViewModel;
 import application.haveri.tourism.ui.activity.event.EventDetailActivityViewModel;
 import application.haveri.tourism.ui.activity.home.HomeActivityViewModel;
 import application.haveri.tourism.ui.activity.map.MapSingleActivityViewModel;
@@ -128,6 +129,9 @@ public class ViewModelProviderFactory extends ViewModelProvider.NewInstanceFacto
         }
         else if (modelClass.isAssignableFrom(PlaceVideosFragmentViewModel.class)) {
             return (T) new PlaceVideosFragmentViewModel(dataManager, schedulerProvider);
+        }
+        else if (modelClass.isAssignableFrom(AboutActivityViewModel.class)) {
+            return (T) new AboutActivityViewModel(dataManager, schedulerProvider);
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

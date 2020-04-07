@@ -46,8 +46,8 @@ public final class AppUtils {
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
-    public static void openPlayStoreForApp(Context context) {
-        final String appPackageName = context.getPackageName();
+    public static void openPlayStoreApp(Context context) {
+        final String appPackageName = context.getPackageName().replace(".debug","");
         try {
             context.startActivity(new Intent(Intent.ACTION_VIEW,
                     Uri.parse(context

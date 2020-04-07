@@ -8,11 +8,15 @@ public interface iSettingActivityContract {
     interface iSettingActivityNavigator extends BaseNavigator {
         void setLocale(int selectedLanguage);
         void clearImageCache();
+        void openPlayStore();
+        void openAboutActivity();
     }
 
     interface iSettingActivityViewModel {
         void startInit();
         void onLanguageClicked(Language language);
         void clearImageCache();
+        void onFeedBackClicked();
+        void onAboutClicked();
     }
 }

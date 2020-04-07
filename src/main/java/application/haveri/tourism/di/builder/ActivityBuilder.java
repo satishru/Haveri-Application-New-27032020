@@ -1,5 +1,6 @@
 package application.haveri.tourism.di.builder;
 
+import application.haveri.tourism.ui.activity.about.AboutActivity;
 import application.haveri.tourism.ui.activity.event.EventDetailActivity;
 import application.haveri.tourism.ui.activity.home.HomeActivity;
 import application.haveri.tourism.ui.activity.map.MapSingleActivity;
@@ -77,4 +78,7 @@ public abstract class ActivityBuilder {
             PlaceEventFragmentProvider.class
     })
     abstract PlaceActivity bindPlaceActivity();
+
+    @ContributesAndroidInjector
+    abstract AboutActivity bindAboutActivity();
 }

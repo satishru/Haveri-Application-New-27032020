@@ -68,7 +68,6 @@ dependencies {
     implementation "androidx.vectordrawable:vectordrawable:$rootProject.vectorDrawableVersion"
     implementation "androidx.vectordrawable:vectordrawable-animated:$rootProject.animatedVectorDrawableVersion"
     implementation "androidx.constraintlayout:constraintlayout:$rootProject.constraintLayoutVersion"
-    //implementation 'com.android.support:appcompat-v7:28.0.0'
 
     //Network
     implementation "com.amitshekhar.android:rx2-android-networking:$rootProject.rx2FastAndroidNetworking"
@@ -128,12 +127,13 @@ dependencies {
 
     //Google Play Services and FireBase lib
     implementation "androidx.multidex:multidex:$rootProject.multidexVersion"
-    implementation "com.google.android.gms:play-services-location:$rootProject.playSrviceVersion"
-    implementation "com.google.android.gms:play-services-maps:$rootProject.playSrviceVersion"
-    implementation "com.google.android.gms:play-services-ads:19.0.1"
-    implementation "com.google.firebase:firebase-analytics:$rootProject.firebaseAnalyticsVersion"     //Firebase SDK for Google Analytics.
+    implementation "com.google.android.gms:play-services-location:$rootProject.playServiceLocationVersion"
+    implementation "com.google.android.gms:play-services-maps:$rootProject.playServiceMapsVersion"
+    implementation "com.google.android.gms:play-services-ads:$rootProject.playServicesAdsVersion"
+    implementation "com.google.firebase:firebase-analytics:$rootProject.firebaseAnalyticsVersion" //Firebase SDK for Google Analytics.
     implementation "com.google.firebase:firebase-crashlytics:$rootProject.firebaseCrashlyticsVersion" //Firebase SDK for Crashlytics.
-
+    implementation "com.google.firebase:firebase-core:$rootProject.firebaseCoreVersion"
+    implementation "com.google.firebase:firebase-messaging:$rootProject.firebaseMessagingVersion"
 
     //Youtube lib
     implementation "com.pierfrancescosoffritti.androidyoutubeplayer:core:$rootProject.androidYouTubePlayerVersion"

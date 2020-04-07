@@ -32,8 +32,6 @@ public class HaveriApplication extends MultiDexApplication implements HasActivit
 
     private District district;
 
-    //TODO VideoPlayActivity Handle Internet Connection
-
     @Override
     public DispatchingAndroidInjector<Activity> activityInjector() {
         return activityDispatchingAndroidInjector;

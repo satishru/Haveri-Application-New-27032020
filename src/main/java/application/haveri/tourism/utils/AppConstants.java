@@ -11,9 +11,6 @@ public final class AppConstants {
 
     public static final int LIST_SPACING_ITEM_MARGIN = 10;
 
-    public static final int LOCATION_UPDATE_TIME = 15; // Seconds
-    public static final int LOCATION_UPDATE_DISTANCE = 1;  // Meter
-
     static final String DATE_FORMAT_YYYY_MM_DD  = "yyyy-dd-MM"; // Api Format
     static final String DATE_FORMAT_DD_MMM_YYYY = "dd MMM yyyy";
 
@@ -34,7 +31,6 @@ public final class AppConstants {
     public static final String INTENT_ERROR_ICON = "INTENT_ERROR_ICON";
     public static final String INTENT_ERROR_MESSAGE = "INTENT_ERROR_MESSAGE";
     public static final String INTENT_MAP_SINGLE = "INTENT_MAP_SINGLE";
-    public static final String INTENT_HAVERI_DATA = "INTENT_HAVERI_DATA";
     public static final String INTENT_SELECTED_TALUK = "INTENT_SELECTED_TALUK";
     public static final String INTENT_SELECTED_EVENT = "INTENT_SELECTED_EVENT";
     public static final String INTENT_IMAGE_LIST = "INTENT_IMAGE_LIST";

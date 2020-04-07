@@ -3,6 +3,7 @@
     <style name="BaseTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
     </style>
 
     <!-- Base application theme. -->
@@ -19,6 +20,7 @@
         <item name="colorSplash">@color/colorSplash_Default</item>
         <item name="colorIcon">@color/colorIcon_Default</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_Default</item>
     </style>
 
     <style name="AppThemeDark" parent="BaseTheme">
@@ -34,6 +36,7 @@
         <item name="colorSplash">@color/colorSplash_Dark</item>
         <item name="colorIcon">@color/colorIcon_Dark</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Dark</item>
+        <item name="android:statusBarColor">@color/colorPrimary_Dark</item>
     </style>
 
     <style name="AppThemeDeepBlue" parent="BaseTheme">
@@ -49,6 +52,7 @@
         <item name="colorSplash">@color/colorSplash_DeepBlue</item>
         <item name="colorIcon">@color/colorIcon_DeepBlue</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_DeepBlue</item>
     </style>
 
     <style name="AppThemeAmberYellow" parent="BaseTheme">
@@ -64,6 +68,7 @@
         <item name="colorSplash">@color/colorSplash_AmberYellow</item>
         <item name="colorIcon">@color/colorIcon_AmberYellow</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_AmberYellow</item>
     </style>
 
     <style name="AppThemePurple" parent="BaseTheme">
@@ -79,6 +84,7 @@
         <item name="colorSplash">@color/colorSplash_Purple</item>
         <item name="colorIcon">@color/colorIcon_Purple</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_Purple</item>
     </style>
 
     <style name="AppThemeDarkPurple" parent="BaseTheme">
@@ -94,6 +100,7 @@
         <item name="colorSplash">@color/colorSplash_DarkPurple</item>
         <item name="colorIcon">@color/colorIcon_DarkPurple</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_DarkPurple</item>
     </style>
 
     <style name="AppThemeRed" parent="BaseTheme">
@@ -109,6 +116,7 @@
         <item name="colorSplash">@color/colorSplash_Red</item>
         <item name="colorIcon">@color/colorIcon_Red</item>
         <item name="android:windowBackground">@color/colorWindowBackground_Default</item>
+        <item name="android:statusBarColor">@color/colorPrimary_Red</item>
     </style>
 
     <style name="SwitchTheme" parent="BaseTheme">
@@ -128,5 +136,15 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="FullscreenTheme" parent="AppThemeDarkPurple">
+        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="android:windowBackground">@null</item>
+    </style>
+
+    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
+        <item name="android:background">@color/color_white</item>
+    </style>
 
 </resources>

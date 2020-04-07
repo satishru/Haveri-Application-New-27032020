@@ -9,6 +9,7 @@ import android.view.animation.AnimationUtils;
 
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.firebase.iid.FirebaseInstanceId;
 
 import application.haveri.tourism.BR;
 import application.haveri.tourism.R;
@@ -18,11 +19,14 @@ import application.haveri.tourism.ui.base.BaseActivity;
 import application.haveri.tourism.ui.fragment.error.ErrorBottomSheetFragment;
 import application.haveri.tourism.utils.NetworkUtils;
 import application.haveri.tourism.utils.ViewAnimationUtils;
+import timber.log.Timber;
 
 /**
  * Splash Screen
+ * <p>
  * https://github.com/android10/Android-CleanArchitecture/tree/master/data
  */
+//TODO Create Maps Key For Both Dev and Production
 public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashViewModel> implements
         iSplashActivityContract.iSplashNavigator,
         ErrorBottomSheetFragment.ErrorBottomSheetFragmentCallBack {
@@ -31,7 +35,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     public int getBindingVariable() {
-        return  BR.viewModel;
+        return BR.viewModel;
     }
 
     @Override
@@ -41,27 +45,48 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     public SplashViewModel getViewModel() {
-        mSplashViewModel = new ViewModelProvider(this,factory).get(SplashViewModel.class);
+        mSplashViewModel = new ViewModelProvider(this, factory).get(SplashViewModel.class);
         return mSplashViewModel;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        makeFullScreen();
+        //makeFullScreen();
         super.onCreate(savedInstanceState);
+        ActivitySplashBinding activitySplashBinding = getViewDataBinding();
+        getFirebaseToken();
         mSplashViewModel.setNavigator(this);
+        activitySplashBinding.tvSplash.setText(getString(R.string.title_app_name));
         setAnimation();
         //DebugDB.getAddressLog();
-        //subscribeToHaveriDataResponseLiveData();
         mSplashViewModel.startLoading();
         showLoader(true);
     }
 
+    private void getFirebaseToken() {
+        FirebaseInstanceId.getInstance().getInstanceId()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Timber.tag("TAG").w(task.getException(), "GetInstanceId failed");
+                        return;
+                    }
+                    String token;
+                    if (task.getResult() != null) {
+                        // Get new Instance ID token
+                        token = task.getResult().getToken();
+                        Timber.d("TOKEN %s ", token);
+                    }
+                });
+    }
+
     private void setAnimation() {
-        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().ivSplashIcon,ViewAnimationUtils.SCALE_DURATION_300);
-        Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().ivSplashIcon,
+                ViewAnimationUtils.SCALE_DURATION_300);
+        Animation animFadeIn = AnimationUtils.loadAnimation(getApplicationContext(),
+                R.anim.fade_in);
         getViewDataBinding().tvSplash.startAnimation(animFadeIn);
-        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().tvSplash,ViewAnimationUtils.SCALE_DURATION_300);
+        ViewAnimationUtils.scaleAnimateView(getViewDataBinding().tvSplash,
+                ViewAnimationUtils.SCALE_DURATION_300);
     }
 
     /**
@@ -71,7 +96,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     public void openHomeActivity() {
         Intent intent = HomeActivity.newIntent(SplashActivity.this);
         new Handler().postDelayed(() -> {
-            if(!isFinishing()) {
+            if (!isFinishing()) {
                 startActivityWithAnimation(intent);
                 finish();
             }
@@ -80,8 +105,10 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     public void openErrorDialog(int drawable, String errorMessage) {
-        ErrorBottomSheetFragment errorBottomSheetFragment = ErrorBottomSheetFragment.newInstance(drawable,errorMessage);
-        errorBottomSheetFragment.show(getSupportFragmentManager(), errorBottomSheetFragment.getTag());
+        ErrorBottomSheetFragment errorBottomSheetFragment = ErrorBottomSheetFragment.newInstance(
+                drawable, errorMessage);
+        errorBottomSheetFragment.show(getSupportFragmentManager(),
+                errorBottomSheetFragment.getTag());
         errorBottomSheetFragment.setCancelable(false);
     }
 

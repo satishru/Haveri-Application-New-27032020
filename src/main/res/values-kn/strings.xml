@@ -53,23 +53,23 @@
     <string name="label_how_to_reach">ತಲುಪುವುದು ಹೇಗೆ</string>
     <string name="label_description">ವಿವರಣೆ</string>
 
-    <string name="label_select_language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
-    <string name="label_language_english">English</string>
-    <string name="label_language_kannada">ಕನ್ನಡ</string>
-
-    <string name="label_images">ಚಿತ್ರಗಳು</string>
-    <string name="label_image_clear_cache">ಇಮೇಜ್ ಸಂಗ್ರಹವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
-
     <string name="label_notification">ನೋಟಿಫಿಕೇಶನ್</string>
     <string name="label_notification_destination">ನಿರ್ದಿಷ್ಟ ಸ್ಥಳ</string>
     <string name="label_notification_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
+    <string name="label_select_language">ಭಾಷೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="label_language_english">English</string>
+    <string name="label_language_kannada">ಕನ್ನಡ</string>
+    <string name="label_images">ಚಿತ್ರಗಳು</string>
+    <string name="label_image_clear_cache">ಇಮೇಜ್ ಸಂಗ್ರಹವನ್ನು ತೆರವುಗೊಳಿಸಿ</string>
+    <string name="label_theme">ಥೀಮ್ ಆಯ್ಕೆಮಾಡಿ</string>
+    <string name="label_others">ಇತರೆ</string>
+    <string name="label_feedback">ಪ್ರತಿಕ್ರಿಯೆ</string>
+    <string name="label_about">ಕುರಿತು</string>
 
     <string name="label_count_place">%d ಸ್ಥಳ</string>
     <string name="label_count_places">%d ಸ್ಥಳಗಳು</string>
     <string name="label_count_event">%d ಕಾರ್ಯಕ್ರಮ</string>
     <string name="label_count_events">%d ಕಾರ್ಯಕ್ರಮಗಳು</string>
-
-    <string name="label_theme">ಥೀಮ್ ಆಯ್ಕೆಮಾಡಿ</string>
 
     <string name="tab_title_about">ಕುರಿತು</string>
     <string name="tab_title_places">ಸ್ಥಳಗಳು</string>

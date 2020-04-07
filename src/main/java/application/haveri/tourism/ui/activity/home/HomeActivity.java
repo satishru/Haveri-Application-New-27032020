@@ -2,7 +2,7 @@ package application.haveri.tourism.ui.activity.home;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.location.LocationListener;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,8 +31,7 @@ import dagger.android.support.HasSupportFragmentInjector;
  */
 public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivityViewModel> implements
         HasSupportFragmentInjector, iHomeActivityContract.iHomeActivityNavigator,
-        HomeFragment.HomeFragmentCallBack,
-        LocationListener {
+        HomeFragment.HomeFragmentCallBack {
 
     @Inject
     DispatchingAndroidInjector<Fragment> fragmentDispatchingAndroidInjector;
@@ -73,9 +72,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
         setToolBar(mActivityHomeBinding.layoutToolbar.toolbar, R.string.title_activity_empty,
                 false);
         mHomeActivityViewModel.setNavigator(this);
-        checkPermissionAndGetLocation();
         loadFragment(HomeFragment.newInstance(),
                 mActivityHomeBinding.contentHome.fragmentContainer.getId(), true, true);
+        getLastLocation();
     }
 
 
@@ -85,15 +84,7 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
         if (mHomeActivityViewModel.getDataManager().isScreenReloadRequired()) {
             mHomeActivityViewModel.getDataManager().setIsScreenReloadRequired(false);
             reCreateActivityWithAnimation();
-            return;
         }
-        startLocationUpdates();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        stopLocationUpdates();
     }
 
     @Override
@@ -156,7 +147,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == AppConstants.REQUEST_CODE_LOCATION_TURN_ON) {
-            getLocation();
+            if (isLocationEnabled()) {
+                getLastLocation();
+            }
         }
     }
 
@@ -164,7 +157,9 @@ public class HomeActivity extends BaseActivity<ActivityHomeBinding, HomeActivity
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if (requestCode == AppConstants.REQUEST_CODE_LOCATION_PERMISSION) {
-            checkLocationOnAndGetLocation();
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getLastLocation();
+            }
         }
     }
 }

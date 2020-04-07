@@ -53,23 +53,23 @@
     <string name="label_how_to_reach">How to reach</string>
     <string name="label_description">Description</string>
 
-    <string name="label_select_language">Select Language</string>
-    <string name="label_language_english">English</string>
-    <string name="label_language_kannada">ಕನ್ನಡ</string>
-
-    <string name="label_images">Images</string>
-    <string name="label_image_clear_cache">Clear image cache</string>
-
     <string name="label_notification">Notification</string>
     <string name="label_notification_destination">Destinations</string>
     <string name="label_notification_events">Events</string>
+    <string name="label_select_language">Select Language</string>
+    <string name="label_language_english">English</string>
+    <string name="label_language_kannada">ಕನ್ನಡ</string>
+    <string name="label_images">Images</string>
+    <string name="label_image_clear_cache">Clear image cache</string>
+    <string name="label_theme">Select Theme</string>
+    <string name="label_others">Others</string>
+    <string name="label_feedback">Feedback</string>
+    <string name="label_about">About</string>
 
     <string name="label_count_place">%d Place</string>
     <string name="label_count_places">%d Places</string>
     <string name="label_count_event">%d Event</string>
     <string name="label_count_events">%d Events</string>
-
-    <string name="label_theme">Select Theme</string>
 
     <!-- Tab Titles -->
     <string name="tab_title_about">About</string>

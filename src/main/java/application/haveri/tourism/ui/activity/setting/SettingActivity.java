@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide;
 import application.haveri.tourism.BR;
 import application.haveri.tourism.R;
 import application.haveri.tourism.databinding.ActivitySettingBinding;
+import application.haveri.tourism.ui.activity.about.AboutActivity;
 import application.haveri.tourism.ui.activity.setting.adapter.ThemeSelectionAdapter;
 import application.haveri.tourism.ui.base.BaseActivity;
 import application.haveri.tourism.utils.AppUtils;
@@ -107,6 +108,16 @@ public class SettingActivity extends BaseActivity<ActivitySettingBinding, Settin
         Glide.get(this).clearMemory();
         thread = new Thread(() -> Glide.get(this).clearDiskCache());
         thread.start();
+    }
+
+    @Override
+    public void openPlayStore() {
+        AppUtils.openPlayStoreApp(this);
+    }
+
+    @Override
+    public void openAboutActivity() {
+        startActivityWithAnimation(AboutActivity.newIntent(this));
     }
     /*iSettingActivityContract.iSettingActivityNavigator CallBacks ends*/
 

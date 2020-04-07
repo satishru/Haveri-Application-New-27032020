@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
+import application.haveri.tourism.BuildConfig;
 import application.haveri.tourism.R;
 import application.haveri.tourism.data.model.api.response.haveri_data.Event;
 import application.haveri.tourism.data.model.api.response.haveri_data.Images;
@@ -257,5 +258,12 @@ public final class BindingUtils {
         textView.setText((selectedLanguage == Language.EN.getValue()) ?
                 image.getImageTitleEn() :
                 image.getImageTitleKn());
+    }
+
+    @BindingAdapter("setVersionText")
+    public static void setVersionText(TextView textView, int selectedLanguage) {
+        textView.setText((selectedLanguage == Language.EN.getValue()) ?
+                "Version "+BuildConfig.VERSION_NAME :
+                "ವರ್ಷನ್  "+BuildConfig.VERSION_NAME);
     }
 }

@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData;
 
 import application.haveri.tourism.data.DataManager;
 import application.haveri.tourism.ui.base.BaseViewModel;
+import application.haveri.tourism.utils.AppUtils;
 import application.haveri.tourism.utils.Language;
+import application.haveri.tourism.utils.ViewUtils;
 import application.haveri.tourism.utils.rx.SchedulerProvider;
 
 public class SettingActivityViewModel extends BaseViewModel<iSettingActivityContract.iSettingActivityNavigator> implements
@@ -41,11 +43,17 @@ public class SettingActivityViewModel extends BaseViewModel<iSettingActivityCont
         getNavigator().clearImageCache();
     }
 
+    @Override
+    public void onFeedBackClicked() {
+        getNavigator().openPlayStore();
+    }
+
+    @Override
+    public void onAboutClicked() {
+        getNavigator().openAboutActivity();
+    }
+
     MutableLiveData<Boolean> getIsLanguageChanged() {
         return isLanguageChanged;
     }
-
-/*    public MutableLiveData<Integer> getSelectedLanguageData() {
-        return selectedLanguageData;
-    }*/
 }

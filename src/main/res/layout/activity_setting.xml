@@ -234,6 +234,57 @@
                         android:layout_height="@dimen/divider_height"
                         android:background="@color/color_divider" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <application.haveri.tourism.ui.custom.CustomTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingStart="@dimen/margin_16"
+                            android:paddingEnd="0dp"
+                            android:paddingTop="@dimen/margin_16"
+                            android:text="@string/label_others"
+                            android:textColor="?attr/colorTextTheme"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_medium" />
+
+                        <application.haveri.tourism.ui.custom.CustomTextView
+                            android:id="@+id/tv_rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{()->viewModel.onFeedBackClicked()}"
+                            android:padding="@dimen/margin_16"
+                            android:text="@string/label_feedback"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_regular"/>
+
+                        <application.haveri.tourism.ui.custom.CustomTextView
+                            android:id="@+id/tv_about"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:onClick="@{()->viewModel.onAboutClicked()}"
+                            android:padding="@dimen/margin_16"
+                            android:text="@string/label_about"
+                            android:textColor="?attr/colorPrimaryText"
+                            android:textSize="@dimen/font_normal"
+                            app:customFont="@string/font_roboto_regular" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/divider_height"
+                        android:background="@color/color_divider" />
+
                 </LinearLayout>
 
             </androidx.core.widget.NestedScrollView>
