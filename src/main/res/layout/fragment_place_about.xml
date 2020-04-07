@@ -6,6 +6,8 @@
 
         <import type="application.haveri.tourism.utils.CommonUtils" />
 
+        <import type="android.view.View" />
+
         <variable
             name="viewModel"
             type="application.haveri.tourism.ui.fragment.place.place_details.about.PlaceAboutFragmentViewModel" />
@@ -47,6 +49,56 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:id="@+id/ll_distance"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackground"
+                                android:clickable="true"
+                                android:focusable="true"
+                                android:orientation="horizontal"
+                                android:paddingLeft="@dimen/margin_16"
+                                android:paddingTop="@dimen/margin_16"
+                                android:paddingRight="@dimen/margin_16"
+                                android:paddingBottom="@dimen/margin_16"
+                                android:visibility="@{CommonUtils.checkNullOrEmpty(viewModel.getDistance(placeObj))? View.GONE : View.VISIBLE}">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:alpha="0.6"
+                                    android:contentDescription="@string/app_name"
+                                    android:tint="?attr/colorIcon"
+                                    app:srcCompat="@drawable/ic_map_direction" />
+
+                                <application.haveri.tourism.ui.custom.CustomTextView
+                                    android:id="@+id/tv_distance"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:hint="@string/hint_distance"
+                                    android:paddingLeft="@dimen/margin_16"
+                                    android:paddingRight="@dimen/margin_16"
+                                    android:text="@{viewModel.getDistance(placeObj)}"
+                                    android:textColor="?attr/colorPrimaryText"
+                                    android:textSize="@dimen/font_medium"
+                                    app:customFont="@string/font_roboto_regular" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/divider_height"
+                                android:background="@color/color_divider" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
                             android:background="?attr/selectableItemBackground"
                             android:clickable="true"
                             android:focusable="true"
@@ -78,6 +130,7 @@
                                 android:textSize="@dimen/font_medium"
                                 app:customFont="@string/font_roboto_regular" />
 
+                            H
                         </LinearLayout>
 
                         <View

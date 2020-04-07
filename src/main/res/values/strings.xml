@@ -78,6 +78,7 @@
     <string name="tab_title_videos">Videos</string>
     <string name="tab_title_events">Events</string>
 
+    <string name="hint_distance">Distance</string>
     <string name="hint_visit_time">Visiting Time</string>
     <string name="hint_contact_phone">Contact Number</string>
     <string name="hint_web_link">Web Link</string>

@@ -6,6 +6,7 @@ public interface iSplashActivityContract {
     interface iSplashNavigator extends BaseNavigator {
         void openHomeActivity();
         void openErrorDialog(int drawable, String errorMessage);
+        String getFcmToken();
         boolean isNetWorkConnected();
     }
 

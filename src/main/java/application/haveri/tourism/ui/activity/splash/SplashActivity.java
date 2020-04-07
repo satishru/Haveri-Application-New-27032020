@@ -17,9 +17,9 @@ import application.haveri.tourism.databinding.ActivitySplashBinding;
 import application.haveri.tourism.ui.activity.home.HomeActivity;
 import application.haveri.tourism.ui.base.BaseActivity;
 import application.haveri.tourism.ui.fragment.error.ErrorBottomSheetFragment;
+import application.haveri.tourism.utils.AppLogger;
 import application.haveri.tourism.utils.NetworkUtils;
 import application.haveri.tourism.utils.ViewAnimationUtils;
-import timber.log.Timber;
 
 /**
  * Splash Screen
@@ -32,6 +32,7 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
         ErrorBottomSheetFragment.ErrorBottomSheetFragmentCallBack {
 
     private SplashViewModel mSplashViewModel;
+    private String fcm_token;
 
     @Override
     public int getBindingVariable() {
@@ -51,32 +52,34 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //makeFullScreen();
         super.onCreate(savedInstanceState);
         ActivitySplashBinding activitySplashBinding = getViewDataBinding();
-        getFirebaseToken();
         mSplashViewModel.setNavigator(this);
         activitySplashBinding.tvSplash.setText(getString(R.string.title_app_name));
         setAnimation();
-        //DebugDB.getAddressLog();
-        mSplashViewModel.startLoading();
-        showLoader(true);
+        getFirebaseToken();
     }
 
     private void getFirebaseToken() {
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(task -> {
                     if (!task.isSuccessful()) {
-                        Timber.tag("TAG").w(task.getException(), "GetInstanceId failed");
-                        return;
+                        AppLogger.d("FCM InstanceId Failed %s", task.getException());
+                        //return;
+                    } else {
+                        if (task.getResult() != null) {
+                            // Get new Instance ID token
+                            fcm_token = task.getResult().getToken();
+                            AppLogger.d("FCM TOKEN %s", fcm_token);
+                        }
                     }
-                    String token;
-                    if (task.getResult() != null) {
-                        // Get new Instance ID token
-                        token = task.getResult().getToken();
-                        Timber.d("TOKEN %s ", token);
-                    }
+                    startLoadingData();
                 });
+    }
+
+    private void startLoadingData() {
+        mSplashViewModel.startLoading();
+        showLoader(true);
     }
 
     private void setAnimation() {
@@ -110,6 +113,11 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
         errorBottomSheetFragment.show(getSupportFragmentManager(),
                 errorBottomSheetFragment.getTag());
         errorBottomSheetFragment.setCancelable(false);
+    }
+
+    @Override
+    public String getFcmToken() {
+        return fcm_token;
     }
 
     @Override

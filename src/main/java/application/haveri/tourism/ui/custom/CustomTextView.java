@@ -9,8 +9,7 @@ import android.util.AttributeSet;
 import androidx.appcompat.widget.AppCompatTextView;
 
 import application.haveri.tourism.R;
-
-import timber.log.Timber;
+import application.haveri.tourism.utils.AppLogger;
 
 public class CustomTextView extends AppCompatTextView {
 
@@ -49,7 +48,7 @@ public class CustomTextView extends AppCompatTextView {
             typeface = Typeface.createFromAsset(ctx.getAssets(),getAssetPath(asset));
             setTypeface(typeface);
         } catch (Exception e) {
-            Timber.e("Unable to load typeface - %s : %s", TAG, e.getMessage());
+            AppLogger.e("Unable to load typeface - %s : %s", TAG, e.getMessage());
         }
     }
 

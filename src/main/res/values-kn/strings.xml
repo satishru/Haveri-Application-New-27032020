@@ -77,6 +77,7 @@
     <string name="tab_title_videos">ವೀಡಿಯೊಗಳು</string>
     <string name="tab_title_events">ಕಾರ್ಯಕ್ರಮಗಳು</string>
 
+    <string name="hint_distance">ದೂರ</string>
     <string name="hint_visit_time">ಭೇಟಿ ಸಮಯ</string>
     <string name="hint_contact_phone">ಸಂಪರ್ಕ ಸಂಖ್ಯೆ</string>
     <string name="hint_web_link">ವೆಬ್ ಲಿಂಕ್</string>

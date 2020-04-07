@@ -1,31 +1,15 @@
 package application.haveri.tourism.data.model.api.request;
 
+import com.google.gson.Gson;
+
+import application.haveri.tourism.BuildConfig;
+import application.haveri.tourism.HaveriApplication;
+import application.haveri.tourism.utils.AppUtils;
+
 public class BaseRequest {
-    private String api_key;
+    private String api_key = BuildConfig.API_KEY;
+    private String device_id = AppUtils.getDeviceId(HaveriApplication.getInstance());
+    private String device_info = new Gson().toJson(new DeviceInfo());
     private String access_token;
     private Long user_id;
-
-    public String getApi_key() {
-        return api_key;
-    }
-
-    public void setApi_key(String api_key) {
-        this.api_key = api_key;
-    }
-
-    public String getAccess_token() {
-        return access_token;
-    }
-
-    public void setAccess_token(String access_token) {
-        this.access_token = access_token;
-    }
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
-    }
 }

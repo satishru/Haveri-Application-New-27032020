@@ -5,13 +5,13 @@ import com.google.firebase.messaging.RemoteMessage;
 
 import org.jetbrains.annotations.NotNull;
 
-import timber.log.Timber;
+import application.haveri.tourism.utils.AppLogger;
 
 public class AppFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onNewToken(@NotNull String token) {
-        Timber.e("Refreshed token   %s", token);
+        AppLogger.e("Refreshed FCM Token   %s", token);
         //sendRegistrationToServer(token);
     }
 

@@ -2,12 +2,15 @@ package application.haveri.tourism.ui.activity.splash;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.google.gson.Gson;
+
 import application.haveri.tourism.R;
 import application.haveri.tourism.data.DataManager;
 import application.haveri.tourism.data.model.api.request.haveri_data.HaveriDataRequest;
 import application.haveri.tourism.data.model.api.response.BaseResponse;
 import application.haveri.tourism.data.model.db.HaveriData;
 import application.haveri.tourism.ui.base.BaseViewModel;
+import application.haveri.tourism.utils.AppLogger;
 import application.haveri.tourism.utils.CommonUtils;
 import application.haveri.tourism.utils.rx.SchedulerProvider;
 
@@ -37,22 +40,27 @@ public class SplashViewModel extends BaseViewModel<iSplashActivityContract.iSpla
     }
 
     private void startLoadingData(boolean isLocalDataNotAvailable) {
-        if(isLocalDataNotAvailable) {
-            if(getNavigator().isNetWorkConnected()) {
-                startLoadingServerData();
+        if (isLocalDataNotAvailable) {
+            if (getNavigator().isNetWorkConnected()) {
+                startLoadingServerData(false);
             } else {
                 loading(false);
-                getNavigator().openErrorDialog(R.drawable.ic_error,getNavigator().getStringFromId(R.string.label_error_no_internet));
+                getNavigator().openErrorDialog(R.drawable.ic_error,
+                        getNavigator().getStringFromId(R.string.label_error_no_internet));
             }
         } else {
-            //startLoadingLocalData();
-            loading(false);
-            getNavigator().openHomeActivity();
+            if (getNavigator().isNetWorkConnected()) {
+                startLoadingServerData(true);
+            } else {
+                openHomeActivity();
+            }
         }
     }
 
-    private void startLoadingServerData() {
+    private void startLoadingServerData(boolean isReloadData) {
         HaveriDataRequest request = new HaveriDataRequest();
+        request.setFcm_token(getNavigator().getFcmToken());
+        AppLogger.d("DATA_REQUEST %s", new Gson().toJson(request));
         getCompositeDisposable().add(getDataManager()
                 .doCallHaveriDataApiCall(request)
                 .doOnSuccess(this::saveDataLocally)
@@ -60,38 +68,50 @@ public class SplashViewModel extends BaseViewModel<iSplashActivityContract.iSpla
                 .observeOn(getSchedulerProvider().ui())
                 .subscribe(dataResponse -> {
                     loading(false);
-                    if(dataResponse != null && !dataResponse.getSuccess()) {
-                        openErrorDialog(dataResponse.getMessage());
+                    if (isReloadData) {
+                        openHomeActivity();
                     } else {
-                        this.dataResponse.setValue(dataResponse);
+                        if (dataResponse != null && !dataResponse.getSuccess()) {
+                            openErrorDialog(dataResponse.getMessage());
+                        } else {
+                            this.dataResponse.setValue(dataResponse);
+                        }
                     }
-                },throwable ->{
-                    loading(false);
-                    openErrorDialog("");
+
+                }, throwable -> {
+                    if (isReloadData) {
+                        openHomeActivity();
+                    } else {
+                        loading(false);
+                        openErrorDialog("");
+                    }
                 }));
     }
 
     private void saveDataLocally(BaseResponse dataResponse) {
-        if(dataResponse != null && dataResponse.getSuccess()) {
+        if (dataResponse != null && dataResponse.getSuccess()) {
             HaveriData haveriData = new HaveriData();
-            haveriData.createdAt  = new Date().toString();
-            haveriData.updatedAt  = new Date().toString();
-            haveriData.jsonData   = CommonUtils.stringToBase64(CommonUtils.convertObjToJson(dataResponse));
+            haveriData.createdAt = new Date().toString();
+            haveriData.updatedAt = new Date().toString();
+            haveriData.jsonData = CommonUtils.stringToBase64(
+                    CommonUtils.convertObjToJson(dataResponse));
 
             getCompositeDisposable().add(getDataManager()
                     .deleteHaveriData()
                     .flatMap(aBoolean -> getDataManager().insertHaveriData(haveriData))
                     .subscribeOn(getSchedulerProvider().io())
                     .observeOn(getSchedulerProvider().ui())
-                    .subscribe(aBoolean -> {
-                                loading(false);
-                                getNavigator().openHomeActivity();
-                            },
+                    .subscribe(aBoolean -> openHomeActivity(),
                             throwable -> {
                                 loading(false);
                                 openErrorDialog(throwable.getLocalizedMessage());
                             }));
         }
+    }
+
+    private void openHomeActivity() {
+        loading(false);
+        getNavigator().openHomeActivity();
     }
 
     private void openErrorDialog(String errorMessage) {

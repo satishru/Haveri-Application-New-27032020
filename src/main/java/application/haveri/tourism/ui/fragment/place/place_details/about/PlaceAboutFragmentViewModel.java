@@ -1,5 +1,8 @@
 package application.haveri.tourism.ui.fragment.place.place_details.about;
 
+import androidx.databinding.ObservableField;
+
+import application.haveri.tourism.HaveriApplication;
 import application.haveri.tourism.data.DataManager;
 import application.haveri.tourism.data.model.MapSingleObject;
 import application.haveri.tourism.data.model.api.response.haveri_data.Place;
@@ -25,6 +28,15 @@ public class PlaceAboutFragmentViewModel extends BaseViewModel<iPlaceAboutFragme
             singleObject.setLongitude(selectedPlace.getLongitude());
             getNavigator().openMapSingleActivity(singleObject);
         }
+    }
+
+    public String getDistance(Place selectedPlace) {
+        String distanceInKm = null;
+        if(selectedPlace != null) {
+            distanceInKm = CommonUtils.getDistance(selectedPlace.getLatitude(), selectedPlace.getLongitude(),
+                    HaveriApplication.getInstance().getLocation());
+        }
+        return distanceInKm;
     }
 
     public String getVisitingTime(Place selectedPlace) {
