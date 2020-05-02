@@ -18,6 +18,6 @@ public final class ApiEndPoint {
     //https://api.myjson.com/bins/sd09o?pretty=1
     //https://jsonblob.com/api/jsonBlob/f0705f8c-7593-11ea-9538-b9fc35d8d200
     //https://api.npoint.io/cd3edc5b383607c2ccf3
-    public static final String ENDPOINT_GET_DATA  = makeUrl("cd3edc5b383607c2ccf3");
+    public static final String ENDPOINT_GET_DATA  = makeUrl("api/v1/getData");
     public static final String ENDPOINT_ON_BOARD  = makeUrl("bins/sd09o");
 }

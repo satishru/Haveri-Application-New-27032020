@@ -28,7 +28,8 @@ public class AppApiHelper implements ApiHelper {
     public Single<BaseResponse> doCallHaveriDataApiCall(HaveriDataRequest request) {
         return Rx2AndroidNetworking.get(ApiEndPoint.ENDPOINT_GET_DATA)
                 .addHeaders(mApiHeader.getPublicApiHeader())
-                .addPathParameter(request)
+                //.addPathParameter(request)
+                .addQueryParameter(request)
                 .build()
                 .getObjectSingle(BaseResponse.class);
     }

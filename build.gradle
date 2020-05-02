@@ -22,8 +22,9 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "BASE_URL", "\"https://api.npoint.io/\"")
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+            //https://api.npoint.io/
+            buildConfigField("String", "BASE_URL", "\"http://haveri.svitisirsi.org/\"")
+            buildConfigField("String", "API_KEY", "\"9c990828-294997-40tY58-93b0-22042aJ6a53d\"")
 
             applicationIdSuffix ".debug"
 
@@ -36,9 +37,9 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-
-            buildConfigField("String", "BASE_URL", "\"https://api.myjson.com/\"")
-            buildConfigField("String", "API_KEY", "\"ABCXYZ123TEST\"")
+            //https://api.npoint.io/
+            buildConfigField("String", "BASE_URL", "\"http://haveri.svitisirsi.org/\"")
+            buildConfigField("String", "API_KEY", "\"9c990828-294997-40tY58-93b0-22042aJ6a53d\"")
 
             resValue "string", "app_name", "@string/app_name_prod"
             resValue "string", "GOOGLE_MAP_API_KEY", "AIzaSyD6wkYAu1-Zu0NVOY9w8ZuE11MJqImdvtI"
